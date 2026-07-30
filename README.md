@@ -31,6 +31,7 @@ measured my own repo and half of my original claim did not survive.
 | 6 | [Vocabulary control](06-vocabulary-control.md) | Ban the model's metaphors where they collide with your domain terms. Check new terms for collisions. When a rule is broken while in context, turn it into a lint. Scoped to meaning bugs — page 8 says why. |
 | 7 | [The demonstration reflex](07-the-demonstration-reflex.md) | Ask an agent a question about its tools and it may answer by running the tools, at full cost. A question deserves prose; a demo needs a price and a yes. |
 | 8 | [Bans rotate the vocabulary](08-bans-rotate-the-vocabulary.md) | Ban an AI's invented words and new ones appear within days. The words are compression devices, and the instruction file's own rules are the mint. Fix the pressure; enforce mechanically. |
+| 9 | [The dirty house and the clean room](09-the-dirty-house.md) | Whatever your corpus does, the model will do more of — mine outweighs its rules 880 to 1. Cleaning it needs a reader/writer barrier: the writer never reads the text being replaced, and the checker may see both sides because judging doesn't write. Designed, not yet run. |
 
 ## Where these came from
 

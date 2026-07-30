@@ -82,7 +82,10 @@ exact problem, but the adjacent evidence is consistent:
   the half of the corpus no lint ever read. A grep that reads everything
   beats a rule that persuades.
 - Treat your corpus as training data. What your documents sound like is
-  what your next documents will sound like.
+  what your next documents will sound like. Page 09 takes this to its
+  conclusion: cleaning an already-contaminated corpus needs a clean-room
+  pipeline, because the model cannot rewrite the text it is being
+  re-taught by.
 
 ## Prior art
 

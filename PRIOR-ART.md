@@ -118,3 +118,22 @@ sweep of 502 files: banned metaphors replaced by four fresh ones within
 three days, two next-day relapses inside the decision log, and a promotion
 rule that sanctions any five-times-used term. I found no prior report of
 ban-driven vocabulary rotation in LLM collaboration.
+
+## Addendum: the clean-room design (2026-07-31)
+
+The design doc behind page 09 states its borrowed/new split precisely.
+Borrowed: the clean-room name and read/write barrier (copyright-safe
+reimplementation practice; legal commentary notes weight-level
+contamination remains unsettled there); extract-then-generate
+(Imitate-Retrieve-Paraphrase, EMNLP 2023, arXiv 2305.03276); the
+constraints from measured work (exemplar decay per Show and Tell →
+one-unit-per-writer; instructions persist where examples decay → rules
+plus examples for the writer). Not found in ~45 searches: the barrier
+applied to stripping a house style from a corpus under cleanup; the
+checker as a third role that may see both sides because it does not
+write; the structured-not-prose requirement on the intermediate; the
+one-unit-per-writer rule. Repo-internal measurements feeding the page:
+three writing rules in context produced no change across thirty same-day
+commits (mean sentence 10.8 vs 11.2 baseline); the corpus outweighs the
+rule examples ~880:1 (375,885 words of docs vs ~427 words of commit-title
+examples per session read).
