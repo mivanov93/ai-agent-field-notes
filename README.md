@@ -37,6 +37,7 @@ own repo and half of my original claim did not survive.
 | [The model votes for more rules](the-model-votes-for-more-rules.md) | Ask the model how to fix the model and you get the five deflections: gate me harder, every codebase looks like this, clean from now on, other repos have no rules, your rule file is too big. Demand measurements and refutations, not advice. |
 | [Bans rotate the vocabulary](bans-rotate-the-vocabulary.md) | Ban an AI's invented words and new ones appear within days. The words are compression devices, and the instruction file's own rules are the mint. Fix the pressure; enforce mechanically. |
 | [The demonstration reflex](the-demonstration-reflex.md) | Ask an agent a question about its tools and it may answer by running the tools, at full cost. "Can you X" is a question, not a work order; capability is not demand. |
+| [Descriptive statements as directives](descriptive-statements-as-directives.md) | Tell an agent "I found X better than Y" and it starts doing X and dismantling Y. A report is not an order — and when sharing knowledge with your agent needs a "just FYI" disclaimer, description has become dangerous. |
 | [The hardlink hazard](the-hardlink-hazard.md) | Sharing `node_modules` between agent worktrees with hardlinks breaks isolation: build caches share storage, so parallel agents corrupt each other's runs. A correctness bug the guides all describe as an optimization. |
 
 ## Methods — what actually works

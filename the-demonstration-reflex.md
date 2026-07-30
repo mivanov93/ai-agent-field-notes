@@ -23,7 +23,9 @@ for a demo. The mode being enabled for the session was read as permission.
 "Can you X" and "please do X" are different sentences. One asks about
 capability, the other asks for work. Agents collapse them: a question that
 names an enabled capability gets read as a request to use it. Capability is
-not demand — but the agent treats it as one.
+not demand — but the agent treats it as one. (This is the question-side
+case of a general collapse; the report-side sibling is [descriptive
+statements as directives](descriptive-statements-as-directives.md).)
 
 A second bias makes the collapse expensive. The agent's idea of a good
 answer counts informativeness, not cost. A 500k-token illustration and a
