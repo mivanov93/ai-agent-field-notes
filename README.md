@@ -32,6 +32,7 @@ measured my own repo and half of my original claim did not survive.
 | 7 | [The demonstration reflex](07-the-demonstration-reflex.md) | Ask an agent a question about its tools and it may answer by running the tools, at full cost. A question deserves prose; a demo needs a price and a yes. |
 | 8 | [Bans rotate the vocabulary](08-bans-rotate-the-vocabulary.md) | Ban an AI's invented words and new ones appear within days. The words are compression devices, and the instruction file's own rules are the mint. Fix the pressure; enforce mechanically. |
 | 9 | [The dirty house and the clean room](09-the-dirty-house.md) | Whatever your corpus does, the model will do more of — mine outweighs its rules 880 to 1. Cleaning it needs a reader/writer barrier: the writer never reads the text being replaced, and the checker may see both sides because judging doesn't write. Designed, not yet run. |
+| 10 | [The model votes for more rules](10-the-model-votes-for-more-rules.md) | Ask the model how to fix the model and it recommends what doesn't work: more rules on itself, "every codebase looks like this", "clean from now on, old mess later". No malice — it can't see its own violation rate. Demand measurements and refutations, not advice. |
 
 ## Where these came from
 
