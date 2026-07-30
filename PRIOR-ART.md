@@ -137,3 +137,19 @@ three writing rules in context produced no change across thirty same-day
 commits (mean sentence 10.8 vs 11.2 baseline); the corpus outweighs the
 rule examples ~880:1 (375,885 words of docs vs ~427 words of commit-title
 examples per session read).
+
+## Addendum: the model votes for more rules (searched 2026-07-31)
+
+Verdict: PARTIALLY KNOWN — the pieces, not the loop. Huang et al. (arXiv
+2310.01798, ICLR 2024): intrinsic self-correction fails without external
+grounding. Turpin et al. (NeurIPS 2023) and Anthropic's 2025 follow-up:
+self-report unfaithful to actual causes. Mittal (arXiv 2604.09189, 2026):
+models claim compliance with self-stated policies and measurably violate
+them — the nearest direct hit, in the safety domain. Panickssery et al.
+(NeurIPS 2024): self-preference in LLM judges. Practitioner rule-bloat
+critiques (Osmani 2026-01; wordman.dev 2026-02) document that rule-piling
+fails but frame it as human over-correction — neither notices the model
+recommends the piling when asked. Unclaimed: the advice-loop as a named
+operational trap, the normalization mechanism, the axis problem and the
+originate/verify asymmetry, and the falsification requirement on
+model-drafted self-rules.

@@ -1,7 +1,7 @@
 # The model votes for more rules
 
-*Status: prior-art search in progress; this page's search section will be
-updated when it lands.*
+*Status: searched 2026-07-31; the pieces have prior art, the combination
+does not — see the section at the end.*
 
 **Claim:** the system you consult about the cleanup is the system producing
 the mess, and its default advice points away from the fix. Ask a model how
@@ -86,7 +86,14 @@ your job, not the model's.
   of rule at all, but a different variable — change what the writer reads
   (page 09's barrier). The model interpolates within the frame of the
   question; a reframe is not an interpolation, and it does not produce
-  one unaided.
+  one unaided. The shape of it: you need a car, and the model offers you
+  different horses, then eventually offers you walking — zero horses is
+  still an answer on the horse axis. It cannot think of the car, and it
+  will never tell you to sell the stable, because the stable is the frame
+  the whole conversation stands in. (Yes, the old faster-horses line —
+  but the stable is the part that matters: the orthogonal fix usually
+  means abandoning infrastructure the context treats as given, and that
+  move the model will not initiate.)
 
 ## The evidence in my repo
 
@@ -134,6 +141,34 @@ unchanged sentence length. Those were measured, not asked for.
 
 ## Prior art
 
-*Search running; to be filled. Known-adjacent going in: the LLM
-self-correction limits literature, unfaithful self-report, and
-self-preference bias in LLM judges.*
+Each mechanism has separate published support; the loop does not:
+
+- Huang et al., "Large Language Models Cannot Self-Correct Reasoning Yet"
+  (arXiv 2310.01798, ICLR 2024) — intrinsic self-correction without
+  external grounding fails or makes things worse. The general case for
+  not trusting the model's self-directed fix.
+- Turpin et al., "Language Models Don't Always Say What They Think"
+  (NeurIPS 2023) and Anthropic's 2025 follow-up on reasoning models —
+  self-report is systematically unfaithful to the actual causes of
+  behavior.
+- Mittal, "Do LLMs Follow Their Own Rules?" (arXiv 2604.09189, 2026) —
+  the nearest direct hit for the first mechanism: models claim compliance
+  with self-stated policies and measurably violate them, in the safety
+  domain rather than coding-agent process rules.
+- Panickssery et al., "LLM Evaluators Recognize and Favor Their Own
+  Generations" (NeurIPS 2024) — self-preference in judging, adjacent to
+  normalization.
+- Practitioner rule-bloat critiques (Addy Osmani, "The 80% Problem in
+  Agentic Coding", 2026-01; wordman.dev, "Your Agent Instructions Are
+  Probably Making Things Worse", 2026-02) — both document that piling
+  rules into instruction files does not fix drift. Both frame it as a
+  human over-correction habit. Neither notices that the model itself
+  recommends the piling when asked.
+
+**What I think is new:** the advice-loop as a named trap — ask the model
+how to fix the model and it prescribes the remedy that does not bind it;
+the normalization mechanism (the training distribution IS the mess, so
+the mess is the prior); the axis problem and the originate/verify
+asymmetry as operating guidance; and the requirement that model-drafted
+rules about model behavior carry a falsification condition written before
+adoption.
