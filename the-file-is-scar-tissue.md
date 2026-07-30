@@ -47,6 +47,11 @@ shrink to a line naming the check. Compression keeps every scar and cuts
 the retelling. That is different in kind from deleting rules on
 capability vibes.
 
+One more capacity data point from my own setup: a very large out-of-repo
+memory file was obeyed perfectly for weeks
+([memory belongs in the repo](memory-belongs-in-the-repo.md)). How much
+the model can follow was never the constraint.
+
 ## The rule
 
 - A rule leaves the file on evidence — its failure mode measurably

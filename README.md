@@ -49,6 +49,7 @@ own repo and half of my original claim did not survive.
 | [The cross-model audit](the-cross-model-audit.md) | Transcripts tell you when your model changed. To learn whether its work was actually bad, re-check the claims with a different model. |
 | [The rule-efficacy pipeline](the-rule-efficacy-pipeline.md) | Instruction files only grow. Transcripts can show which rules the current model still breaks, so pruning becomes data instead of guessing. |
 | [Vocabulary control](vocabulary-control.md) | Ban the model's metaphors where they collide with your domain terms. Check new terms for collisions. When a rule is broken while in context, turn it into a lint. Scoped to meaning bugs. |
+| [Memory belongs in the repo](memory-belongs-in-the-repo.md) | An out-of-repo memory mechanism is the instruction file with worse properties: unversioned, unshared, unlinted, a second load, growing in the dark. Fold findings into the repo; memory keeps only what can't live there. |
 
 ## Where these came from
 
