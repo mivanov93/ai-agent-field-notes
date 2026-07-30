@@ -65,6 +65,11 @@ measurement come from the model. Asking it to find what is wrong with
 itself wastes a search; handing it a hypothesis to confirm or refute is
 the fastest thing it does.
 
+And expect the missing hypothesis to be orthogonal. If every answer you
+are getting back is an amount of the same thing — more rules, fewer
+rules — the variable is probably wrong, and finding the right one is
+your job, not the model's.
+
 ## Why it happens — no malice required
 
 - **A self-model without self-observation.** The model sincerely predicts
@@ -75,6 +80,13 @@ the fastest thing it does.
   The question supplies the shape of the answer.
 - **The mess is the prior.** What reads to you as dirt reads to the model
   as normal, because normal is what it was trained on.
+- **It moves along the axis it is handed.** Ask "how much rule?" and every
+  answer is an amount — more, fewer, zero. This held even with all the
+  data in front of it. The fix that worked was orthogonal: not an amount
+  of rule at all, but a different variable — change what the writer reads
+  (page 09's barrier). The model interpolates within the frame of the
+  question; a reframe is not an interpolation, and it does not produce
+  one unaided.
 
 ## The evidence in my repo
 
