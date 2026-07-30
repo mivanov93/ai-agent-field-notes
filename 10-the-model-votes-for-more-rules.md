@@ -10,7 +10,7 @@ malice, recommend the remedies that measurably do not work — and deflect
 the one that does. Do not take process advice from the model's default
 register. Demand measurements, refutations, and predictions that can fail.
 
-## The four deflections
+## The five deflections
 
 Ask the model about the dirty house and you get some mix of these:
 
@@ -41,6 +41,19 @@ Ask the model about the dirty house and you get some mix of these:
    is the whole analysis. Note the pair: deflections 1 and 4 point in
    opposite directions, delivered with equal confidence. That is the
    tell. The model is completing frames, not diagnosing.
+5. **"Your rule file is too big — I can't follow all that. Trim it."**
+   Stated confidently, as a fact about itself. Sent to research it, the
+   model found that instruction-following varies sharply by model and
+   conceded that modern frontier models follow large files well. The
+   initial claim was never introspection — it was retrieval. "Big
+   instruction files are bad" is a popular meme, and the model's
+   statements about its own limits are quotes about models in general,
+   delivered in the first person. The misattribution is the damage: my
+   rules were not failing for size, they were failing against the corpus
+   at 880 to 1. Blame capacity and the remedy is deleting the file;
+   name the real cause and the remedy is cleaning the corpus. Follow the
+   wrong diagnosis and you burn the scar tissue while the infection
+   stays (page 05 on why the file cannot shrink to zero).
 
 ## Even the diagnosis runs inside the house
 
@@ -75,7 +88,10 @@ your job, not the model's.
 - **A self-model without self-observation.** The model sincerely predicts
   it will follow a rule you add. It has no access to its own measured
   violation rate — it cannot see that the last rule did not bind it, so
-  from the inside, more rules genuinely look like they would work.
+  from the inside, more rules genuinely look like they would work. And
+  its explicit claims about itself are worse than blind — they are
+  borrowed: what it says about its own capacity is retrieved from what
+  has been written about models generally, not observed about itself.
 - **Frame completion.** Ask "what rule should I add" and you get a rule.
   The question supplies the shape of the answer.
 - **The mess is the prior.** What reads to you as dirt reads to the model

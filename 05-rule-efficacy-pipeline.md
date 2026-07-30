@@ -10,11 +10,15 @@ becomes a data question instead of a guess.
 ## The problem
 
 Writing instruction-file rules from incidents is now standard advice. What
-nobody does is close the loop. Rules pile up. Rule-following gets worse as
-the file grows — that is benchmarked (see below). A rule written for one
-model's bad habit may cost pure attention on its successor. And the only
-pruning method in circulation is asking the model which rules matter —
-self-report, from the thing being measured.
+nobody does is close the loop. Rules pile up. Rule-following degrades as
+the file grows — that is benchmarked, with a caveat the popular advice
+skips: the falloff varies sharply by model, and the strongest current
+models follow large files far better than the benchmark averages suggest.
+"Trim your file to near zero" inherits the average and ignores the
+variance. A rule written for one model's bad habit may cost pure attention
+on its successor. And the only pruning method in circulation is asking the
+model which rules matter — self-report, from the thing being measured,
+which page 10 shows is retrieval of memes about models in general.
 
 I hit this directly. A week of suspected model regression added several
 defensive rules, and the obvious question — can these go, now that the
@@ -45,6 +49,25 @@ unmeasured rule system looks like from the inside.
 4. A rule the current model never breaks moves out of the instruction file
    into a reference doc, incident links intact. A rule that still fires
    stays — now with evidence.
+
+## The file is scar tissue, not scaffolding
+
+The trim-to-zero recommendation misunderstands what the file is. Mine is
+not a compensation for model weakness that a smarter model will obsolete.
+It is the project's memory of being burned: the browser store a package
+manager silently garbage-collected, the busy port that cost two test runs,
+the hardlinked caches that broke agent isolation, the term that collided
+with the protocol's own vocabulary. None of that is derivable from
+intelligence at any level — it is historical fact about this environment.
+A smarter model follows rules better; it does not know which stove is hot.
+A genius baby still touches the fire once.
+
+Delete the file and every session rediscovers the same issues, in the same
+order — the file's own incident dates are the record of what that
+rediscovery costs. So the pipeline above prunes on evidence: a rule whose
+failure mode has stopped firing for the current model can retire to a
+reference doc. It never prunes on capability vibes — "the model is smart
+now" — because smart was never the variable. Experience was.
 
 ## Prior art
 
