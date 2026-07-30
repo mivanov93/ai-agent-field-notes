@@ -76,3 +76,17 @@ attached, machine enforcement, and prior-art honesty per practice.
   proof; I write claims as "I have not found prior art for", never "first".
 - Each practice page follows: the incident → the rule → the mechanism
   (lint/ritual) → prior art found → the delta.
+
+## Addendum: the demonstration reflex (searched 2026-07-30, fifth lane)
+
+Verdict: PARTIALLY KNOWN. Tool overuse is well covered — NVIDIA When2Call
+(arXiv 2504.18851, NAACL 2025); SMART (arXiv 2502.11435, ACL Findings
+2025); and the nearest mechanistic cousin, the knowing-doing gap paper
+(arXiv 2605.14038, 2026-05): models represent a tool as unneeded and fire
+it anyway. Consent-side: OpenAI's GPT-5 agentic-eagerness guidance requires
+confirmation for consequential actions (state-changing, not expensive
+demonstrations); Anthropic's "Building Effective Agents" states the
+simplest-solution principle; Quesma (2026) reports a one-command budget
+burn as a comparable incident. Unclaimed: the trigger (a question NAMING a
+capability becomes its execution), the demonstration-as-purchase framing,
+and standing opt-ins not removing the per-use consent moment.

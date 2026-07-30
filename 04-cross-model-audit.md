@@ -1,57 +1,56 @@
 # The cross-model audit
 
-**Claim:** when you suspect a new model made your project worse, transcript
-mining gives you the timeline — but only a re-audit of the suspect window's
-shipped work, performed **by a different model**, separates "the output is
-worse" from "the supervision cost more". They need different responses, and
-conflating them is how a model gets benched for the wrong reason.
+**Claim:** transcripts can tell you when your model changed. They cannot
+tell you whether its work was bad. For that, re-check the suspect period's
+claims against the code — using a different model. "The output is worse"
+and "the supervision costs more" are different problems with different
+fixes, and mixing them up benches models for the wrong reason.
 
 ## The incident
 
-A week felt slow. Commit rate had halved; two retros about unverified claims
-had landed in three days; I suspected the newly adopted model
-was simply worse than its predecessor and switched back.
+A week felt slow. Commits halved. Two writeups about unverified claims
+landed in three days. I suspected the newly adopted model was simply worse
+than the old one, and switched back.
 
-Session transcripts carry a per-message model id. Mining them produced the
-timeline in minutes: the old model's last day, the new model's first, and
-the fact that the slow week ran almost entirely on the suspect. So far this
-has precedent (see prior art). The question the timeline cannot answer: was
-the *shipped work* actually bad?
+Session transcripts record the model on every message. Mining them gave the
+timeline in minutes: the old model's last day, the new model's first day,
+and the fact that the slow week ran almost entirely on the suspect. That
+part has precedent (see below). What the timeline cannot answer: was the
+shipped work actually bad?
 
 ## The method
 
-1. **Timeline** — mine per-message model ids from session transcripts;
-   correlate with commit rate and documented incidents.
-2. **Window** — bound the suspect period; enumerate what merged in it.
-3. **Cross-model audit** — read-only review lanes run on a *different*
-   model re-derive the window's claims against the code: every ADR
-   assertion, tracker DONE note, commit-body claim, and recorded
-   root-cause, checked claim-by-claim with evidence. (Same-model audit has
-   an obvious conflict; the audit of the suspect is the one place model
-   diversity is non-negotiable.)
-4. **Re-run the gates** — every test-count and pass/fail figure the window
-   recorded gets re-produced by an actual run, not inherited.
-5. **Verdict in two parts** — output quality (did anything shipped fail
-   re-verification?) and supervision cost (how many corrections did the
-   human supply, visible in transcripts and retros?).
+1. **Timeline.** Mine the model ids from the transcripts. Line them up with
+   commit rate and known incidents.
+2. **Window.** Mark the suspect period. List everything that merged in it.
+3. **Audit with a different model.** Read-only review agents on another
+   model re-check the window's claims against the code: every decision
+   record, every "done" note, every commit-message claim, every recorded
+   root cause. Do not let the suspect grade its own homework — this is the
+   one place model diversity is not optional.
+4. **Re-run the checks.** Every test count and pass/fail figure recorded in
+   the window gets reproduced by an actual run, not trusted.
+5. **Two verdicts, not one.** Output quality: did anything shipped fail the
+   re-check? Supervision cost: how many corrections did the human make,
+   counted from the transcripts?
 
-In the incident, the audit came back: zero code defects across ~60
-re-derived claims; every gate figure reproduced; all confirmed findings
-were record drift. The suspect model's *output* was exonerated — the real
-cost had been human supervision per shipped change. That distinction
-changed the decision from "the model is bad" to "the model is expensive to
-supervise", which prices differently.
+In my case: zero code defects across ~60 re-checked claims, every recorded
+number reproduced, and all confirmed problems were documentation drift. The
+model's output was fine. What had gone up was my correction load per
+change. Those two findings call for different responses, and without the
+audit I would have made the wrong call for the wrong reason.
 
 ## Prior art
 
-- Stella Laurenzo, anthropics/claude-code#42796 (~2026-04) — mined 6,852
-  session files, built a date-stamped regression timeline, correlated with
-  a 58% commit-rate drop. The strongest precedent for the mining half
-  (using behavioral proxies rather than the literal model-id field).
-- lucemia/claude-session-analyzer — generalizes that mining as a tool.
-- Model A/B evaluation literature — benchmarks compare models on synthetic
-  tasks, not on a real project's already-shipped window.
+- Stella Laurenzo, anthropics/claude-code#42796 (~2026-04). Mined 6,852
+  session files, built a dated regression timeline, correlated it with a
+  58% commit-rate drop. The strongest precedent for the mining half. Uses
+  behavioral signals rather than the per-message model id.
+- lucemia/claude-session-analyzer. Turns that mining approach into a
+  reusable tool.
+- Model comparison benchmarks. They compare models on synthetic tasks, not
+  on a real project's already-shipped work.
 
-**The delta:** no found source closes the loop — re-deriving the suspect
-window's claims against the code with a different model, so the verdict
-separates output quality from supervision cost.
+**What I think is new:** closing the loop — re-checking the suspect
+window's claims with a different model, so the verdict separates output
+quality from supervision cost.

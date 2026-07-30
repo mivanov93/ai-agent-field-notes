@@ -1,52 +1,51 @@
 # The rule-efficacy pipeline
 
-*Status: method described; first measurement run pending. This page makes
-the smallest claim of the seven.*
+*Status: method only; first measurements pending. Smallest claim in the
+repo.*
 
-**Claim:** instruction files accrete rules and only ever grow — but session
-transcripts contain enough evidence to measure **which rules' failure modes
-still fire, per model**, turning rule pruning from vibes into data.
+**Claim:** instruction files only grow. Saved transcripts hold the evidence
+of which rules the current model still breaks. Measure that, and pruning
+becomes a data question instead of a guess.
 
 ## The problem
 
-The failure-log pattern for instruction files is now well known: every rule
-traceable to an incident. What nobody closes is the other half of the loop.
-Rules accumulate; instruction-following degrades measurably as files grow
-(the compliance cliff is benchmarked — see prior art); and a rule written
-for one model's failure mode may be a pure salience tax on its successor.
-The only pruning method in circulation is asking the model which rules it
-notices — self-report, from the system being measured.
+Writing instruction-file rules from incidents is now standard advice. What
+nobody does is close the loop. Rules pile up. Rule-following gets worse as
+the file grows — that is benchmarked (see below). A rule written for one
+model's bad habit may cost pure attention on its successor. And the only
+pruning method in circulation is asking the model which rules matter —
+self-report, from the thing being measured.
 
-I hit the motivating case directly: a week of suspected model regression
-produced several new defensive rules, and the natural question — "can these
-be removed now that the model changed back?" — had no data behind it. Worse,
-I could show at least one rule being violated *while it sat in the model's
-context*, which is precisely the evidence exhortation-based rule-keeping
-cannot see.
+I hit this directly. A week of suspected model regression added several
+defensive rules, and the obvious question — can these go, now that the
+model changed back? — had no data behind it. Worse, I could show a rule
+being broken while it sat in the model's context. Reading a rule is not the
+same as following it, and that case is invisible if all you do is keep
+writing rules.
 
 ## The method
 
-1. Archive session transcripts append-only, including subagent traces —
-   they are the ground truth of what the model actually did, and they decay
-   (harnesses garbage-collect them) unless deliberately kept.
-2. For each instruction-file rule, define its violation signature — the
-   greppable/classifiable trace a violation leaves (a banned word in output,
-   a forbidden command shape, a gate claim without the gate's run).
-3. Sweep transcripts per model era; count firings per rule.
-4. Rules that never fire for the current model move to a reference doc with
-   their incident links intact — retrievable, no longer spending the
-   instruction budget. Rules that still fire stay, with fresh evidence.
+1. Keep session transcripts, append-only, including subagent traces. They
+   are the record of what the model actually did, and harnesses delete them
+   unless you save them.
+2. For each rule, write down what a violation looks like in a transcript: a
+   banned word, a forbidden command shape, a claim about a check with no
+   run behind it.
+3. Sweep the transcripts per model. Count violations per rule.
+4. A rule the current model never breaks moves out of the instruction file
+   into a reference doc, incident links intact. A rule that still fires
+   stays — now with evidence.
 
 ## Prior art
 
 - Mitchell Hashimoto's Ghostty AGENTS.md and the "failure log" pattern
-  (ShipWithAI writeup, 2026-04) — the accretion half, incident-tagged
-  rules, widely imitated.
-- Distyl AI's IFScale benchmark (NeurIPS 2025 workshop) — instruction
-  compliance degrading with rule count; the reason pruning matters.
-- Informal pruning by model self-report appears in the CLAUDE.md-curation
-  genre; no measurement pipeline over saved transcripts was found.
+  (ShipWithAI writeup, 2026-04-13). The accretion half: every rule from an
+  incident. Widely imitated.
+- Distyl AI's IFScale benchmark (NeurIPS 2025 workshop). Instruction
+  compliance drops as rule count grows — the reason pruning matters.
+- Informal pruning by asking the model appears in the CLAUDE.md-curation
+  genre. No measurement over saved transcripts was found.
 
-**The delta:** the measurement loop — violation signatures, per-model
-firing rates from archived transcripts, evidence-based pruning. First data
-from this project's archive is the obvious next page.
+**What I think is new:** the measuring loop — violation patterns, counts
+per model from saved transcripts, pruning backed by data. First numbers
+from my own archive are the obvious next page.
