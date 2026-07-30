@@ -50,4 +50,4 @@ incident that caused it, a way to enforce it, and the prior art I found.
 
 ---
 
-First public draft, 2026-07-30. No license chosen yet.
+Mihail Ivanov, first public draft, 2026-07-30. [MIT license](LICENSE).
