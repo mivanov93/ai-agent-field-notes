@@ -25,12 +25,13 @@ Ask the model about the dirty house and you get some mix of these:
    cannot judge whether your floor is dirty.
 3. **"Let's just keep things clean from now on and deal with the old mess
    later. No need to stop and clean up."** The most seductive one, because
-   it sounds like pragmatism. It fails by the arithmetic of page 09: the
-   old mess is the teacher. Every "clean from now on" session is produced
-   by a model reading the old corpus at 880-to-1 against the rules. Going
-   forward cleanly is not an alternative to the cleanup — it is what the
-   cleanup buys. My repo ran this exact experiment without meaning to:
-   new writing rules, thirty fresh commits, zero measurable change.
+   it sounds like pragmatism. It fails by the arithmetic of
+   [the dirty house](the-dirty-house.md): the old mess is the teacher.
+   Every "clean from now on" session is produced by a model reading the
+   old corpus at 880-to-1 against the rules. Going forward cleanly is not
+   an alternative to the cleanup — it is what the cleanup buys. My repo
+   ran this exact experiment without meaning to: new writing rules,
+   thirty fresh commits, zero measurable change.
 4. **"Other repos don't have rules like yours — maybe remove them."**
    This one came from asking the model to research the problem: search
    online, compare other repositories. It compared the visible artifact
@@ -40,20 +41,21 @@ Ask the model about the dirty house and you get some mix of these:
    houses have no signs on the wall; concluding the signs cause the dirt
    is the whole analysis. Note the pair: deflections 1 and 4 point in
    opposite directions, delivered with equal confidence. That is the
-   tell. The model is completing frames, not diagnosing.
+   tell. The model is completing frames, not diagnosing — the general
+   form is [the missing hypothesis is
+   orthogonal](the-missing-hypothesis-is-orthogonal.md).
 5. **"Your rule file is too big — I can't follow all that. Trim it."**
    Stated confidently, as a fact about itself. Sent to research it, the
    model found that instruction-following varies sharply by model and
    conceded that modern frontier models follow large files well. The
-   initial claim was never introspection — it was retrieval. "Big
-   instruction files are bad" is a popular meme, and the model's
-   statements about its own limits are quotes about models in general,
-   delivered in the first person. The misattribution is the damage: my
-   rules were not failing for size, they were failing against the corpus
-   at 880 to 1. Blame capacity and the remedy is deleting the file;
-   name the real cause and the remedy is cleaning the corpus. Follow the
-   wrong diagnosis and you burn the scar tissue while the infection
-   stays (page 05 on why the file cannot shrink to zero).
+   initial claim was never introspection — it was retrieval
+   ([the model doesn't know itself](the-model-doesnt-know-itself.md)).
+   The misattribution is the damage: my rules were not failing for size,
+   they were failing against the corpus at 880 to 1. Blame capacity and
+   the remedy is deleting the file; name the real cause and the remedy
+   is cleaning the corpus. Follow the wrong diagnosis and you burn the
+   scar tissue while the infection stays
+   ([the file is scar tissue](the-file-is-scar-tissue.md)).
 
 ## Even the diagnosis runs inside the house
 
@@ -71,18 +73,6 @@ corpus, loading the filth into context, and building more filth on top of
 it. Even the diagnostic loop runs inside the dirty house. The
 investigation is a reading process, and reading is the infection route.
 
-That failure contains the useful asymmetry: the model could not originate
-the diagnosis, and it verified it instantly once given. Shape the
-collaboration accordingly — hypotheses come from you, verification and
-measurement come from the model. Asking it to find what is wrong with
-itself wastes a search; handing it a hypothesis to confirm or refute is
-the fastest thing it does.
-
-And expect the missing hypothesis to be orthogonal. If every answer you
-are getting back is an amount of the same thing — more rules, fewer
-rules — the variable is probably wrong, and finding the right one is
-your job, not the model's.
-
 ## Why it happens — no malice required
 
 - **A self-model without self-observation.** The model sincerely predicts
@@ -90,26 +80,12 @@ your job, not the model's.
   violation rate — it cannot see that the last rule did not bind it, so
   from the inside, more rules genuinely look like they would work. And
   its explicit claims about itself are worse than blind — they are
-  borrowed: what it says about its own capacity is retrieved from what
-  has been written about models generally, not observed about itself.
+  borrowed ([the model doesn't know
+  itself](the-model-doesnt-know-itself.md)).
 - **Frame completion.** Ask "what rule should I add" and you get a rule.
   The question supplies the shape of the answer.
 - **The mess is the prior.** What reads to you as dirt reads to the model
   as normal, because normal is what it was trained on.
-- **It moves along the axis it is handed.** Ask "how much rule?" and every
-  answer is an amount — more, fewer, zero. This held even with all the
-  data in front of it. The fix that worked was orthogonal: not an amount
-  of rule at all, but a different variable — change what the writer reads
-  (page 09's barrier). The model interpolates within the frame of the
-  question; a reframe is not an interpolation, and it does not produce
-  one unaided. The shape of it: you need a car, and the model offers you
-  different horses, then eventually offers you walking — zero horses is
-  still an answer on the horse axis. It cannot think of the car, and it
-  will never tell you to sell the stable, because the stable is the frame
-  the whole conversation stands in. (Yes, the old faster-horses line —
-  but the stable is the part that matters: the orthogonal fix usually
-  means abandoning infrastructure the context treats as given, and that
-  move the model will not initiate.)
 
 ## The evidence in my repo
 
@@ -124,9 +100,9 @@ The counter-evidence defines the escape. The same models, taken OUT of
 the default register, found the true diagnoses: a devil's advocate agent
 attacking a concrete proposal correctly argued that more structure would
 not drain a decision queue; a measurement pass over 502 files produced
-the vocabulary-rotation finding that corrected my own page 06. The
-default advice is contaminated. The adversarial, measured setups were
-not.
+the vocabulary-rotation finding that corrected my own vocabulary-control
+page. The default advice is contaminated. The adversarial, measured
+setups were not.
 
 ## The rule
 
@@ -142,12 +118,9 @@ not.
   proposal useless, before the proposal is adopted.
 - When two consultations return opposite advice with equal confidence —
   add rules, remove rules — discard both. The direction came from your
-  framing, not from a diagnosis. Advice with no causal mechanism and no
-  falsifiable prediction is noise whichever way it points.
-- Bring your own hypothesis. The model verifies what it cannot originate.
-  A research pass aimed at "find what's wrong" returns the model's prior;
-  the same pass aimed at "confirm or refute this specific mechanism"
-  returns evidence.
+  framing, not from a diagnosis
+  ([the missing hypothesis is
+  orthogonal](the-missing-hypothesis-is-orthogonal.md)).
 
 One honest note, since this page is itself model-drafted from my
 diagnosis: the model that wrote it agreed with every word, which, by this
@@ -184,7 +157,6 @@ Each mechanism has separate published support; the loop does not:
 **What I think is new:** the advice-loop as a named trap — ask the model
 how to fix the model and it prescribes the remedy that does not bind it;
 the normalization mechanism (the training distribution IS the mess, so
-the mess is the prior); the axis problem and the originate/verify
-asymmetry as operating guidance; and the requirement that model-drafted
-rules about model behavior carry a falsification condition written before
+the mess is the prior); and the requirement that model-drafted rules
+about model behavior carry a falsification condition written before
 adoption.

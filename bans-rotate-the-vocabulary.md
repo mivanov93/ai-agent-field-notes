@@ -7,7 +7,8 @@ replacements — in my repo, within three days. To reduce invention, change
 the pressure or catch violations mechanically. Written bans alone rotate
 the vocabulary; they do not shrink it.
 
-*This page corrects part of page 06. The correction comes from measuring my
+*This page corrects part of [vocabulary
+control](vocabulary-control.md). The correction comes from measuring my
 own repo after the bans had been in force for eleven days. Finding out a
 practice half-works is the point of measuring.*
 
@@ -70,7 +71,8 @@ exact problem, but the adjacent evidence is consistent:
 ## What to do
 
 - Scope bans to collisions — cases where a metaphor blurs a real domain
-  term. Those are meaning bugs, and page 06's practice handles them.
+  term. Those are meaning bugs, and [vocabulary
+  control](vocabulary-control.md) handles them.
 - For the style itself, fix the pressure: decide which rule wins when
   brevity and readability conflict, and write the winner down. My repo's
   actual defect was never the em-dashes — it was sentences carrying more

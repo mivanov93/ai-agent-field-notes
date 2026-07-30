@@ -9,7 +9,8 @@ sitting in the model's context, move it into a lint.
 
 *Scope matters, and I learned it the hard way: this practice fixes meaning
 bugs. It does not reduce the model's metaphor-minting in general — I
-measured that, and the result is page 08. Bans rotate the vocabulary; they
+measured that, and the result is [bans rotate the
+vocabulary](bans-rotate-the-vocabulary.md): they
 don't shrink it.*
 
 ## The incidents
@@ -58,7 +59,8 @@ don't shrink it.*
   and a different practice: those filter style. This manages collisions
   with domain meaning. (My corpus measured clean on those words — under
   100 hits across 502 files, "delve" zero. The style problem here was
-  never slop vocabulary; see page 08.)
+  never slop vocabulary; see
+  [bans-rotate-the-vocabulary.md](bans-rotate-the-vocabulary.md).)
 - Dennis Traub, "Your agent keeps using that word…" (AWS, dev.to,
   2026-05-21). Domain-driven-design glossaries in per-context CLAUDE.md
   files with terms to avoid. The closest neighbor. No collision check, no
@@ -70,7 +72,7 @@ don't shrink it.*
   attenuate a style effect without reversing it ("Voice Under Revision",
   arXiv 2604.22142), and negative phrasing is the weakest instruction
   shape — a ban list is negative phrasing. Details and more citations in
-  page 08 and PRIOR-ART.md.
+  bans-rotate-the-vocabulary.md and PRIOR-ART.md.
 
 **What I think is new:** the four parts together, scoped to collisions;
 broken-while-in-context as the escalation trigger, now backed by measured

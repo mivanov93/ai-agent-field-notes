@@ -93,7 +93,8 @@ and standing opt-ins not removing the per-use consent moment.
 
 ## Addendum: style contamination and the ban rotation (2026-07-30)
 
-Sources behind pages 06 and 08, from a separate literature memo (~45
+Sources behind the vocabulary-control and bans-rotate pages, from a
+separate literature memo (~45
 queries and fetches). Measured: many-shot jailbreaking (Anthropic, 2024) —
 volumes of in-context text override instructions and trained behavior via
 ordinary in-context learning; The Instruction Hierarchy (arXiv 2404.13208);
@@ -113,7 +114,8 @@ Clean negatives from that memo: no published technique for keeping a model
 from absorbing the style of text it must read, and no de-styling pipeline
 for technical documentation.
 
-The rotation measurement itself (page 08) is from my repo's 2026-07-30
+The rotation measurement itself (bans-rotate-the-vocabulary.md) is from
+my repo's 2026-07-30
 sweep of 502 files: banned metaphors replaced by four fresh ones within
 three days, two next-day relapses inside the decision log, and a promotion
 rule that sanctions any five-times-used term. I found no prior report of
@@ -121,7 +123,8 @@ ban-driven vocabulary rotation in LLM collaboration.
 
 ## Addendum: the clean-room design (2026-07-31)
 
-The design doc behind page 09 states its borrowed/new split precisely.
+The design doc behind the clean-room page states its borrowed/new split
+precisely.
 Borrowed: the clean-room name and read/write barrier (copyright-safe
 reimplementation practice; legal commentary notes weight-level
 contamination remains unsettled there); extract-then-generate

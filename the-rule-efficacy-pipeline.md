@@ -15,17 +15,20 @@ the file grows — that is benchmarked, with a caveat the popular advice
 skips: the falloff varies sharply by model, and the strongest current
 models follow large files far better than the benchmark averages suggest.
 "Trim your file to near zero" inherits the average and ignores the
-variance. A rule written for one model's bad habit may cost pure attention
-on its successor. And the only pruning method in circulation is asking the
-model which rules matter — self-report, from the thing being measured,
-which page 10 shows is retrieval of memes about models in general.
+variance — and misreads what the file is
+([the file is scar tissue](the-file-is-scar-tissue.md)). A rule written
+for one model's bad habit may cost pure attention on its successor. And
+the only pruning method in circulation is asking the model which rules
+matter — self-report, from the thing being measured, which is retrieval
+of memes about models in general
+([the model doesn't know itself](the-model-doesnt-know-itself.md)).
 
 I hit this directly. A week of suspected model regression added several
 defensive rules, and the obvious question — can these go, now that the
 model changed back? — had no data behind it. Worse, I could show a rule
-being broken while it sat in the model's context. Reading a rule is not the
-same as following it, and that case is invisible if all you do is keep
-writing rules.
+being broken while it sat in the model's context. Reading a rule is not
+the same as following it, and that case is invisible if all you do is
+keep writing rules.
 
 A first manual run now exists. A sweep of all 502 documentation files
 counted violations per rule: one banned term had 19 live uses, another 15,
@@ -40,34 +43,15 @@ unmeasured rule system looks like from the inside.
 ## The method
 
 1. Keep session transcripts, append-only, including subagent traces. They
-   are the record of what the model actually did, and harnesses delete them
-   unless you save them.
-2. For each rule, write down what a violation looks like in a transcript: a
-   banned word, a forbidden command shape, a claim about a check with no
+   are the record of what the model actually did, and harnesses delete
+   them unless you save them.
+2. For each rule, write down what a violation looks like in a transcript:
+   a banned word, a forbidden command shape, a claim about a check with no
    run behind it.
 3. Sweep the transcripts per model. Count violations per rule.
 4. A rule the current model never breaks moves out of the instruction file
    into a reference doc, incident links intact. A rule that still fires
    stays — now with evidence.
-
-## The file is scar tissue, not scaffolding
-
-The trim-to-zero recommendation misunderstands what the file is. Mine is
-not a compensation for model weakness that a smarter model will obsolete.
-It is the project's memory of being burned: the browser store a package
-manager silently garbage-collected, the busy port that cost two test runs,
-the hardlinked caches that broke agent isolation, the term that collided
-with the protocol's own vocabulary. None of that is derivable from
-intelligence at any level — it is historical fact about this environment.
-A smarter model follows rules better; it does not know which stove is hot.
-A genius baby still touches the fire once.
-
-Delete the file and every session rediscovers the same issues, in the same
-order — the file's own incident dates are the record of what that
-rediscovery costs. So the pipeline above prunes on evidence: a rule whose
-failure mode has stopped firing for the current model can retire to a
-reference doc. It never prunes on capability vibes — "the model is smart
-now" — because smart was never the variable. Experience was.
 
 ## Prior art
 
@@ -75,7 +59,8 @@ now" — because smart was never the variable. Experience was.
   (ShipWithAI writeup, 2026-04-13). The accretion half: every rule from an
   incident. Widely imitated.
 - Distyl AI's IFScale benchmark (NeurIPS 2025 workshop). Instruction
-  compliance drops as rule count grows — the reason pruning matters.
+  compliance drops as rule count grows — the reason pruning matters, with
+  the model-variance caveat above.
 - Informal pruning by asking the model appears in the CLAUDE.md-curation
   genre. No measurement over saved transcripts was found.
 
