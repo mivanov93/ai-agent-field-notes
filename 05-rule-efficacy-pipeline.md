@@ -1,7 +1,7 @@
 # The rule-efficacy pipeline
 
-*Status: method only; first measurements pending. Smallest claim in the
-repo.*
+*Status: method, plus a first manual measurement (2026-07-30). The
+per-model transcript version is still pending.*
 
 **Claim:** instruction files only grow. Saved transcripts hold the evidence
 of which rules the current model still breaks. Measure that, and pruning
@@ -22,6 +22,16 @@ model changed back? — had no data behind it. Worse, I could show a rule
 being broken while it sat in the model's context. Reading a rule is not the
 same as following it, and that case is invisible if all you do is keep
 writing rules.
+
+A first manual run now exists. A sweep of all 502 documentation files
+counted violations per rule: one banned term had 19 live uses, another 15,
+all surviving in the half of the corpus no lint ever read. It caught the
+two sharpest data points I have: twice, the document that banned a term
+was followed one day later by a document using it. And it measured the
+accretion side directly: my instruction file grew from 1,939 to 4,233
+words in eleven days — 33 of its 35 revisions added text, two shrank it —
+while the file itself states that quality is subtractive. That is what an
+unmeasured rule system looks like from the inside.
 
 ## The method
 
@@ -47,5 +57,6 @@ writing rules.
   genre. No measurement over saved transcripts was found.
 
 **What I think is new:** the measuring loop — violation patterns, counts
-per model from saved transcripts, pruning backed by data. First numbers
-from my own archive are the obvious next page.
+per model from saved transcripts, pruning backed by data. The manual sweep
+above is the existence proof; the per-model transcript version is the next
+step.

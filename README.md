@@ -13,10 +13,11 @@ found and says exactly what I think is new. The full search is in
 [PRIOR-ART.md](PRIOR-ART.md).
 
 **One rule for this repo:** "I have not found prior art" does not mean
-"first". The search was four research agents over public 2024–2026
-material, in one afternoon. If you know earlier work for any claim, open an
-issue. The claim becomes a citation. That is how this repo is supposed to
-work.
+"first". The searches were a handful of research agents over public
+2024–2026 material. If you know earlier work for any claim, open an issue.
+The claim becomes a citation. That is how this repo is supposed to work —
+and it applies to me too: page 8 partially corrects page 6, because I
+measured my own repo and half of my original claim did not survive.
 
 ## The findings
 
@@ -27,8 +28,9 @@ work.
 | 3 | [The link rule](03-the-link-rule.md) | When an agent says "X shows Y", X is usually a real measurement. The error is in the jump from X to Y. Checking that jump usually takes one command. |
 | 4 | [The cross-model audit](04-cross-model-audit.md) | Transcripts tell you when your model changed. To learn whether its work was actually bad, re-check the claims with a different model. |
 | 5 | [The rule-efficacy pipeline](05-rule-efficacy-pipeline.md) | Instruction files only grow. Transcripts can show which rules the current model still breaks, so pruning becomes data instead of guessing. |
-| 6 | [Vocabulary control](06-vocabulary-control.md) | Ban the model's favorite metaphors where they collide with your domain terms. Check new terms for collisions. When a rule is broken while in context, turn it into a lint. |
+| 6 | [Vocabulary control](06-vocabulary-control.md) | Ban the model's metaphors where they collide with your domain terms. Check new terms for collisions. When a rule is broken while in context, turn it into a lint. Scoped to meaning bugs — page 8 says why. |
 | 7 | [The demonstration reflex](07-the-demonstration-reflex.md) | Ask an agent a question about its tools and it may answer by running the tools, at full cost. A question deserves prose; a demo needs a price and a yes. |
+| 8 | [Bans rotate the vocabulary](08-bans-rotate-the-vocabulary.md) | Ban an AI's invented words and new ones appear within days. The words are compression devices, and the instruction file's own rules are the mint. Fix the pressure; enforce mechanically. |
 
 ## Where these came from
 

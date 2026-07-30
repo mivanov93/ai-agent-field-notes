@@ -90,3 +90,31 @@ simplest-solution principle; Quesma (2026) reports a one-command budget
 burn as a comparable incident. Unclaimed: the trigger (a question NAMING a
 capability becomes its execution), the demonstration-as-purchase framing,
 and standing opt-ins not removing the per-use consent moment.
+
+## Addendum: style contamination and the ban rotation (2026-07-30)
+
+Sources behind pages 06 and 08, from a separate literature memo (~45
+queries and fetches). Measured: many-shot jailbreaking (Anthropic, 2024) —
+volumes of in-context text override instructions and trained behavior via
+ordinary in-context learning; The Instruction Hierarchy (arXiv 2404.13208);
+Control Illusion (arXiv 2502.15851) — instruction priority is fragile under
+conflict; "Voice Under Revision" (arXiv 2604.22142, 2026) — a
+voice-preserving instruction cut style drift 32% while 85% of markers kept
+their direction; "Show and Tell" (arXiv 2511.13972) — for the style of NEW
+output, written instructions outlasted exemplars; negation weakness
+(MIT-covered VLM study; Anthropic's own "tell Claude what to do instead of
+what not to do"). Architecture: Imitate-Retrieve-Paraphrase (EMNLP 2023) —
+the nearest clean-room shape, untested for style; STRAP (EMNLP 2020);
+Delete-Retrieve-Generate (NAACL 2018). Practitioner: Böckeler/Fowler (2023)
+tracing the default register to marketing-heavy training data; ASD-STE100
+and agent-style RULES.md as output-side linting.
+
+Clean negatives from that memo: no published technique for keeping a model
+from absorbing the style of text it must read, and no de-styling pipeline
+for technical documentation.
+
+The rotation measurement itself (page 08) is from my repo's 2026-07-30
+sweep of 502 files: banned metaphors replaced by four fresh ones within
+three days, two next-day relapses inside the decision log, and a promotion
+rule that sanctions any five-times-used term. I found no prior report of
+ban-driven vocabulary rotation in LLM collaboration.
