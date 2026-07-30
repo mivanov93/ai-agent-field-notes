@@ -12,9 +12,18 @@ being replaced.
 
 ## The principle, with numbers
 
-The mechanism is measured under another name: Anthropic's many-shot work
-showed enough in-context examples override both instructions and training,
-scaling with volume, through ordinary in-context learning.
+The situation, as I finally understood it: the model walks into a dirty
+house. The host is mid-cleanup. There are rules posted on the wall. The
+model does not care — it wipes its dirty shoes on the floor and throws
+more trash around, because the house itself says that is what one does
+here. Models imitate. The rules describe what the house should be; the
+floor shows what it is; when the two disagree, the model believes the
+floor. Piling more rules on the wall does not change the floor.
+
+The mechanism behind that is measured under another name: Anthropic's
+many-shot work showed enough in-context examples override both
+instructions and training, scaling with volume, through ordinary
+in-context learning.
 
 My repo's version, also measured. Three writing rules went into the
 instruction file; thirty commits written the same day, rules in context,
