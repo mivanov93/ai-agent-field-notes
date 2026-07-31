@@ -114,6 +114,7 @@ extends someone else's published work, credited in its title.
 | [It's already written down](its-already-written-down.md) | The model re-derives an answer your own reference notes already hold, because it never checks whether the answer exists. Point it at the notes before it investigates; a note nobody reads is a note nobody has. |
 | ★ [You can't ask for cheaper](you-cant-ask-for-cheaper.md) | "Use fewer tokens" cuts the tests, reviews, and docs first, and the savings come back as bugs — you can't raid the gate. The exception: genuinely throwaway work with one pass condition, the cheapest rental car you drive 100m and return. |
 | ↳ [Extension of Broekx: the shared git index](extends-broekx-shared-git-index.md) | Broekx named the shared-desk hazard and fixed it with worktrees; this adds the layer he skips — the shared git staging area, where an unscoped commit sweeps your half-staged work into the agent's. |
+| [The leak is in the cleanup](the-leak-is-in-the-cleanup.md) | A model can't be trusted to remove confidential data: it scrubs the current files but leaves the secret in all of history, re-lists what it removed in the cleanup's own commit message, and can't tell a paraphrased tell from the banned word. You own the scope and verification; the model owns only the mechanics. |
 
 ## Methods — what actually works
 
