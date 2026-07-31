@@ -29,6 +29,10 @@ the attempted fix, and the proof the fix failed:
   "expects micro-decisions, only escalate genuine forks" was a standing
   permission slip for unprompted action. The profile did not merely
   describe; it authorized.
+- And the superlatives were not just mirrored into prose — they degraded
+  the engineering itself, selecting over-built solutions that performed
+  quality rather than having it
+  ([don't ask for perfection](dont-ask-for-perfection.md)).
 
 ## Why the genre fails
 
