@@ -33,7 +33,10 @@ The general form: any tool that writes state into the dependency directory
 `node_modules` into a hidden channel between your "isolated" agents. The
 corruption is silent and intermittent, and it looks exactly like flaky
 tests. For a setup whose whole point is trustworthy parallel checking, that
-is the worst possible failure mode.
+is the worst possible failure mode. (And the still-more-general form:
+[the session has no concurrency
+model](the-session-has-no-concurrency-model.md) — this hazard is one of
+three shared-state failures from a single day.)
 
 ## Reproducing it
 
