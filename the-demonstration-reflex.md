@@ -31,7 +31,8 @@ A second bias makes the collapse expensive. The agent's idea of a good
 answer counts informativeness, not cost. A 500k-token illustration and a
 paragraph score the same unless cost is part of the question. And a
 standing opt-in removes the one moment where I would have said "no, just
-tell me."
+tell me." (The cost-blindness generalizes past demos to all delegation —
+[agents launch at full price](agents-launch-at-full-price.md).)
 
 The practical consequence is backwards: asking questions near an enabled
 capability becomes risky, so the careful user stops asking — which is a

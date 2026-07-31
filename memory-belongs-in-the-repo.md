@@ -33,6 +33,13 @@ down, future sessions benefit. In practice each entry buys five problems:
   repo where their growth gets measured
   ([the rule-efficacy pipeline](the-rule-efficacy-pipeline.md)). The
   memory grows in the dark.
+- **Not project-scoped.** The mechanism keys memory to a directory path,
+  not a repo. Run two projects from one directory — or rename one — and
+  they share memory invisibly. My WebRTC project inherited a blog
+  project's memory for five weeks, including the worst file the mechanism
+  ever produced ([the model's model of you](the-models-model-of-you.md)).
+  Repo-homed knowledge is scoped to its project and travels with it, by
+  construction.
 
 ## The observation that came with it
 
