@@ -1,4 +1,16 @@
 @charset "utf-8";
+/* Assembled from two halves: a structural base (the sidebar shell, the drawer,
+   the reading grid) followed by skin A, "Manual". The skin loads second so it
+   can override the base.
+
+   Five other skins were built and rejected — Ledger, Broadsheet, Blueprint,
+   Almanac and Press. They are not deleted, only unpicked: both halves of all
+   six, plus a README explaining how to swap them, are in commit cb70bbc.
+   Switching skins also means updating `fonts:` in _config.yml.
+
+   Colours here are measured, not eyeballed: body text 16.4:1, secondary text
+   and navigation 7:1, nothing below the 4.5:1 AA requirement in either
+   colour scheme. */
 /* Structure only — the sidebar shell, the drawer, the reading grid.
    Colour, type and density live in the skin. */
 
