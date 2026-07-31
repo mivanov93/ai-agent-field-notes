@@ -31,11 +31,21 @@ experiment agrees on the direction: an explicit voice-preserving
 instruction cut style drift by 32%, and most markers kept drifting
 anyway.
 
-The principle plainly extends past prose — sessions continue the code
-patterns, doc structures, and shortcuts they see, good or bad — and for
+## The experiment I did not mean to run
+
+The strongest evidence has an internal control. My WebRTC project started
+from months of code I wrote by hand; its documentation was model-written
+from day one. Same sessions, same rules, same models — and the code
+quality persisted while the docs and comments turned to mush. The only
+variable was who laid the floor: sessions extending a human-written
+codebase imitated clean work; sessions extending a model-written doc
+corpus made it worse. One project, two corpora, opposite trajectories.
+The model makes more of what you have — whichever direction "more" points.
+
+The principle plainly extends past prose in the literature too — for
 code there is adjacent published evidence (models reproducing insecure
-patterns present in context). For style, no one has run the exact
-experiment.
+patterns present in context). For style, no one has run the controlled
+version deliberately; mine ran itself.
 
 ## What follows
 

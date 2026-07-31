@@ -7,6 +7,11 @@ something went wrong even though the right guidance was in the model's
 context. Each note ends with something enforceable — a check, a lint, a
 ritual — not just advice.
 
+**Scope:** everything here was observed on Claude Opus 4.8, Opus 5, and
+Fable 5, in the Claude Code harness, June–July 2026. By this repo's own
+argument, findings are model-relative — re-measure before assuming they
+hold for yours.
+
 Each finding has its own page, cross-linked to the others. Every page cites
 the closest published work I found and says exactly what I think is new.
 The full search record is in [PRIOR-ART.md](PRIOR-ART.md). Order within
