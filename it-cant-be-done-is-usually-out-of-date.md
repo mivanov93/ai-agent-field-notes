@@ -35,4 +35,4 @@ the assertion-side failure this note names — a model answering a capability
 question with a confident "it can't be done" that was true only at an earlier
 version — reframed as a claim bound to (version, date) that you falsify by
 checking the current upstream release, not the locally installed copy.
-Sibling to [the model's clock stopped at its cutoff](../the-models-clock.md).
+Sibling to [the model's clock stopped at its cutoff](the-models-clock.md).

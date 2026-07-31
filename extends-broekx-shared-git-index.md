@@ -61,5 +61,5 @@ steipete gist prescribes explicit-file commits, framed for agent-to-agent
 coordination. Not found in the sweep: the shared-staging-index sweep between
 a human hand-staging and an agent's unscoped commit, as distinct from the
 shared working tree — the one increment this note claims on top of Broekx.
-Connects to [the session has no concurrency model](../the-session-has-no-concurrency-model.md):
+Connects to [the session has no concurrency model](the-session-has-no-concurrency-model.md):
 the other worker sharing your state can be you.

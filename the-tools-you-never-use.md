@@ -25,8 +25,11 @@ almost none of which it needed.
 
 Treat the connected-tool list as something you curate per project, not a
 pile you accumulate. Turn off the packs this project has no use for. The
-test is empirical: look at what actually got called over real sessions, and
-disconnect the rest.
+test is empirical: look at what actually got called over real sessions — that
+count comes straight out of [the session archive](the-session-archive.md), the
+same record the other measurements here run on — and disconnect the rest. This
+is a different question than mining the archive for a model regression: same
+instrument, you are just asking what you loaded and never called.
 
 ## Prior art
 

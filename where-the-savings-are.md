@@ -37,7 +37,7 @@ The instruction file is the same "do it once" lever, pointed at the
 knowledge that is not a fact to look up but a lesson about how this project
 bites: the stove that is hot, the check that must run, the tool that isn't
 there. Written down once, it is shared with every session
-([the file is scar tissue](../the-file-is-scar-tissue.md)) — but it saves a
+([the file is scar tissue](the-file-is-scar-tissue.md)) — but it saves a
 second way the reference notes do not. It prevents failed runs. A session
 that goes wrong — deletes the wrong thing, works on top of another agent,
 chases a limitation that was fixed months ago — is not cheaper, it is pure
@@ -55,7 +55,7 @@ slow agent, a doomed one. It is why the brief goes in complete before you
 dispatch — a correction sent mid-run may not even land
 ([don't interrupt a working agent](dont-interrupt-a-working-agent.md)) — and
 why the launch itself is worth pricing
-([agents launch at full price](../agents-launch-at-full-price.md)). The
+([agents launch at full price](agents-launch-at-full-price.md)). The
 cheapest agent is the one you did not have to run a second time because you
 set it up right the first.
 
@@ -91,6 +91,16 @@ trips, and you have paid more than the truck would have cost — all to avoid
 renting the truck. Splitting a task small enough to force it onto a model
 that cannot hold it is exactly that. Match the model to the load. The saving
 is in cutting what you did not need, never in under-buying what you did.
+
+## Read it off the archive
+
+None of this is guesswork. The session archive is where you see what to cut:
+which tool-servers were never called, what the model re-derived instead of
+reading, which launched agents failed and burned their whole run, and what each
+turn actually cost from the usage fields
+([the session archive](the-session-archive.md)). Cut from the record, not from
+a hunch — the same instrument that catches a model regression shows you where
+the money goes.
 
 ## The through-line
 

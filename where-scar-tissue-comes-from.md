@@ -1,7 +1,7 @@
 # Where scar tissue comes from
 
 **Claim:** an instruction file is scar tissue — hard-won, non-derivable
-lessons about one project ([the file is scar tissue](../the-file-is-scar-tissue.md)).
+lessons about one project ([the file is scar tissue](the-file-is-scar-tissue.md)).
 This note is where the scar tissue comes from. The retro is the ritual that
 turns one incident into a durable rule: something ships wrong, you ask why
 the checks let it through, and you write the answer down as a new rule or a
@@ -25,7 +25,7 @@ the right guidance was already in context and the work still went wrong, and
 each ends in something enforceable. The instruction file grows the same way —
 not designed up front, accreted one healed incident at a time. The founding
 document is written by hand before the corpus exists
-([the founding document](../the-founding-document.md)); the retros are the
+([the founding document](the-founding-document.md)); the retros are the
 case law that accretes after. And because a good retro often ends in a check
 rather than a sentence, this is where the cheapest savings come from too: a
 rule that stops a run from failing is a run you never pay for twice

@@ -28,7 +28,7 @@ actually drive model development.
 
 ## What follows
 
-This is the incentive-side half of [the dirty house](../the-dirty-house.md).
+This is the incentive-side half of [the dirty house](the-dirty-house.md).
 That note shows the model makes more of whatever the corpus already is —
 clean code on a hand-written floor, rotting docs on a model-written one. This
 is why the asymmetry starts: the model arrives already sharpened on code that
@@ -56,4 +56,4 @@ documentation-adjacent factors — new, academic, not yet leaderboard-driving,
 and not verified in full here. *Status: the benchmark facts are KNOWN; the
 delta is the framing — benchmark blindness to docs as the incentive-side
 cause of documentation rot, the missing half of
-[the dirty house](../the-dirty-house.md).*
+[the dirty house](the-dirty-house.md).*

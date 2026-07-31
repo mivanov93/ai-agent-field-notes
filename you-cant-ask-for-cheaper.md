@@ -47,7 +47,7 @@ There is a deeper reason it can't simply be asked for: the model has no
 running meter. It does not size its own work by cost — it will fan out as
 many helpers as a task's shape suggests, each on the most expensive model,
 without ever counting
-([agents launch at full price](../agents-launch-at-full-price.md)). "Use
+([agents launch at full price](agents-launch-at-full-price.md)). "Use
 less" lands on a system with no sense of how much it is using.
 
 ## The rule

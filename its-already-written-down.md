@@ -34,4 +34,4 @@ The delta: the specific incident — a dependency-quirks catalogue skipped in a
 later, independent session, the answer re-derived competently and redundantly
 — and the cheap instruction-level fix (grep the notes first) rather than
 Vercel's structural fix (remove the decision point by always-loading). Cousin
-of [the demonstration reflex](../the-demonstration-reflex.md).
+of [the demonstration reflex](the-demonstration-reflex.md).

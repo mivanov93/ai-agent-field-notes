@@ -30,10 +30,10 @@ Looping the ask does not add the missing information. It just spends.
 
 "Fix it" assumes the gap is effort. Usually it is not. The gap is a
 hypothesis the model keeps orbiting and never lands on
-([the missing hypothesis is orthogonal](../the-missing-hypothesis-is-orthogonal.md)),
+([the missing hypothesis is orthogonal](the-missing-hypothesis-is-orthogonal.md)),
 a fact that lives nowhere in its context, a check it has no way to run, or a
 limit of the model itself
-([the model doesn't know itself](../the-model-doesnt-know-itself.md)). None
+([the model doesn't know itself](the-model-doesnt-know-itself.md)). None
 of those is closed by asking again, louder, or with a more expensive model.
 Money spent on the same request buys more confident restatements of the same
 non-answer — sometimes an enormous amount of it.
@@ -57,7 +57,7 @@ fails without external feedback (Huang et al., arXiv:2310.01798; Kamoi survey,
 arXiv:2406.01297). Each other prong has separate support: a CHI 2025 study,
 "No Evidence for LLMs Being Useful in Problem Reframing" (arXiv:2503.01631),
 directly backs the reframe prong (and this repo's
-[missing hypothesis is orthogonal](../the-missing-hypothesis-is-orthogonal.md));
+[missing hypothesis is orthogonal](the-missing-hypothesis-is-orthogonal.md));
 a "$47K autonomous-loop" postmortem (2025) is the money-burn incident — more
 agents made it worse, not better; "intelligence does not compose linearly"
 practitioner writing covers the bigger-model prong. The delta: the four-part

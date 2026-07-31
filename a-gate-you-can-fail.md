@@ -52,9 +52,9 @@ arXiv:2406.01297): correction works only with a reliable external signal. Two
 (arXiv:2606.26300), verification as the harder problem, and "Building to the
 Test" (arXiv:2606.28430, verified), where agents hit near-perfect hidden-test
 scores while the library was "dead or absent." Anthropic's verification-loop
-writing sits alongside (see [the link rule](../the-link-rule.md)). The delta:
+writing sits alongside (see [the link rule](the-link-rule.md)). The delta:
 the compact ceiling/floor formulation — the model raises the best case, the
 gate raises the worst case, and the worst case is what ships — grounded in a
 shipped incident. (No single source pairs a clean benchmark-vs-real number,
 so this note states the split without one.) Washing links back to
-[the dirty house](../the-dirty-house.md).
+[the dirty house](the-dirty-house.md).
