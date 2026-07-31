@@ -1,4 +1,4 @@
-# Agent field notes
+# AI Agent field notes
 
 ![Robots and construction machines building the Colosseum and the pyramids — the monuments that took lifetimes, going up in an afternoon](main.webp)
 
@@ -152,6 +152,16 @@ Fowler's "Patterns for Reducing Friction in AI-Assisted Development", the
 Ghostty failure-log pattern, METR's task-horizon work, and the 2025–26
 field-notes genre. What is different here: each practice comes with the
 incident that caused it, a way to enforce it, and the prior art I found.
+
+## Contact
+
+Corrections and prior art belong in an issue — show me earlier work for any
+claim here and it becomes a citation:
+[file one](https://github.com/mivanov93/ai-agent-field-notes/issues/new).
+The source is at
+[github.com/mivanov93/ai-agent-field-notes](https://github.com/mivanov93/ai-agent-field-notes)
+if you want to clone it. Everything else, including what I would most like to
+hear about, is on the [contact page](contact.md).
 
 ---
 

@@ -1,0 +1,58 @@
+title: AI Agent field notes
+description: >-
+  Notes on making AI coding agents behave — each one a real incident, each
+  ending in something enforceable.
+lang: en
+
+# Skin A ("Manual"): Bricolage Grotesque display, Source Serif 4 text,
+# JetBrains Mono for labels. Read by _layouts/default.html.
+fonts: "https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap"
+
+# A hash, not a bare string: jekyll-seo-tag reads author.twitter to set
+# twitter:creator, so a shared link credits the account and not just the name.
+author:
+  name: Mihail Ivanov
+  twitter: mivanov_dev
+
+repository: mivanov93/ai-agent-field-notes
+
+# Spelled out rather than left to site.github.*, so the links are right even
+# when the build has no GitHub metadata (a local build, or a fork).
+repo_url:   https://github.com/mivanov93/ai-agent-field-notes
+issues_url: https://github.com/mivanov93/ai-agent-field-notes/issues
+
+social:
+  x: mivanov_dev
+  site: https://mivanov.dev
+
+# Used by jekyll-seo-tag for the card image when a link is shared.
+image: /main.webp
+twitter:
+  username: mivanov_dev
+  card: summary_large_image
+
+# GitHub Pages runs these by default. Listing them makes the dependency
+# explicit: without optional-front-matter and readme-index the notes are not
+# built at all, and without relative-links every link between them 404s.
+plugins:
+  - jekyll-optional-front-matter   # render .md files that have no front matter
+  - jekyll-readme-index            # README.md becomes the site index
+  - jekyll-relative-links          # [note](note.md) -> note.html
+  - jekyll-titles-from-headings    # page.title from the first heading
+  - jekyll-default-layout
+  - jekyll-github-metadata   # site.github.* — the live issue and profile URLs
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+titles_from_headings:
+  strip_title: false   # keep the H1 in the page; the layout does not reprint it
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+
+exclude:
+  - LICENSE
+  - .idea

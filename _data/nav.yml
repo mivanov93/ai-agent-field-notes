@@ -1,0 +1,109 @@
+# The sidebar. GENERATED FROM README.md's section tables — the README stays
+# the source of truth for what exists and in what order. Regenerate with
+#   python3 script/build-nav.py
+# after adding, removing, or reordering a finding.
+
+- section: "Principles"
+  note: "how the model actually behaves"
+  items:
+    - title: "The dirty house"
+      url: "the-dirty-house.md"
+    - title: "The model doesn't know itself"
+      url: "the-model-doesnt-know-itself.md"
+    - title: "The model's clock stopped at its cutoff"
+      url: "the-models-clock.md"
+    - title: "The missing hypothesis is orthogonal"
+      url: "the-missing-hypothesis-is-orthogonal.md"
+    - title: "The file is scar tissue"
+      url: "the-file-is-scar-tissue.md"
+    - title: "A gate you can fail"
+      url: "a-gate-you-can-fail.md"
+    - title: "AI is not Mr. Fix-IT"
+      url: "ai-is-not-mr-fix-it.md"
+    - title: "\"It can't be done\" is usually out of date"
+      url: "it-cant-be-done-is-usually-out-of-date.md"
+    - title: "The docs aren't on the test"
+      url: "the-docs-arent-on-the-test.md"
+    - title: "The month that takes a day"
+      url: "the-month-that-takes-a-day.md"
+- section: "Failure modes"
+  note: "what goes wrong in practice"
+  items:
+    - title: "The model votes for more rules"
+      url: "the-model-votes-for-more-rules.md"
+    - title: "The model's model of you"
+      url: "the-models-model-of-you.md"
+    - title: "Don't ask for perfection"
+      url: "dont-ask-for-perfection.md"
+    - title: "Bans rotate the vocabulary"
+      url: "bans-rotate-the-vocabulary.md"
+      original: true
+    - title: "The demonstration reflex"
+      url: "the-demonstration-reflex.md"
+    - title: "Agents launch at full price"
+      url: "agents-launch-at-full-price.md"
+    - title: "The session has no concurrency model"
+      url: "the-session-has-no-concurrency-model.md"
+    - title: "Descriptive statements as directives"
+      url: "descriptive-statements-as-directives.md"
+    - title: "The hardlink hazard"
+      url: "the-hardlink-hazard.md"
+      original: true
+    - title: "All green, still broken"
+      url: "all-green-still-broken.md"
+    - title: "Move the code, lose the test"
+      url: "move-the-code-lose-the-test.md"
+    - title: "Notes that rot"
+      url: "notes-that-rot.md"
+      original: true
+    - title: "Don't interrupt a working agent"
+      url: "dont-interrupt-a-working-agent.md"
+    - title: "It's already written down"
+      url: "its-already-written-down.md"
+    - title: "You can't ask for cheaper"
+      url: "you-cant-ask-for-cheaper.md"
+      original: true
+    - title: "Extension of Broekx: the shared git index"
+      url: "extends-broekx-shared-git-index.md"
+      extends: true
+    - title: "The leak is in the cleanup"
+      url: "the-leak-is-in-the-cleanup.md"
+- section: "Methods"
+  note: "what actually works"
+  items:
+    - title: "The link rule"
+      url: "the-link-rule.md"
+      original: true
+    - title: "The clean room"
+      url: "the-clean-room.md"
+      original: true
+    - title: "The decision drain test"
+      url: "the-decision-drain-test.md"
+      original: true
+    - title: "The cross-model audit"
+      url: "the-cross-model-audit.md"
+      original: true
+    - title: "The session archive"
+      url: "the-session-archive.md"
+    - title: "The rule-efficacy pipeline"
+      url: "the-rule-efficacy-pipeline.md"
+      original: true
+    - title: "Vocabulary control"
+      url: "vocabulary-control.md"
+      original: true
+    - title: "The founding document"
+      url: "the-founding-document.md"
+    - title: "Memory belongs in the repo"
+      url: "memory-belongs-in-the-repo.md"
+    - title: "Decide the shape first"
+      url: "decide-the-shape-first.md"
+      original: true
+    - title: "The tools you never use"
+      url: "the-tools-you-never-use.md"
+    - title: "Where the savings are"
+      url: "where-the-savings-are.md"
+      original: true
+    - title: "Where scar tissue comes from"
+      url: "where-scar-tissue-comes-from.md"
+    - title: "The face transplant"
+      url: "the-face-transplant.md"

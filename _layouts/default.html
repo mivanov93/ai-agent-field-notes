@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="{{ site.lang | default: 'en' }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="{{ '/assets/favicon.svg' | relative_url }}" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="{{ site.fonts }}">
+<link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+{% seo %}
+</head>
+<body>
+
+<a class="skip" href="#content">Skip to content</a>
+
+<!-- The drawer is a checkbox, so navigation works with JavaScript disabled. -->
+<input type="checkbox" id="nav-toggle" class="nav-toggle">
+
+<header class="topbar">
+  <label for="nav-toggle" class="burger" title="Menu">
+    <span></span><span></span><span></span>
+    <em class="sr">Menu</em>
+  </label>
+  <a class="wordmark" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+</header>
+
+<label for="nav-toggle" class="scrim" hidden></label>
+
+<div class="shell">
+
+  <aside class="sidebar">
+    <!-- The rail leads with the byline; the index H1 carries the title, so
+         repeating it here at the same weight just says it twice. -->
+    <div class="rail-top">
+      <a class="wordmark wordmark-rail" href="{{ '/' | relative_url }}">
+        <span class="wordmark-title"><i class="wordmark-star">&#9733;</i>{{ site.title }}</span>
+        <span class="wordmark-name">by <strong>{{ site.author.name }}</strong></span>
+      </a>
+      <label for="nav-toggle" class="drawer-close" title="Close menu">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <em class="sr">Close menu</em>
+      </label>
+    </div>
+
+    <form class="search" role="search" onsubmit="return false">
+      <input type="search" id="q" autocomplete="off" spellcheck="false"
+             placeholder="Search the notes" aria-label="Search the notes">
+      <kbd class="search-key">/</kbd>
+    </form>
+    <div class="results" id="results" hidden></div>
+
+    <nav class="rail-nav">
+    <!-- nav:start -->
+      {%- assign n = 0 %}
+      {%- for group in site.data.nav %}
+      {%- assign n = n | plus: 1 %}
+      <section class="rail-group">
+        <h2 class="rail-head"><i>{{ n | prepend: '0' | slice: -2, 2 }}</i>{{ group.section }}</h2>
+        <ul>
+          {%- for item in group.items %}
+          {%- assign href = item.url | replace: '.md', '.html' | prepend: '/' %}
+          <li>
+            <a href="{{ href | relative_url }}"{% if page.url == href %} aria-current="page"{% endif %}>
+              {%- if item.original %}<span class="mk mk-original" title="Most original">&#9733;</span>
+              {%- elsif item.extends %}<span class="mk mk-extends" title="Extends published work">&#8627;</span>
+              {%- else %}<span class="mk"></span>
+              {%- endif %}
+              <span>{{ item.title }}</span>
+            </a>
+          </li>
+          {%- endfor %}
+        </ul>
+      </section>
+      {%- endfor %}
+
+      <section class="rail-group rail-meta">
+        <h2 class="rail-head"><i>&mdash;</i>The record</h2>
+        <ul>
+          <li><a href="{{ '/the-story.html' | relative_url }}"{% if page.url == '/the-story.html' %} aria-current="page"{% endif %}><span class="mk"></span><span>The story</span></a></li>
+          <li><a href="{{ '/METHODOLOGY.html' | relative_url }}"{% if page.url == '/METHODOLOGY.html' %} aria-current="page"{% endif %}><span class="mk"></span><span>Methodology</span></a></li>
+          <li><a href="{{ '/PRIOR-ART.html' | relative_url }}"{% if page.url == '/PRIOR-ART.html' %} aria-current="page"{% endif %}><span class="mk"></span><span>Prior-art dossier</span></a></li>
+          <li><a href="{{ '/CONTEXT.html' | relative_url }}"{% if page.url == '/CONTEXT.html' %} aria-current="page"{% endif %}><span class="mk"></span><span>Context</span></a></li>
+          <li><a href="{{ '/contact.html' | relative_url }}"{% if page.url == '/contact.html' %} aria-current="page"{% endif %}><span class="mk"></span><span>Contact</span></a></li>
+          <li><a href="{{ site.repo_url }}"><span class="mk">&#8599;</span><span>Source on GitHub</span></a></li>
+          <li><a href="{{ site.issues_url }}/new"><span class="mk">&#8599;</span><span>File an issue</span></a></li>
+        </ul>
+      </section>
+    <!-- nav:end -->
+    </nav>
+  </aside>
+
+  <main id="content">
+    <article>
+      {{ content }}
+    </article>
+
+    <!-- Filled from the page's own headings; removed when there are too few. -->
+    <aside class="onpage" hidden>
+      <h2 class="onpage-head">On this page</h2>
+      <ol></ol>
+    </aside>
+
+  </main>
+
+</div>
+
+<footer class="sitebar">
+  <p class="sitebar-id">
+    <i class="wordmark-star">&#9733;</i>
+    <span>{{ site.title }}</span>
+    <span class="sitebar-sep">&middot;</span>
+    <span>by {{ site.author.name }}</span>
+    <span class="sitebar-sep">&middot;</span>
+    <span>MIT</span>
+  </p>
+  <nav class="sitebar-links">
+    <a href="{{ '/contact.html' | relative_url }}">Contact</a>
+    <a href="{{ site.repo_url }}">GitHub</a>
+    <a href="{{ site.issues_url }}/new">File an issue</a>
+  </nav>
+</footer>
+
+<script>
+// Progressive enhancement only. Nothing below is required to read the site.
+(function () {
+  var toggle = document.getElementById('nav-toggle');
+
+  // Scroll lock behind the drawer. CSS handles this via :has(); this is the
+  // fallback, and it keeps the two in step.
+  function sync() { document.body.classList.toggle('nav-open', toggle.checked); }
+  toggle.addEventListener('change', sync);
+  sync();
+
+  // Close the drawer after following a link, and on Escape.
+  document.querySelectorAll('.sidebar a').forEach(function (a) {
+    a.addEventListener('click', function () { toggle.checked = false; sync(); });
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && toggle.checked) { toggle.checked = false; sync(); }
+  });
+
+  // Keep the current entry in view in a 41-item rail.
+  var here = document.querySelector('.sidebar a[aria-current="page"]');
+  if (here) here.scrollIntoView({ block: 'center' });
+
+  // ---------------------------------------------------------------- search
+  // The index is built by search.json at publish time and fetched once, on
+  // first use — no reason to make every reader pay for it up front.
+  var q = document.getElementById('q');
+  var results = document.getElementById('results');
+  var railNav = document.querySelector('.rail-nav');
+  var index = null, loading = null, picked = -1;
+
+  function load() {
+    if (loading) return loading;
+    loading = fetch('{{ "/search.json" | relative_url }}')
+      .then(function (r) { return r.json(); })
+      .then(function (data) { index = data; return data; })
+      .catch(function () { index = []; return []; });
+    return loading;
+  }
+
+  function esc(s) {
+    return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+
+  function snippet(text, terms) {
+    var low = text.toLowerCase(), at = -1;
+    for (var i = 0; i < terms.length && at < 0; i++) at = low.indexOf(terms[i]);
+    if (at < 0) at = 0;
+    var from = Math.max(0, at - 80);
+    var cut = text.slice(from, from + 200);
+    if (from > 0) cut = '…' + cut;
+    if (from + 200 < text.length) cut += '…';
+    var out = esc(cut);
+    terms.forEach(function (t) {
+      out = out.replace(new RegExp('(' + t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi'),
+                        '<mark>$1</mark>');
+    });
+    return out;
+  }
+
+  function run() {
+    var raw = q.value.trim();
+    if (!raw) {
+      results.hidden = true;
+      results.innerHTML = '';
+      railNav.hidden = false;
+      picked = -1;
+      return;
+    }
+    load().then(function () { render(raw); });
+  }
+
+  function render(raw) {
+    if (q.value.trim() !== raw) return;   // a later keystroke already won
+    var terms = raw.toLowerCase().split(/\s+/).filter(Boolean);
+
+    var hits = [];
+    index.forEach(function (doc) {
+      var title = doc.t.toLowerCase(), body = doc.c.toLowerCase(), score = 0;
+      for (var i = 0; i < terms.length; i++) {
+        var inTitle = title.indexOf(terms[i]) >= 0;
+        var inBody = body.indexOf(terms[i]) >= 0;
+        if (!inTitle && !inBody) return;        // every term must appear
+        if (inTitle) score += 20;
+        if (inBody) score += Math.min(6, body.split(terms[i]).length - 1);
+      }
+      hits.push({ doc: doc, score: score });
+    });
+    hits.sort(function (a, b) { return b.score - a.score; });
+    hits = hits.slice(0, 25);
+
+    if (!hits.length) {
+      results.innerHTML = '<p class="results-none">No note matches ' +
+        '<strong>' + esc(raw) + '</strong>.</p>';
+    } else {
+      results.innerHTML =
+        '<p class="results-count">' + hits.length +
+        (hits.length === 1 ? ' note' : ' notes') + '</p><ul>' +
+        hits.map(function (h) {
+          return '<li><a href="' + h.doc.u + '"><span class="results-title">' +
+            esc(h.doc.t) + '</span><span class="results-snip">' +
+            snippet(h.doc.c, terms) + '</span></a></li>';
+        }).join('') + '</ul>';
+    }
+    results.hidden = false;
+    railNav.hidden = true;
+    picked = -1;
+  }
+
+  if (q) {
+    var debounce;
+    q.addEventListener('input', function () {
+      clearTimeout(debounce);
+      debounce = setTimeout(run, 90);
+    });
+    q.addEventListener('focus', load);
+
+    // "/" anywhere focuses the box, the way every docs site behaves.
+    document.addEventListener('keydown', function (e) {
+      if (e.key === '/' && document.activeElement !== q &&
+          !/^(INPUT|TEXTAREA)$/.test(document.activeElement.tagName)) {
+        e.preventDefault();
+        toggle.checked = true; sync();     // on mobile the box lives in the drawer
+        q.focus();
+        q.select();
+      }
+    });
+
+    // Escape clears; arrows walk the results; Enter opens the highlighted one.
+    q.addEventListener('keydown', function (e) {
+      var links = results.hidden ? [] : Array.prototype.slice.call(results.querySelectorAll('a'));
+      if (e.key === 'Escape') { q.value = ''; run(); q.blur(); return; }
+      if (!links.length) return;
+      if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+        e.preventDefault();
+        picked += (e.key === 'ArrowDown' ? 1 : -1);
+        if (picked < 0) picked = links.length - 1;
+        if (picked >= links.length) picked = 0;
+        links.forEach(function (a, i) { a.classList.toggle('on', i === picked); });
+        links[picked].scrollIntoView({ block: 'nearest' });
+      } else if (e.key === 'Enter') {
+        e.preventDefault();
+        (links[picked] || links[0]).click();
+      }
+    });
+  }
+
+  // On-this-page column, built from the article's own h2s.
+  var heads = document.querySelectorAll('article > h2');
+  var onpage = document.querySelector('.onpage');
+  if (heads.length >= 3 && onpage) {
+    var list = onpage.querySelector('ol');
+    heads.forEach(function (h, i) {
+      if (!h.id) h.id = 'sec-' + (i + 1);
+      var li = document.createElement('li');
+      var a = document.createElement('a');
+      a.href = '#' + h.id;
+      a.textContent = h.textContent;
+      li.appendChild(a);
+      list.appendChild(li);
+    });
+    onpage.hidden = false;
+
+    // Mark the section being read. Driven by scroll position, not by
+    // IntersectionObserver: "is this heading inside a band" only has an answer
+    // while a heading is crossing that band, so it flickers and leaves the gaps
+    // between headings unmarked.
+    var links = Array.prototype.slice.call(list.querySelectorAll('a'));
+    var LINE = 140;              // a heading counts as read once it passes this
+    var current = -1;
+    var lockUntil = 0;           // a click beats the scroll heuristic
+
+    function show(i) {
+      if (i === current) return;   // only touch the DOM when it actually changes
+      current = i;
+      links.forEach(function (a, n) { a.classList.toggle('here', n === i); });
+    }
+
+    function mark() {
+      if (performance.now() < lockUntil) return;
+
+      var i = 0;
+      for (var n = 0; n < heads.length; n++) {
+        if (heads[n].getBoundingClientRect().top <= LINE) i = n; else break;
+      }
+
+      // No bottom-of-page special case is needed: every page carries enough
+      // trailing space for its last heading to reach the line on its own.
+      show(i);
+    }
+
+    // Clicking is an explicit statement about what you are reading. It must
+    // win even when the page cannot scroll far enough to prove it.
+    links.forEach(function (a, n) {
+      a.addEventListener('click', function () {
+        lockUntil = performance.now() + 800;
+        show(n);
+      });
+    });
+
+    // Give the page exactly enough tail to scroll its last section up to the
+    // line — no more. A fixed padding appends a whole screen of blank after
+    // the final section however tall that section already is, and you end up
+    // scrolling through emptiness.
+    var article = document.querySelector('article');
+    function fitTail() {
+      article.style.paddingBottom = '0px';
+      var bar = parseFloat(getComputedStyle(document.documentElement)
+        .getPropertyValue('--bar')) * 16 || 44;
+      var last = heads[heads.length - 1];
+      var below = document.documentElement.scrollHeight
+        - (last.getBoundingClientRect().top + window.scrollY);
+
+      // What the last heading needs to reach the line. The footer is pinned
+      // over the bottom of the viewport, so that height is covered rather than
+      // usable — it gets added, not subtracted.
+      var need = window.innerHeight - LINE + bar - below;
+
+      // And a floor, so a page whose last section is already tall still ends
+      // with room to breathe instead of stopping dead. A quarter-screen reads
+      // as the end of a page; a whole screen reads as a void.
+      var comfort = window.innerHeight * 0.28;
+
+      article.style.paddingBottom = Math.round(Math.max(comfort, need)) + 'px';
+    }
+
+    var ticking = false;
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () { ticking = false; mark(); });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', function () { fitTail(); onScroll(); }, { passive: true });
+
+    fitTail();
+    // Web fonts land after first paint and change every height.
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitTail);
+    window.addEventListener('load', fitTail);
+    mark();
+  }
+
+  // Two-column tables are the finding lists: title + one-line summary. They
+  // read better as entries than as a prose table. Wider tables keep their
+  // shape and scroll.
+  document.querySelectorAll('main table').forEach(function (table) {
+    var heads = Array.prototype.map.call(table.querySelectorAll('thead th'),
+      function (th) { return th.textContent.trim(); });
+
+    if (heads.length === 2) {
+      table.classList.add('entries');
+      table.querySelectorAll('tbody tr').forEach(function (row) {
+        var cell = row.cells[0], first = cell && cell.firstChild;
+        if (!first || first.nodeType !== 3) return;
+        var m = first.nodeValue.match(/^\s*([★↳])\s*/);
+        if (!m) return;
+        first.nodeValue = first.nodeValue.slice(m[0].length);
+        var mark = document.createElement('span');
+        mark.className = 'mk ' + (m[1] === '★' ? 'mk-original' : 'mk-extends');
+        mark.textContent = m[1] === '★' ? '★' : '↳';
+        mark.title = m[1] === '★' ? 'Most original' : 'Extends published work';
+        cell.insertBefore(mark, cell.firstChild);
+      });
+      return;
+    }
+
+    var wrap = document.createElement('div');
+    wrap.className = 'table-wrap';
+    table.parentNode.insertBefore(wrap, table);
+    wrap.appendChild(table);
+  });
+})();
+</script>
+
+</body>
+</html>
