@@ -42,12 +42,16 @@ that needs actual rewriting.
 
 ## The failure hypothesis, stated up front
 
-I expect the barrier to stop the copying and not the voice. The model's
-default register — bubbly, over-structured — comes from its training
-data, not from my repo. A writer that never reads my dirty docs still has
-its own habits, and the measured expectation for style rules is
-attenuation, not control. There is also a subtler leak: the reader picks
-the words inside each record's fields, and the reader did read the
+Two different problems hide under "bad style," and the clean room targets only
+one. It is built to strip the style your corpus imported and now re-teaches —
+the dirty house. It does nothing about the model's *inherent* default register,
+bubbly and over-structured, which comes from its training data rather than your
+repo and which no barrier around your corpus can reach
+([don't ask for perfection](dont-ask-for-perfection.md) is nearer that one). So
+I expect the barrier to stop the copying and not the voice: a writer that never
+reads my dirty docs still has its own habits, and the measured expectation for
+style rules is attenuation, not control. There is also a subtler leak: the
+reader picks the words inside each record's fields, and the reader did read the
 original.
 
 ## The experiment that settles it
