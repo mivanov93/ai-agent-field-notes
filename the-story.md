@@ -114,14 +114,32 @@ kill criterion ([the decision drain test](the-decision-drain-test.md)).
 
 ## The third diagnosis: the house needs a clean room
 
-The measurements finally forced the real explanation — including the one
-I had been missing since the first diagnosis. Deleting the profile had
-not helped because the profile had already seeded the corpus, and the
-corpus now taught the style on its own. Contamination outlives its
-source. The corpus outweighs the rules 880 to 1, instructions attenuate
-imitation without reversing it, and a model asked to rewrite dirty text
-is being handed the dirt as its exemplar. No amount of rules cleans a
-floor the model reads on every pass.
+First I tried to research my way out. A huge deep-research pass came back
+with the complete catalogue of wrong advice: all projects have this
+filth; remove your rules; add more rules; keep things clean going forward
+and deal with the old mess later. Every answer was an amount of rule or a
+postponement — the model exploring the axis of my question, never leaving
+it.
+
+The realization came from me, not the research: the model walks into a
+dirty house and adds to the dirt. I suggested it, and once the hypothesis
+existed, the confirmation was already lying there. The natural experiment
+had run for weeks — docs degrading while code on my hand-written floor
+stayed clean. And the research's own strongest "finding" flipped
+polarity: the other repos with no rules were not evidence that rules
+cause filth — they were repos that had never started with bad
+instructions. Their floors began clean, so they never needed signs on the
+wall. Same observation, opposite conclusion, once the right hypothesis
+reorganized it.
+
+The measurements then made it quantitative — including the piece I had
+been missing since the first diagnosis. Deleting the profile had not
+helped because the profile had already seeded the corpus, and the corpus
+now taught the style on its own. Contamination outlives its source. The
+corpus outweighs the rules 880 to 1, instructions attenuate imitation
+without reversing it, and a model asked to rewrite dirty text is being
+handed the dirt as its exemplar. No amount of rules cleans a floor the
+model reads on every pass.
 
 The only fix that changes the mechanism instead of the amount is a
 barrier: a reader that extracts facts into typed records, a writer that
