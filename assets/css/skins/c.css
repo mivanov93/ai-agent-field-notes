@@ -1,0 +1,60 @@
+@charset "utf-8";
+/* C — BROADSHEET. A printed technical journal: newsprint stock, deep ink,
+   one plate blue. Big characterful display type against a plain rail. */
+
+:root {
+  --display: "Fraunces", Georgia, serif;
+  --body:    "Newsreader", Georgia, serif;
+  --mono:    "IBM Plex Mono", ui-monospace, monospace;
+
+  --bg:      #fdfcf8;
+  --sunk:    #f2efe6;
+  --rail-bg: #f7f4ec;
+  --fg:      #14171d;
+  --muted:   #525764;
+  --rule:    #ddd8cb;
+  --accent:  #16457a;
+  --rail-fg: #4e535f;
+
+  --rail: clamp(19.5rem, 21vw, 27rem);
+  --rail-pad: 2.2rem 1.5rem 3rem;
+  --measure: 43rem;
+  --measure-wide: 51rem;
+  --entries-max: 56rem;
+  --size: 1.15rem;
+  --leading: 1.66;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #10120f; --sunk: #191b18; --rail-bg: #0c0e0b;
+    --fg: #ece9df; --muted: #9c9f95; --rule: #292c27; --accent: #7aa9e0;
+    --rail-fg: #a8ab9f;
+  }
+}
+
+.wordmark-rail { padding-bottom: 1.3rem; border-bottom: 3px double var(--rule); }
+.wordmark-title { font-variation-settings: "SOFT" 20, "WONK" 1; font-size: 1.12rem; }
+.wordmark-star { color: var(--accent); font-size: .7em; }
+.topbar .wordmark { font-family: var(--display); font-size: 1.02rem; font-weight: 600; letter-spacing: -.02em; }
+
+.rail-head { font-family: var(--mono); font-size: .62rem; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); margin-top: .5rem; padding-bottom: .35rem; border-bottom: 1px solid var(--rule); }
+.rail-head i { color: var(--accent); opacity: 1; }
+
+.rail-nav a { font-family: var(--body); font-size: .94rem; line-height: 1.36; --rail-hover: var(--sunk); }
+.rail-nav a[aria-current="page"] { background: none; box-shadow: none; text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: .2em; }
+
+h1 { font-family: var(--display); font-size: clamp(2.3rem, 1.3rem + 4vw, 3.6rem); font-weight: 600; font-variation-settings: "SOFT" 25, "WONK" 1, "opsz" 100; line-height: 1.02; letter-spacing: -.028em; margin: 0 0 .5em; text-wrap: balance; }
+h2 { font-family: var(--display); font-size: 1.62rem; font-weight: 600; font-variation-settings: "SOFT" 20, "WONK" 1; line-height: 1.16; margin: 2.6em 0 .55em; padding-top: .9rem; border-top: 3px double var(--rule); text-wrap: balance; }
+h3 { font-family: var(--display); font-size: 1.2rem; font-weight: 600; margin: 2em 0 .45em; }
+h4 { font-family: var(--mono); font-size: .68rem; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin: 2em 0 .6em; }
+
+/* the opening paragraph gets journal treatment */
+h1 + p { font-size: 1.33rem; line-height: 1.48; color: var(--fg); }
+h1 + p::first-line { font-variant-caps: small-caps; letter-spacing: .02em; }
+
+blockquote { font-style: italic; border-left-width: 3px; }
+
+table.entries td:first-child { font-family: var(--display); font-size: 1.1rem; font-weight: 600; font-variation-settings: "SOFT" 20, "WONK" 1; }
+table.entries tr { border-top-style: solid; }
+table.entries tr:hover td:first-child { color: var(--accent); }

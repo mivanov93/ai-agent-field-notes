@@ -1,0 +1,61 @@
+@charset "utf-8";
+/* B — LEDGER. Dark instrument panel. Near-black ground, warm bone text, one
+   amber signal. Mono metadata, tight rail, high information density. */
+
+:root {
+  --display: "Archivo", system-ui, sans-serif;
+  --body:    "IBM Plex Serif", Georgia, serif;
+  --mono:    "IBM Plex Mono", ui-monospace, monospace;
+
+  --bg:      #0d0f11;
+  --sunk:    #14171a;
+  --rail-bg: #090a0c;
+  --fg:      #dfe3e6;
+  --muted:   #959ea4;
+  --rule:    #212629;
+  --accent:  #f0a626;
+  --rail-fg: #9aa4ab;
+
+  --rail: clamp(19rem, 20vw, 26rem);
+  --rail-pad: 1.9rem 1.3rem 3rem;
+  --measure: 45rem;
+  --measure-wide: 54rem;
+  --entries-max: 58rem;
+  --size: 1.0625rem;
+  --leading: 1.66;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #fcfcfb; --sunk: #f1f2f0; --rail-bg: #14171a;
+    --fg: #14171a; --muted: #52585d; --rule: #e0e2e0; --accent: #9a6009;
+    --rail-fg: #a3acb2; --rail-accent: #f0a626; --rail-name: #ffffff;
+  }
+  .sidebar { color: #dfe3e6; }
+  .sidebar .wordmark-rail { padding-bottom: 1.2rem; border-bottom: 1px solid var(--rule); }
+  .rail-nav a:hover { color: #fff; }
+}
+
+.wordmark-rail { display: flex; align-items: baseline; gap: .55em; font-family: var(--mono); font-size: .68rem; font-weight: 500; letter-spacing: .19em; text-transform: uppercase; padding-bottom: 1.3rem; border-bottom: 1px solid var(--rule); }
+.wordmark-star { color: var(--accent); }
+.topbar { background: var(--rail-bg); }
+.topbar .wordmark { font-family: var(--mono); font-size: .68rem; letter-spacing: .18em; text-transform: uppercase; color: #dfe3e6; }
+.topbar .burger span { background: #dfe3e6; }
+
+.rail-head { font-family: var(--mono); font-size: .6rem; font-weight: 500; letter-spacing: .18em; text-transform: uppercase; color: #6b757b; margin-top: .4rem; }
+.rail-head i { color: var(--accent); opacity: 1; }
+
+.rail-nav a { font-family: var(--mono); font-size: .755rem; line-height: 1.5; letter-spacing: -.005em; --rail-hover: rgba(255,255,255,.045); }
+.rail-nav a[aria-current="page"] { background: rgba(240,166,38,.14); box-shadow: inset 2px 0 0 var(--accent); border-radius: 0 2px 2px 0; font-weight: 500; }
+
+h1 { font-family: var(--display); font-size: clamp(1.95rem, 1.2rem + 2.8vw, 2.75rem); font-weight: 600; line-height: 1.08; letter-spacing: -.028em; margin: 0 0 .5em; text-wrap: balance; }
+h2 { font-family: var(--display); font-size: 1.32rem; font-weight: 600; letter-spacing: -.015em; margin: 2.7em 0 .6em; padding-top: .8rem; border-top: 1px solid var(--rule); text-wrap: balance; }
+h2::before { content: ""; display: block; width: 2.2rem; height: 2px; background: var(--accent); margin-bottom: .8rem; margin-top: -.8rem; }
+h3 { font-family: var(--display); font-size: 1.06rem; font-weight: 600; margin: 2em 0 .5em; }
+h4 { font-family: var(--mono); font-size: .66rem; font-weight: 500; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); margin: 2em 0 .6em; }
+
+h1 + p { font-size: 1.14rem; line-height: 1.55; color: var(--fg); }
+
+table.entries td:first-child { font-family: var(--display); font-size: .99rem; font-weight: 600; letter-spacing: -.012em; }
+table.entries td:last-child { font-family: var(--body); }
+table.entries tr:hover td:first-child { color: var(--accent); }

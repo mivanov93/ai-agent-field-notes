@@ -1,0 +1,60 @@
+@charset "utf-8";
+/* F — PRESS. A's bones at higher contrast: near-white stock, true black ink,
+   a hotter red, and a tighter grotesk. Less cosy, more printed. */
+
+:root {
+  --display: "Familjen Grotesk", system-ui, sans-serif;
+  --body:    "Crimson Pro", Georgia, serif;
+  --mono:    "Fragment Mono", ui-monospace, monospace;
+
+  --bg:       #fbfaf8;
+  --sunk:     #efedea;
+  --rail-bg:  #14130f;      /* an inked rail against a white page */
+  --fg:       #0b0b0a;
+  --muted:    #565450;
+  --rule:     #e2dfda;
+  --accent:   #c02110;
+  --rail-fg:  #a8a49c;
+  --rail-name: #ffffff;
+  --rail-accent: #ff7a5c;
+
+  --rail: clamp(19rem, 20vw, 26rem);
+  --rail-pad: 2.1rem 1.4rem 3rem;
+  --measure: 45rem;
+  --measure-wide: 54rem;
+  --entries-max: 56rem;
+  --size: 1.18rem;          /* Crimson Pro runs small */
+  --leading: 1.6;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0b0b0a; --sunk: #151513; --rail-bg: #000000;
+    --fg: #f2f0ec; --muted: #9d9a94; --rule: #24231f; --accent: #ff6a52;
+    --rail-fg: #a8a49c; --rail-name: #ffffff; --rail-accent: #ff7a5c;
+  }
+}
+
+.wordmark-rail { padding-bottom: 1.2rem; border-bottom: 1px solid #2b2a25; }
+.wordmark-title { font-weight: 700; letter-spacing: -.022em; }
+.wordmark-star { color: var(--rail-accent); }
+.topbar { background: var(--rail-bg); }
+.topbar .wordmark { font-family: var(--display); font-weight: 700; font-size: .95rem; letter-spacing: -.02em; color: #fff; }
+.topbar .burger span { background: #fff; }
+
+.rail-head { font-family: var(--mono); font-size: .6rem; letter-spacing: .16em; text-transform: uppercase; color: #7d7970; margin-top: .45rem; }
+.rail-head i { color: var(--rail-accent); opacity: 1; }
+
+.rail-nav a { font-family: var(--display); font-size: .86rem; font-weight: 500; line-height: 1.4; letter-spacing: -.006em; --rail-hover: rgba(255,255,255,.06); }
+.rail-nav a:hover { color: #fff; }
+.rail-nav a[aria-current="page"] { color: var(--rail-accent); background: rgba(255,122,92,.13); box-shadow: inset 2px 0 0 var(--rail-accent); border-radius: 0 2px 2px 0; }
+
+h1 { font-family: var(--display); font-size: clamp(2.2rem, 1.3rem + 3.4vw, 3.2rem); font-weight: 700; line-height: 1.02; letter-spacing: -.032em; margin: 0 0 .5em; text-wrap: balance; }
+h2 { font-family: var(--display); font-size: 1.46rem; font-weight: 700; letter-spacing: -.02em; line-height: 1.18; margin: 2.6em 0 .55em; padding-top: .85rem; border-top: 2px solid var(--fg); text-wrap: balance; }
+h3 { font-family: var(--display); font-size: 1.12rem; font-weight: 600; margin: 2em 0 .45em; }
+h4 { font-family: var(--mono); font-size: .66rem; letter-spacing: .13em; text-transform: uppercase; color: var(--muted); margin: 2em 0 .6em; }
+
+h1 + p { font-size: 1.3rem; line-height: 1.45; color: var(--fg); }
+
+table.entries td:first-child { font-family: var(--display); font-size: 1.06rem; font-weight: 700; letter-spacing: -.018em; }
+table.entries tr:hover td:first-child { color: var(--accent); }
