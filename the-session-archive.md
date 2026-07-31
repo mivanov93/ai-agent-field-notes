@@ -67,6 +67,21 @@ from the per-message usage fields; decisions that never made it into the
 decision log; and the humble one that pays weekly — "did we already try
 this," answered from the record instead of re-derived at full price.
 
+## What I actually ran on it
+
+None of this is hypothetical. With the transcripts attributed per message to
+the model that wrote them, I asked: per thousand tool calls, each model's rate
+of assistant-fault tool errors and of editing a file without reading it first;
+per thousand of my own messages, how often I corrected a wrong claim versus
+asked a skeptical "are you sure"; and per era, how often each model launched a
+background agent, talked about parallelizing, or edited a file while one of its
+own read-only lanes was mid-read. One durable, model-specific result fell out —
+one model initiated delegation roughly six times less than the other two — and
+two of the loudest early findings turned out to be detector artifacts, caught
+and retracted only because the raw record was there to re-check
+([the cross-model audit](the-cross-model-audit.md)). None of it lives in the
+repo; all of it came out of the transcripts, and only because they were kept.
+
 ## Prior art
 
 **Verdict: PARTIAL — and the backup tools are not the claim.** Two different

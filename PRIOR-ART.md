@@ -124,7 +124,10 @@ ban-driven vocabulary rotation in LLM collaboration.
 ## Addendum: the clean-room design (2026-07-31)
 
 The design doc behind the clean-room page states its borrowed/new split
-precisely.
+precisely. On the terminology question directly: the *name* is borrowed —
+"clean room" is an established term from clean-room reverse engineering — and
+what is coined here is applying that barrier to strip a house style from an AI
+corpus; the name is not mine, the AI use is.
 Borrowed: the clean-room name and read/write barrier (copyright-safe
 reimplementation practice; legal commentary notes weight-level
 contamination remains unsettled there); extract-then-generate
@@ -156,3 +159,174 @@ recommends the piling when asked. Unclaimed: the advice-loop as a named
 operational trap, the normalization mechanism, the axis problem and the
 originate/verify asymmetry, and the falsification requirement on
 model-drafted self-rules.
+
+## The 2026-07-31 sweeps — every remaining page
+
+A second and third pass searched every claim the 2026-07-30 dossier had not
+covered as its own: the ten previously-unsearched published pages, and the
+sixteen pages promoted from drafts. One lane per page over public 2024–2026
+material (WebFetch was down during these runs, so lanes fetched via curl and
+the browser tool, and I re-verified the load-bearing citations myself). Every
+verdict came back PARTIAL, or KNOWN-leaning where the fact is established and
+only the framing is new — none was preempted. Each page carries its full
+citations; consolidated here.
+
+### The ten published pages (re-searched)
+
+- **the-founding-document** — PARTIAL. Panaversity's "Project Constitution" and
+  GitHub Spec Kit (`/speckit.constitution`) put a constitution before code, but
+  AI-drafted and with no case-law layer; ETH's "Evaluating AGENTS.md"
+  (arXiv:2602.11988) empirically backs written-over-generated; AgentLint
+  independently coins "sediment" (2026-04). Delta: the constitution/case-law
+  two-layer split, and the warning against bootstrapping the founding file from
+  auto-memories.
+- **descriptive-statements-as-directives** — PARTIAL. OverEager-Bench
+  (arXiv:2605.18583) measures out-of-scope actions (stripping the consent line
+  takes Claude Code 0.0%→17.1%); UnderSpecBench (arXiv:2607.02294) measures
+  boundary violations on vague instructions — both start from a real task.
+  Delta: the report-with-no-imperative trigger, the imperative-collapse
+  framing, and the two tells.
+- **the-session-has-no-concurrency-model** — PARTIAL, the tightest neighbor
+  found. Meiklejohn's "One Writer" (2026-07-27) and "Multi-Agent Systems Have a
+  Distributed Systems Problem" (2026-03-30) are near-verbatim; STORM
+  (2605.20563), CoAgent (2606.15376), Co-Coder (2606.00953) build the external
+  fixes. Delta: the orchestrator corrupting its own readers, the won't-idle
+  bias, and the frozen-snapshot fix.
+- **the-missing-hypothesis-is-orthogonal** — PARTIAL. CHI 2025 "No Evidence for
+  LLMs...Problem Reframing" (2503.01631); IDEAFix (2606.00875, "bound within a
+  shared semantic space"); Franceschelli & Musolesi on transformational-
+  creativity limits (2024); an LLM Einstellung study (2306.11167). Delta: the
+  sign-oscillates / axis-never-rotates diagnostic and the originate/verify
+  asymmetry.
+- **agents-launch-at-full-price** — PARTIAL. Anthropic's multi-agent writeup
+  (2025, "50 subagents for simple queries"); Systima's "Subagent Tax"
+  (2026-07-22) measures both blindnesses on Claude Code; BAGEN (2606.00198),
+  BAMAS (2511.21572, AAAI 2026), pilotfish. Delta: the two blindnesses as one
+  property, the never-self-economize thesis, and the human-authored
+  cheap-variant skill.
+- **dont-ask-for-perfection** — PARTIAL. Max Woolf's "write better code" (2025);
+  OpenAI's GPT-5 guide (convert a superlative to a rubric first; Cursor's
+  constraint-over-adjective); persona-prompting (2512.05858); reward-model
+  verbosity bias. Delta: the causal-for-humans / correlational-for-models
+  framing, and convert-or-delete with the deliberately-absent list.
+- **the-models-model-of-you** — PARTIAL; its worst form is a product bug, not
+  the model. "Algorithmic Self-Portrait" (WWW 2026, 2602.01450: 96%
+  system-created, 52% psychological); "Interaction Context Increases Sycophancy"
+  (CHI 2026, 2509.12517); Willison's "memory dossier" (2025) — all consumer
+  chat apps. Delta: abolition (delete the genre), profile-as-license, and the
+  coding-agent case distinct from the chat product bug.
+- **memory-belongs-in-the-repo** — PARTIAL. Claude Code issue #24044 (loaded
+  twice); the "Shared Team Memory" thread (#38536); Letta's "Context
+  Repositories" (git-backs the store — the opposite fix); Galster et al.
+  (2602.14690) show versioned context files dominate. Delta: the same-organ
+  thesis and the fold-in-then-delete discipline.
+- **the-session-archive** — PARTIAL, and the backup tools are not the claim.
+  Anthropic's SessionStore and `csb`-style tools only retain; The Register
+  (2026-06-30) confirms the wipe incident; Laurenzo's mining (already cited,
+  KNOWN) analyzed what survived; Honeycomb's Observability 2.0 (2024) is the
+  raw-capture ancestor. Delta: the never-delete-then-mine standing instrument,
+  arrived at independently (~June 2026).
+- **the-models-clock** — PARTIAL. "Set the Clock" (2402.16797), "Dated Data"
+  (2403.12958), "Supersede" (2606.27472), and the "outdatedness hallucination"
+  taxonomy document cutoff staleness. Delta: the quotable-not-operative gap
+  (quote today's date, still search stale in the same turn) and the
+  standing-conversion-rule fix.
+
+### The sixteen promoted pages
+
+- **a-gate-you-can-fail** — PARTIAL. Huang "LLMs Cannot Self-Correct"
+  (2310.01798), Kamoi survey (2406.01297); "The Verification Horizon"
+  (2606.26300) and "Building to the Test" (2606.28430) extend it to coding
+  agents. Delta: the ceiling/floor formulation — the model raises the best
+  case, the gate raises the worst, and the worst ships.
+- **all-green-still-broken** — PARTIAL. Barr et al.'s "Oracle Problem" (TSE
+  2015); "All Smoke, No Alarm" (2606.18168, 80.2% of agent tests carry no real
+  oracle); Anthropic's April-23 postmortem. Delta: the re-ask-what-the-tests-
+  are-for trigger and drive-the-real-artifact.
+- **decide-the-shape-first** — PARTIAL. Propel Code's "AI Codebase Drift"
+  (2026); an agentic-patterns "God Object" entry; ETH's LLM-tech-debt review
+  (2606.14796). Delta: the plan-format causal chain (steps-only plans leave
+  structure undecided, verbatim briefs punish deviation, review told to ignore
+  aggregate size).
+- **move-the-code-lose-the-test** — PARTIAL. Fowler's "Parameterize Function";
+  Jon Reid's "Who Tests the Tests?" (2016) is the corrupt-and-rerun ritual;
+  "rotten green tests" RTj (1912.07322). Delta: the consolidation-turns-inline-
+  into-caller-input failure class and the post-refactor inert-value gate.
+- **notes-that-rot** — PARTIAL, the closest to unfound. An LLM-comment taxonomy
+  (2607.01867), "TODO: Fix the Mess Gemini Created" (2601.07786), and "context
+  rot" (2606.09090) are adjacent. Delta: the dead-session-label defect, the 85%
+  measurement, and the merge-time grep — the combination appears original.
+- **the-tools-you-never-use** — PARTIAL. unclog and mcp-tidy already prune by
+  call count; Scott Spence and EclipseSource measure the token cost; RAG-MCP
+  (2505.03275); Anthropic's context-engineering post (2026-07-24, the 80%
+  prompt trim). Delta: the 0.6%-of-11,669 measurement and the
+  inversion-of-the-trim framing.
+- **it-cant-be-done-is-usually-out-of-date** — PARTIAL. CodeUpdateArena
+  (2407.06249), a deprecated-API study (2406.09834), "When LLMs Lag Behind"
+  (2604.09515), and Context7 cover the generation side. Delta: the
+  assertion-side false "impossible," reframed as a (version, date) claim you
+  falsify against the current upstream, not the local copy.
+- **its-already-written-down** — PARTIAL. Vercel's "AGENTS.md outperforms
+  Skills" (Jan 2026: the skill went un-invoked in most cases); "Codified
+  Context" (2602.20478). Delta: the specific "doesn't even check," the
+  dependency-quirks-across-sessions incident, and the cheap grep-the-notes-first
+  fix.
+- **dont-interrupt-a-working-agent** — PARTIAL, one near-exact match. A
+  hermes-agent issue (#36934) documents a legitimate `/steer` flagged as
+  injection (Opus 4.8); "AI Agents May Always Fall for Prompt Injections"
+  (2605.17634) is the structural reason. Delta: the operator-facing
+  prescription — front-load the brief, expect mid-run steering to fail,
+  stop-and-relaunch.
+- **you-cant-ask-for-cheaper** — PARTIAL. Concise-CoT (2401.05618), TALE
+  (2412.18547), TRIAGE (2605.13414) / BAGEN (2606.00198), and JetBrains's
+  "caveman" benchmark (trimming chatter is safe). Delta: that "use less" cuts
+  verification and docs specifically, the no-cost-meter principle, and the
+  throwaway exception.
+- **where-the-savings-are** — PARTIAL. The AGENTS.md "explain twice, document
+  once" guidance; Osmani's self-improving agents; MCP context-bloat writeups;
+  prompt caching (Anthropic/OpenAI/Google docs); RouteLLM (2406.18665). Delta:
+  the levers unified under "cut what you didn't need," the mislaunched-agent
+  economics, and the model-floor rule.
+- **where-scar-tissue-comes-from** — KNOWN-leaning; the method is established
+  (Google SRE blameless postmortems, escaped-defect analysis, Hashimoto's
+  Ghostty log, the agent-retro tools). Delta: the retro as the mint for an
+  instruction file, and the gate-focused "why did the green check miss it"
+  variant.
+- **the-docs-arent-on-the-test** — the benchmark facts are KNOWN; the framing is
+  the delta. Every mainstream coding benchmark (SWE-bench and variants,
+  HumanEval+, MBPP, LiveCodeBench, BigCodeBench, Aider) scores test-pass only,
+  and RL-with-verifiable-rewards trains on the same signal; the doc-touching
+  benchmarks are BLEU-scored summary generation. Delta: benchmark blindness to
+  docs as the incentive-side cause of doc rot. One emerging caveat, "Needle in
+  the Repo" (2026), unverified.
+- **extends-broekx-shared-git-index** (↳ derivative) — PARTIAL. Parent: Ruben
+  Broekx, "AI Agents Need Their Own Desk, and Git Worktrees Give Them One"
+  (Towards Data Science, 2026-04-18, verified). Claude Code issues
+  #37888/#55024 show working-tree clobbers; a steipete gist prescribes
+  explicit-file commits. Delta: the shared git index sweep — a human
+  hand-staging while the agent runs an unscoped commit — distinct from the
+  shared working tree Broekx covers.
+- **ai-is-not-mr-fix-it** — PARTIAL. Huang (2310.01798) and Kamoi (2406.01297)
+  on self-correction limits; CHI 2025 reframing (2503.01631); a "$47K
+  autonomous-loop" postmortem (2025); "intelligence doesn't compose linearly"
+  practitioner writing. Delta: the four-part taxonomy of what only the human
+  supplies (decomposition, missing fact, reframe, check) and "more money or
+  machinery doesn't substitute" across the three escalation axes.
+- **the-face-transplant** — PARTIAL. The "static mock omits states" observation
+  is common in design writing (Uzma Noor's "Happy Path Fallacy" 2025; "The End
+  of Static Mockups" 2026); the single-vs-multi-state distinction is formalized
+  in code-generation research (Interaction2Code arXiv:2411.03292; the survey
+  arXiv:2606.15932 — "single-output imitation" vs "multi-state verification").
+  The reframe is stronger than the generic handoff literature but not a novel
+  discovery of the core insight; the surviving delta is the application —
+  reshaping (not transplanting) a live system to a single-frame reference, and
+  budgeting the application rather than the mockup.
+- **the-month-that-takes-a-day** — PARTIAL, core now empirically confirmed. "Can
+  LLMs Perceive Time?" (Garikaparthi, arXiv:2604.00010) measures models
+  overshooting their own duration estimates 4–7× ("propositional knowledge…
+  no experiential grounding"); a 2026 Frontiers effort-estimation paper covers
+  the human-labor-pricing half (LLMs do 78% of high-complexity tasks in <25% of
+  expected human effort). METR is the outside-view baseline; BAGEN the
+  opposite-direction error. Delta: the composite at project scale — over-quoting
+  feasible work, the behavioral consequence (talks you out of cheap value), and
+  the attempt-don't-ask fix.
