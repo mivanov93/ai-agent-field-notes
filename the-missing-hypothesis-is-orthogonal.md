@@ -55,17 +55,18 @@ faster than I could have. So shape the collaboration accordingly:
 
 ## Prior art
 
-Not separately searched as its own claim; noted honestly. Known-adjacent:
-the human-psychology ancestors (functional fixedness, the Einstellung
-effect — solvers repeat a known method family rather than reframing);
-the adversarial-role literature found in the advice-loop search shows
-critique modes outperform the default register but does not study
-reframe generation; the homogenization literature (see PRIOR-ART.md)
-documents narrowed idea ranges in LLM co-writing, which is this claim's
-statistical cousin. A dedicated search should check "LLMs and problem
-reframing" directly.
-
-**What I think is new, pending that search:** the plus-or-minus-on-one-
-quantity pattern as a named diagnostic ("if every answer is an amount,
-the variable is wrong"), and the originate/verify asymmetry as operating
-guidance for agent-run projects.
+**Verdict: PARTIAL.** The territory is more populated than the note first
+allowed. The CHI 2025 study "No Evidence for LLMs Being Useful in Problem
+Reframing" (arXiv:2503.01631, N=280) found LLM help gave no reframing benefit
+and widened the skilled/unskilled gap. IDEAFix (arXiv:2606.00875) shows
+defixation prompts can nudge novelty but "solutions remain bound within a
+shared semantic space" — you move the dial, the space does not change.
+Franceschelli & Musolesi ("On the Creativity of LLMs," AI & Society 2024)
+argue autoregressive models are confined to combinational and exploratory
+creativity, with transformational creativity — changing the conceptual space —
+out of reach; and an LLM-specific Einstellung study (arXiv:2306.11167) tests
+the fixation ancestor directly. None names the specific diagnostic: the sign
+of the proposed fix oscillates while the variable never changes, and that
+oscillation is the tell that the model is interpolating within the question's
+frame. That, plus the originate/verify asymmetry as operating guidance, is the
+delta.

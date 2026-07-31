@@ -1,7 +1,8 @@
 # Don't ask for perfection
 
-*Status: not separately searched; one strong known neighbor is noted at
-the end.*
+*Status: searched 2026-07-31. The over-engineering effect is documented; the
+causal-versus-correlational framing and the convert-or-delete rule are the
+deltas.*
 
 **Claim:** asking a model for perfection makes the work worse. "Highest
 quality", "impeccable", "extreme performance" produce over-engineered
@@ -21,6 +22,14 @@ more abstraction layers, more defensive machinery, more configuration,
 more patterns, more superlatives in the prose. It performs thoroughness.
 The request selects the aesthetic of quality, not the substance —
 intuition trained on humans transfers exactly wrong.
+
+The deeper reason is that "perfection" is a symlink to a target that exists
+only in your head — the full specification of what good means for this
+project. You can dereference that pointer; the model cannot. Hand it the
+symlink and it resolves to the generic file its training says "perfection"
+points at: ceremony, layers, ornament. So you cannot just tell it what you
+want — you have to pour the requirements out. The thing the word points to
+never leaves your skull unless you write it down.
 
 ## The incident
 
@@ -61,12 +70,19 @@ stated as a boundary instead of an aspiration.
 
 ## Prior art
 
-Not separately searched. One strong known neighbor, cited from memory and
-flagged as such: Max Woolf's experiment asking an LLM repeatedly to
-"write better code" (early 2025), where each iteration added complexity
-and features rather than quality — the same mechanism, demonstrated by
-iteration instead of standing instruction. The persona-prompting
-literature (expert roles not reliably improving correctness) is adjacent.
-What a dedicated search should check: the causal-versus-correlational
-framing of quality requests, and the convert-or-delete rule for quality
-adjectives in standing instruction files.
+**Verdict: PARTIAL.** The effect is documented and the fix has vendor
+convergence. Max Woolf's "write better code" experiment (2025) — this page's
+existing neighbor, now verified — shows Claude 3.5 spontaneously going
+"enterprise," adding cutting-edge optimizations and redundant machinery when
+iteratively asked to improve. OpenAI's GPT-5 prompting guide (2025)
+independently prescribes the fix: convert a superlative ("world-class") into a
+self-authored rubric before executing, and it cites Cursor's production finding
+that unconstrained quality instructions produced worse output, fixed by an
+enumerated constraint rather than a better adjective. The persona-prompting
+line (arXiv:2512.05858) confirms expert personas don't reliably help;
+verbosity/length bias in the LLM-as-judge literature is the mechanism-level
+reason quality and ceremony co-occur in training data. What no source states:
+the causal-for-humans / correlational-for-models framing of quality words, the
+generalization to standing-instruction superlatives baked into a memory or
+config file, and the convert-or-delete rule with the deliberately-absent list
+as the one place quality can be a boundary. Those are the deltas.

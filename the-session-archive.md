@@ -1,7 +1,7 @@
 # The session archive
 
-*Status: not separately searched; the nearest neighbors are noted at the
-end.*
+*Status: searched 2026-07-31. Retaining transcripts has neighbors; the
+archive-ahead-of-the-question instrument did not.*
 
 **Claim:** keep an immutable, append-only archive of every session
 transcript, subagent traces included, before you know what you will ask
@@ -69,12 +69,40 @@ this," answered from the record instead of re-derived at full price.
 
 ## Prior art
 
-Not separately searched. The nearest neighbors, found during the
-cross-model sweep: the transcript-mining precedents (Laurenzo's
-regression timeline from 6,852 session files; the session-analyzer tools
-that generalize it) are single-purpose and after-the-fact — mining what
-happened to survive, not maintaining an instrument. The agent
-observability genre (tracing platforms for LLM applications) instruments
-the apps you build, not your own coding sessions. The delta to check in
-a dedicated search: the standing archive as practice — lossless,
-append-only, subagent-inclusive, built before the questions.
+**Verdict: PARTIAL — and the backup tools are not the claim.** Two different
+things get run together here; keep them apart. Retaining transcripts is
+solved and vendor-sanctioned: Anthropic's Agent SDK `SessionStore` mirrors
+sessions and subagent traces to your own storage, and tools like `csb` and
+the backup guides git-back them byte-for-byte. But those keep the bytes for
+continuity — none of them runs anything over the archive. The motivating
+incident is public and dated: Claude Code's 30-day `cleanupPeriodDays`
+silently deletes transcripts (The Register, 2026-06-30; issues #59248,
+#62272, #62476). That is the problem, not a solution.
+
+Analyzing the archive does have a precedent, and this page already names it:
+Stella Laurenzo's transcript mining (claude-code#42796 — 6,852 sessions, a
+model-regression timeline). But that mined transcripts that happened to
+survive, after the fact. The genre ancestor for the underlying move is
+observability's "capture raw and wide, derive the views later" (Honeycomb's
+Observability 2.0, 2024) — written for production telemetry, never carried
+across to agent transcripts.
+
+The delta, unfound in this sweep: the archive built deliberately, before the
+question — immutable, append-only, subagent-inclusive, raw substrate kept
+apart from regenerable derived views — as a standing instrument for exactly
+those later analyses (model comparison, rule audits, cost disputes).
+Retention keeps without analyzing; Laurenzo analyzed what luck preserved;
+nobody welds "archive first, because the repo records outcomes but the
+transcripts record behavior." That weld is the contribution.
+
+Provenance, in the spirit of this repo's own rule: I arrived at this
+independently, around June 2026, with no research and no one asked. The driver
+was concrete — I do not delete my sessions, so I mined the ones I had to build
+a working CLAUDE.md and to pull docs and ideas out of them, and ran the
+append-only archive from there. The formal archive began after the first ~50
+sessions, not before session one; nothing was lost only because not-deleting
+is the whole discipline, so the raw record was already complete when I came to
+build on it. That someone published the transcript-mining idea before me I
+recognize and cite; the independent derivation, the never-delete-then-mine
+practice, and the archive-as-standing-instrument framing are what this page
+adds.

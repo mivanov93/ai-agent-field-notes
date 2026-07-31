@@ -1,6 +1,7 @@
 # The model's model of you
 
-*Status: not separately searched; adjacent literature noted at the end.*
+*Status: searched 2026-07-31. The mechanism is documented on consumer chat
+apps; the abolition argument and the coding-agent case are the deltas.*
 
 **Claim:** the model should not know who you are. An owner profile — a
 memory file describing the human — is not a badly-executed good idea; the
@@ -79,11 +80,37 @@ not sufficient; the corpus cleanup is the sufficient half
   cannot be written as a project rule, it is probably a license the model
   inferred — delete it.
 
+For software work specifically: the coding harness's deliberate, reviewable
+memory beats a consumer chat app's auto-inferred dossier. Left on and
+un-curated, the chat app will decide you are an expert after one
+conversation, or that you shipped a system you have not — a broken product
+feature, not a model flaw, and one that needs manual editing to stay honest.
+But better is not safe: even the deliberate profile here drove this project
+for weeks. Prefer the coding tool for the work; prefer no owner profile in
+either.
+
 ## Prior art
 
-Not separately searched. Adjacent: the sycophancy literature (the
-profile gives it a named target); the memory-mechanism genre, which
-universally treats user profiles as a feature. The claims to check in a
-dedicated search: profiles as style exemplars and license carriers, the
-in-context cause-blindness instance, and the seed-versus-corpus
-distinction.
+**Verdict: PARTIAL — and its worst form is a product bug, not the model.**
+The aggressive version — a tool auto-inferring a sweeping profile from almost
+nothing ("expert after one chat," "already shipped a production system") — is
+a documented failure of the consumer chat apps, not the language model and
+not the coding harness. The evidence is all consumer-side: "The Algorithmic
+Self-Portrait" (WWW 2026, arXiv:2602.01450) found 96% of 2,050 real ChatGPT
+memory entries were created unilaterally by the system and 52% carried
+"psychological insights"; Simon Willison's "I really don't like ChatGPT's new
+memory dossier" (2025) is the same complaint first-hand; and "Interaction
+Context Often Increases Sycophancy" (CHI 2026, arXiv:2509.12517) isolates
+user-memory profiles as the single context type that most increases
+sycophancy. The whole mitigation genre (OP-Bench, MemSyco-Bench, Attribution
+Shield) treats the profile as a feature to filter, never to remove.
+
+Two deltas survive. First, none of this studies coding agents. The harness
+here does not invent a dossier from one session the way the chat apps do —
+its memory is written more deliberately — and it still recorded a real owner
+profile that drove behavior for weeks. So the argument holds at both ends:
+catastrophic when the inference is broken (chat), and still a defect when the
+profile is roughly accurate (here). Second, nobody argues abolition — delete
+the genre, reclassify the legitimate parts as project rules or harness config
+— and nobody names a profile line as a standing license for autonomous
+action rather than a bias on tone. Those two are the contribution.

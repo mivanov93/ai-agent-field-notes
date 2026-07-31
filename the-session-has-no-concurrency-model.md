@@ -1,7 +1,8 @@
 # The session has no concurrency model
 
-*Status: not separately searched; the neighbors found in the delegation
-sweep are noted at the end.*
+*Status: searched 2026-07-31. A near-exact practitioner match exists
+(Meiklejohn); the orchestrator-poisons-its-own-readers case and the
+frozen-snapshot fix are the deltas.*
 
 **Claim:** a session orchestrating agents has no model of shared state.
 It parallelizes by task shape — one lane per file, one per question —
@@ -62,10 +63,20 @@ for concurrency as for everything else.
 
 ## Prior art
 
-Not separately searched; from the earlier delegation sweep: the
-worktree-for-parallel-agents guides document HOW to isolate — written as
-instructions for the human to set up, which is itself the tell — and
-none state that the session will not do this unprompted. The
-frozen-snapshot-for-readers rule came back not-found in that sweep. The
-claim to check in a dedicated search: the session-as-orchestrator having
-no shared-state model, and wait-versus-act as a systematic bias.
+**Verdict: PARTIAL — with the tightest neighbor in this collection.**
+Christopher Meiklejohn's "One Writer" (2026-07-27) is near-verbatim on the
+core claim: a session spawned 84 workers into one checkout "without being able
+to say what any one of them would read or write," and "the isolation below git
+is advisory, and agents have to choose it. Mine routinely don't." His earlier
+post, "Multi-Agent Systems Have a Distributed Systems Problem" (2026-03-30),
+reports two agents in separate worktrees both creating the same migration, one
+silently overwriting the other. The systems literature is converging too:
+STORM (arXiv:2605.20563) calls worktree-per-agent the field's default and
+argues it defers conflict to an expensive merge; CoAgent (arXiv:2606.15376)
+and Co-Coder (arXiv:2606.00953) build concurrency control and dependency-aware
+scheduling as external fixes, the latter explicitly treating Claude Code's
+parallelism as not dependency-aware. What none of them cover: the orchestrator
+corrupting its OWN dispatched readers by committing to the tree they are
+mid-read on (their incidents are peer-versus-peer), the "won't idle because
+idle feels like stalling" bias named as such, and the cheap frozen-snapshot /
+`git archive` fix. Those are the deltas.

@@ -1,7 +1,7 @@
 # Memory belongs in the repo
 
-*Status: not separately searched; the agent-memory genre is large and the
-closest neighbors are noted at the end.*
+*Status: searched 2026-07-31. The five defects are each corroborated; the
+same-organ, fold-and-delete thesis is the delta.*
 
 **Claim:** a harness memory mechanism — persistent notes the agent keeps
 outside the repo — recreates the instruction file with worse properties.
@@ -33,8 +33,9 @@ down, future sessions benefit. In practice each entry buys five problems:
   repo where their growth gets measured
   ([the rule-efficacy pipeline](the-rule-efficacy-pipeline.md)). The
   memory grows in the dark.
-- **Not project-scoped.** The mechanism keys memory to a directory path,
-  not a repo. Run two projects from one directory — or rename one — and
+- **Not project-scoped.** The project-directory memory files
+  (loaded from a per-directory path, distinct from the newer git-repo-keyed
+  auto-memory) key memory to a directory path, not a repo. Run two projects from one directory — or rename one — and
   they share memory invisibly. My WebRTC project inherited a blog
   project's memory for five weeks, including the worst file the mechanism
   ever produced ([the model's model of you](the-models-model-of-you.md)).
@@ -66,11 +67,21 @@ deflection five).
 
 ## Prior art
 
-Not separately searched. The agent-memory genre is enormous
-(MemGPT/Letta, memory MCPs, every harness's built-in mechanism) and
-universally treats memory as a feature to add rather than a liability to
-scope; the "stale entries quietly lie" finding from the agent-repo
-literature (see PRIOR-ART.md) is the nearest published caution. The
-argument here — that memory mechanisms and instruction files are the same
-organ, and the in-repo one wins on every property except privacy — I have
-not seen stated; a dedicated search should check it.
+**Verdict: PARTIAL.** The five defects are each corroborated, but nobody
+assembles them into one case for eliminating the separate store. The
+"loaded twice" defect is a filed Claude Code bug (issue #24044, closed as a
+duplicate of #19516), whose own workaround — move content to CLAUDE.md and
+empty the memory file — is this page's fold-and-delete rule as an ad hoc fix.
+A GitHub feature thread, "Shared Team Memory for Claude Code" (#38536), has
+multiple commenters independently splitting governed project knowledge (needs
+review, versioning — belongs in git) from ephemeral session memory. Letta's
+"Context Repositories" (Feb 2026) names "not versioned" as memory's core
+defect but fixes it by git-backing the memory store — the opposite
+prescription. The prevailing 2026 direction (vendor docs, Ramesh's "AI Memory
+Is Not One Thing," an event-sourced memory-layer paper, arXiv:2606.12329)
+treats memory as a complementary layer to build, not a liability to fold away.
+Galster et al.'s harness-engineering study (arXiv:2602.14690, 2,853 repos)
+supports the prescription as observed practice: versioned context files are
+the dominant configuration mechanism. The delta: the thesis that memory and
+the instruction file are the same organ, the in-repo one winning on every
+property but privacy, and the fold-in-then-delete discipline.

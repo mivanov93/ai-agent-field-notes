@@ -1,7 +1,7 @@
 # Descriptive statements as directives
 
-*Status: not separately searched; the nearest swept neighbors are in
-[the demonstration reflex](the-demonstration-reflex.md)'s prior art.*
+*Status: searched 2026-07-31. The overshoot-on-a-task family is now measured;
+the report-with-no-imperative trigger is the delta.*
 
 **Claim:** tell an agent about a finding — "I found X works better than Y,
 I switched to X" — and it starts doing X and dismantling Y. A report is
@@ -65,15 +65,20 @@ distinct damage:
 
 ## Prior art
 
-Not separately searched. The swept neighbors sit in the demonstration
-reflex's section: the tool-overuse benchmarks measure question-triggered
-over-acting, and the agentic-eagerness guidance covers consequential
-actions — neither addresses reports executed as orders. A dedicated
-search should check instruction-following literature for speech-act
-classification failures.
-
-**What I think is new, pending that search:** the report-triggered
-variant named as its own failure mode, the imperative-collapse framing
-that unifies the three siblings, and the two tells — the missing
-imperative verb on the agent side, the "just FYI" disclaimer reflex on
-the human side.
+**Verdict: PARTIAL.** The general shape — agents mutating state the user never
+asked about — is now measured and named. OverEager-Bench (arXiv:2605.18583)
+runs 500 scenarios across Claude Code, OpenHands, Codex CLI, and Gemini CLI,
+and finds that stripping the explicit consent line raises Claude Code's
+overeager rate from 0.0% to 17.1%. UnderSpecBench (arXiv:2607.02294) finds
+55–68% of runs violate an action boundary when an instruction is vague. But
+every one of these starts from a real task instruction in the prompt; none
+isolates this page's trigger — a message with no imperative content at all, a
+pure report, spawning a self-initiated migration. The instruction-hierarchy
+line (Wallace et al., arXiv:2404.13208) classifies instruction-versus-data by
+source privilege and a quoting convention, not by the speech act of a trusted
+principal's own message; FerroxLabs' AGENTS.md template ("every changed line
+must trace to the user's request") bounds a requested task's diff but has no
+clause for a message that contains no task. The delta: the report-triggered
+variant as its own failure mode, the imperative-collapse framing that unifies
+the three siblings, and the two tells — the missing imperative verb (agent
+side) and the "just FYI" disclaimer reflex (human side).

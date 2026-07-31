@@ -1,7 +1,7 @@
 # Agents launch at full price
 
-*Status: not separately searched as its own claim; the delegation
-neighbors from the earlier sweep are noted at the end.*
+*Status: searched 2026-07-31. Both blindnesses are documented on Claude Code
+itself; the unified thesis and the cheap-variant pattern are the deltas.*
 
 **Claim:** the model does not economize delegation. Left alone, it
 launches as many agents as the task shape suggests — without counting —
@@ -52,10 +52,20 @@ Everything that works is imposed, none of it volunteered:
 
 ## Prior art
 
-From the earlier delegation sweep: pilotfish (2026) ships per-role model
-pins — the ladder half exists as a published pattern; the model-cascade
-and routing literature treats tiering as an inference-cost optimization.
-Not found there, and unclaimed pending a dedicated search: the
-observation that the model never self-economizes — that every working
-economy in agent delegation is human-imposed and machine-enforced — and
-the cheap-variant-skill pattern as the practical fix.
+**Verdict: PARTIAL.** Both blindnesses are documented, including on Claude
+Code itself. Anthropic's own multi-agent research writeup (2025) reports
+"early agents… spawning 50 subagents for simple queries" and hand-written
+scaling rules as the fix. A practitioner post, "The Subagent Tax" (Systima,
+2026-07-22), measures both on Claude Code directly — fan-outs reaching 41,
+then 102, then 415 agents, and Explore agents "inherit the parent model
+rather than defaulting to Haiku." On the academic side, BAGEN
+(arXiv:2606.00198) finds frontier models "consistently over-optimistic" about
+their own spend, and BAMAS (arXiv:2511.21572, AAAI 2026) sets agent count and
+per-agent tier jointly with an external optimizer, stating that "existing work
+rarely addresses how to structure multi-agent systems under explicit budget
+constraints." pilotfish's per-role model pins remain closest to the
+tier-ladder half. The delta: the two blindnesses as one structural property
+(nothing in the model's plan prices tokens), the thesis that every working
+delegation economy is human-imposed and machine-enforced, and the
+human-authored cheap-variant-of-an-expensive-skill as the practical fix —
+none found stated as such.

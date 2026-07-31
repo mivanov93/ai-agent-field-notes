@@ -1,7 +1,7 @@
 # The founding document
 
-*Status: not separately searched; the failure-log genre is the known
-neighbor.*
+*Status: searched 2026-07-31. "Constitution-first" has neighbors; the
+two-layer split and the anti-bootstrap warning are the deltas.*
 
 **Claim:** write the constitution before the corpus exists. A project's
 instruction file has two kinds of content — constitution (intent,
@@ -55,9 +55,21 @@ session treats it as constitutional.
 
 ## Prior art
 
-Not separately searched. The failure-log pattern (Ghostty) is the case-law
-half done well, and the genre generally starts there — incident rules,
-accreted. The day-one constitution as a distinct, deliberately
-human-written layer, and the warning against bootstrapping from
-auto-memories, I have not seen stated; a dedicated search should check
-the CLAUDE.md-generation tools genre, which does the opposite.
+**Verdict: PARTIAL.** "Constitution-first" exists as a workflow step — the
+Panaversity AI-agent curriculum and GitHub's Spec Kit
+(`/speckit.constitution`) both put a constitution before any code — but both
+draft it by prompting the model from your preferences (AI-authored to spec),
+and neither carries a second, evidence-bearing "case law" layer; Spec Kit's
+own maintainers call the constitution-versus-instructions boundary "the most
+common confusion." ETH's "Evaluating AGENTS.md" (arXiv:2602.11988) is strong
+empirical backing for "written, not generated": LLM-generated context files
+reduced task success versus no file at all, while human-written ones helped.
+And AgentLint's "Writing a Good AGENTS.md" (2026-04) independently reaches for
+the same word — "That is not memory. That is sediment." — though for organic
+drift, not the auto-memory bootstrap this page warns against; convergent
+vocabulary worth the nod. Meanwhile a live, actively-taught technique for
+seeding CLAUDE.md and a `context/you.md` owner profile from prior chat history
+exists with no curation warning — the exact failure mode, unflagged. The
+deltas: the two-content-type split inside one file (evidence-free constitution
+versus evidence-bearing case law), and the named warning against bootstrapping
+the founding file from the model's own auto-memories.

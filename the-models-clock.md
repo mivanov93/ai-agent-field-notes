@@ -1,6 +1,7 @@
 # The model's clock stopped at its cutoff
 
-*Status: not separately searched; kinship and neighbors noted at the end.*
+*Status: searched 2026-07-31. Cutoff staleness is documented; the
+quotable-not-operative gap and the standing-rule fix are the deltas.*
 
 **Claim:** the model's operative "now" is its training cutoff — even when
 today's date sits in its context. The harness injects the date; the model
@@ -56,9 +57,17 @@ quotable but not operative.
 
 ## Prior art
 
-Not separately searched. Knowledge cutoffs are documented product facts,
-and stale-search complaints are common practitioner lore; what a
-dedicated search should check is whether the quotable-versus-operative
-distinction — the date in context failing to re-anchor behavior — is
-stated anywhere, and whether the fix (standing conversion rules plus
-per-task re-anchoring) is documented as practice.
+**Verdict: PARTIAL.** Cutoff staleness is well documented. "Set the Clock"
+(arXiv:2402.16797) shows a model's operative "now" can sit even behind its
+stated cutoff and can be shifted by prompting; "Dated Data" (arXiv:2403.12958)
+traces the gap to dataset-curation bias; "Supersede" (arXiv:2606.27472) finds
+even a frontier model answers from a stale in-context fact rather than its
+current value, widening with conversation length. On the practitioner side,
+Zyte's "Is your AI coding assistant stuck in the past?" (2026) documents
+Copilot defaulting to a deprecated API, and n8n forum users report a supplied
+date being ignored. The umbrella term is "outdatedness hallucination" from the
+hallucination-taxonomy surveys. None states this page's specific two-part
+claim: that a model can correctly quote today's date and still issue a
+training-era-anchored query or version recall in the same turn (quotable is
+not operative), and that the fix is not better date injection but standing
+per-repo conversion rules plus per-task re-anchoring. That is the delta.
