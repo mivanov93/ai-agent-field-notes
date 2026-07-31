@@ -12,6 +12,12 @@ the closest published work I found and says exactly what I think is new.
 The full search record is in [PRIOR-ART.md](PRIOR-ART.md). Order within
 each section is by importance, not by when I learned it.
 
+All of it comes from one story — a blog project where I asked for
+perfection, a WebRTC project built on hand-written code where the docs
+rotted while the code stayed clean, and the year of memory filth in
+between. **Start with [the story](the-story.md)**; the pages are its
+chapters.
+
 **One rule for this repo:** "I have not found prior art" does not mean
 "first". The searches were a handful of research agents over public
 2024–2026 material. If you know earlier work for any claim, open an issue.
