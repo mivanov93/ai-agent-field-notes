@@ -4,12 +4,13 @@ description: >-
   ending in something enforceable.
 lang: en
 
-# The site lives at a subpath (mivanov93.github.io/ai-agent-field-notes), so
-# baseurl must be set: every asset and link goes through relative_url, and an
-# empty baseurl resolves them against the domain root instead. Serving from a
-# custom domain later means url: https://mivanov.dev and baseurl: "".
-url: https://mivanov93.github.io
-baseurl: /ai-agent-field-notes
+# Served from a custom domain at its root, so baseurl is empty. The CNAME file
+# holds the same host; GitHub reads that to route the domain. Reverting to the
+# github.io project page means url: https://mivanov93.github.io and
+# baseurl: /ai-agent-field-notes — asset links go through relative_url, so the
+# two must always agree.
+url: https://ai.mivanov.dev
+baseurl: ""
 
 # Skin A ("Manual"): Bricolage Grotesque display, Source Serif 4 text,
 # JetBrains Mono for labels. Read by _layouts/default.html.
