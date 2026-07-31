@@ -10,12 +10,16 @@ ritual — not just advice.
 **Scope:** everything here was observed on Claude Opus 4.8, Opus 5, and
 Fable 5, in the Claude Code harness, June–July 2026. By this repo's own
 argument, findings are model-relative — re-measure before assuming they
-hold for yours.
+hold for yours. They are also scoped to one kind of work — using AI agents
+for software engineering; see [CONTEXT.md](CONTEXT.md) for what that scopes
+in and out.
 
 Each finding has its own page, cross-linked to the others. Every page cites
 the closest published work I found and says exactly what I think is new.
-The full search record is in [PRIOR-ART.md](PRIOR-ART.md). Order within
-each section is by importance, not by when I learned it.
+The full search record is in [PRIOR-ART.md](PRIOR-ART.md), and how the
+findings were derived, written, and vetted is in
+[METHODOLOGY.md](METHODOLOGY.md). Order within each section is by importance,
+not by when I learned it.
 
 All of it comes from one story — a blog project where I asked for
 perfection, a WebRTC project built on hand-written code where the docs
@@ -31,6 +35,44 @@ and it applies to me too:
 [bans rotate the vocabulary](bans-rotate-the-vocabulary.md) partially
 corrects [vocabulary control](vocabulary-control.md), because I measured my
 own repo and half of my original claim did not survive.
+
+## Why this exists
+
+The point is to hand you something immediately useful about working with AI
+coding agents, with no fluff attached — no video to sit through, no course, no
+hour of your day asked for. Read a page and use it. Or feed your session the
+whole repo and ask it what to change about how you work: the notes are written
+to be consumed that way — pragmatic and efficient, advice a model can act on
+without you translating it first.
+
+It also exists because everything is eventually invented and coined by someone.
+I would rather share what I worked out myself, now, than hold it back and find
+out later it was already known anyway. If someone got there first, that becomes
+a citation rather than a loss — and the page still helped whoever read it today.
+
+## On "partial"
+
+Most pages here come back "partial" when I search for prior art: the pieces
+exist somewhere, a neighbor gets cited, and I say so on the page. That is the
+honest verdict. But partial is not the same as identical. A finding can share
+a piece with earlier work and still differ in shape — a different mechanism, a
+sharper trigger, a measurement nobody ran, a fix scoped to the exact failure.
+The delta line on each page is where I state that difference, and in most cases
+I think it is real.
+
+There is also value in the gathering itself. These are in one place, cut to the
+point, and written to use right away — read a page, or hand the whole repo to
+your session and act on it — instead of scattered across papers, threads, and
+posts you would have to find and stitch together yourself. That is worth
+something on its own. Until someone shows a finding adds nothing new — which a
+GitHub issue can do, at which point the claim becomes a citation — the bet this
+repo makes is that there are genuinely new ideas here, and that collecting them
+plainly is useful even where there are not.
+
+**★ marks the pages with the most original claims** — if you already work in
+this area, read those first. The defensibility basis for each is in
+[PRIOR-ART.md](PRIOR-ART.md); a ★ is a "not found" or a stated delta no
+neighbor covers, not just an important idea.
 
 ## Principles — how the model actually behaves
 
@@ -49,24 +91,24 @@ own repo and half of my original claim did not survive.
 | [The model votes for more rules](the-model-votes-for-more-rules.md) | Ask the model how to fix the model and you get the five deflections: gate me harder, every codebase looks like this, clean from now on, other repos have no rules, your rule file is too big. Demand measurements and refutations, not advice. |
 | [The model's model of you](the-models-model-of-you.md) | An owner profile converts requirements into psychology: superlatives get mirrored, "expects micro-decisions" becomes a license, and the dossier is a shipped default nobody reviews. The model shouldn't know who you are. |
 | [Don't ask for perfection](dont-ask-for-perfection.md) | Quality words are causal for a human and correlational for a model: "impeccable" selects the aesthetic of quality — ceremony, layers, ornament — not the substance. Every quality adjective converts to a constraint, a budget, or a test, or gets deleted. |
-| [Bans rotate the vocabulary](bans-rotate-the-vocabulary.md) | Ban an AI's invented words and new ones appear within days. The words are compression devices, and the instruction file's own rules are the mint. Fix the pressure; enforce mechanically. |
+| ★ [Bans rotate the vocabulary](bans-rotate-the-vocabulary.md) | Ban an AI's invented words and new ones appear within days. The words are compression devices, and the instruction file's own rules are the mint. Fix the pressure; enforce mechanically. |
 | [The demonstration reflex](the-demonstration-reflex.md) | Ask an agent a question about its tools and it may answer by running the tools, at full cost. "Can you X" is a question, not a work order; capability is not demand. |
 | [Agents launch at full price](agents-launch-at-full-price.md) | The model never counts its fan-out and never downgrades a lane's model — every working economy in delegation is human-imposed and machine-enforced. Cheap variants of expensive skills exist only if you build them. |
 | [The session has no concurrency model](the-session-has-no-concurrency-model.md) | A session parallelizes by task shape, not data dependency: it edits under its readers, lets writers clobber each other, and won't wait, because idle feels stalled. Isolation and sequencing are imposed rules, never volunteered. |
 | [Descriptive statements as directives](descriptive-statements-as-directives.md) | Tell an agent "I found X better than Y" and it starts doing X and dismantling Y. A report is not an order — and when sharing knowledge with your agent needs a "just FYI" disclaimer, description has become dangerous. |
-| [The hardlink hazard](the-hardlink-hazard.md) | Sharing `node_modules` between agent worktrees with hardlinks breaks isolation: build caches share storage, so parallel agents corrupt each other's runs. A correctness bug the guides all describe as an optimization. |
+| ★ [The hardlink hazard](the-hardlink-hazard.md) | Sharing `node_modules` between agent worktrees with hardlinks breaks isolation: build caches share storage, so parallel agents corrupt each other's runs. A correctness bug the guides all describe as an optimization. |
 
 ## Methods — what actually works
 
 | Finding | One line |
 |---------|----------|
-| [The link rule](the-link-rule.md) | When an agent says "X shows Y", X is usually a real measurement. The error is in the jump from X to Y. Checking that jump usually takes one command. |
-| [The clean room](the-clean-room.md) | To clean a corpus without inheriting its style: a reader that emits only typed records, a writer that never sees the original, a checker that may see both sides because judging doesn't write. Designed, not yet run. |
-| [The decision drain test](the-decision-drain-test.md) | Collect the human's pending decisions behind one tag and ask them in one batch per session. If the batch grows instead of shrinking, the process failed — stop adding structure. |
-| [The cross-model audit](the-cross-model-audit.md) | Transcripts tell you when your model changed. To learn whether its work was actually bad, re-check the claims with a different model. |
+| ★ [The link rule](the-link-rule.md) | When an agent says "X shows Y", X is usually a real measurement. The error is in the jump from X to Y. Checking that jump usually takes one command. |
+| ★ [The clean room](the-clean-room.md) | To clean a corpus without inheriting its style: a reader that emits only typed records, a writer that never sees the original, a checker that may see both sides because judging doesn't write. Designed, not yet run. |
+| ★ [The decision drain test](the-decision-drain-test.md) | Collect the human's pending decisions behind one tag and ask them in one batch per session. If the batch grows instead of shrinking, the process failed — stop adding structure. |
+| ★ [The cross-model audit](the-cross-model-audit.md) | Transcripts tell you when your model changed. To learn whether its work was actually bad, re-check the claims with a different model. |
 | [The session archive](the-session-archive.md) | Keep an immutable append-only archive of every session and subagent trace, before you know the questions. Transcripts are the only record of what the model actually did, harnesses delete them, and every number in these notes came out of the archive. |
-| [The rule-efficacy pipeline](the-rule-efficacy-pipeline.md) | Instruction files only grow. Transcripts can show which rules the current model still breaks, so pruning becomes data instead of guessing. |
-| [Vocabulary control](vocabulary-control.md) | Ban the model's metaphors where they collide with your domain terms. Check new terms for collisions. When a rule is broken while in context, turn it into a lint. Scoped to meaning bugs. |
+| ★ [The rule-efficacy pipeline](the-rule-efficacy-pipeline.md) | Instruction files only grow. Transcripts can show which rules the current model still breaks, so pruning becomes data instead of guessing. |
+| ★ [Vocabulary control](vocabulary-control.md) | Ban the model's metaphors where they collide with your domain terms. Check new terms for collisions. When a rule is broken while in context, turn it into a lint. Scoped to meaning bugs. |
 | [The founding document](the-founding-document.md) | Write the constitution before the corpus exists: intent and rules, human-written, day one. Case law accretes later from incidents. Never bootstrap the instruction file from auto-memories — that is model sediment as founding text. |
 | [Memory belongs in the repo](memory-belongs-in-the-repo.md) | An out-of-repo memory mechanism is the instruction file with worse properties: unversioned, unshared, unlinted, a second load, growing in the dark. Fold findings into the repo; memory keeps only what can't live there. |
 
