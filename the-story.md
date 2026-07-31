@@ -117,9 +117,13 @@ kill criterion ([the decision drain test](the-decision-drain-test.md)).
 First I tried to research my way out. A huge deep-research pass came back
 with the complete catalogue of wrong advice: all projects have this
 filth; remove your rules; add more rules; keep things clean going forward
-and deal with the old mess later. Every answer was an amount of rule or a
-postponement — the model exploring the axis of my question, never leaving
-it.
+and deal with the old mess later; add gates — set up agents to check
+every doc and complain. That last one sounds like this repo's own
+medicine, and is not: a patrol of checker agents would read the dirty
+corpus to police it and file complaints forever, detection without ever
+touching the mint. Every answer was an amount of rule, supervision, or
+postponement — the model exploring the axis of my question, never
+leaving it.
 
 The realization came from me, not the research: the model walks into a
 dirty house and adds to the dirt. I suggested it, and once the hypothesis
