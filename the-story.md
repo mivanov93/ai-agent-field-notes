@@ -40,25 +40,33 @@ profile's register and the perfection framing — so sessions imitating it
 made it worse. The model makes more of what you have, whichever
 direction "more" points ([the dirty house](the-dirty-house.md)).
 
-## The first diagnosis: no constitution
+## The first diagnosis: the memory, and no constitution
 
-At the start there was no instruction file at all. When the mess became
-undeniable, that was the obvious explanation — the sessions had nothing
-to hold onto. So I made one. I distilled it from what existed: the
-session archive and the accumulated auto-memories. Half of that source
-was evidence; the other half was the model's own sediment, profile
-register included, and it became founding text
+When the mess became undeniable, I asked the model, plainly: why do you
+produce such bad output? It could not answer. The hypothesis had to come
+from me. I went looking, found the memory files, found the profile, and
+pointed. The model checked and confirmed immediately: it had been reading
+the profile every session, grepping the contaminated docs, loading the
+filth and building more on top. The cause had been in its context the
+entire time, invisible to it as a cause.
+
+So the first fix had two parts. I deleted the bad memories, profile
+included. And — since there had been no instruction file at all — I made
+one, distilled from the session archive and from the content of those
+same memory files. I deleted the files and kept their words: the sediment
+became founding text at the very moment of the purge
 ([the founding document](the-founding-document.md)). The archive itself
 turned out to be the best decision in the whole story — everything I
 later learned, I learned from it
 ([the session archive](the-session-archive.md)).
 
-The house did not get cleaner.
+The output did not get better. I did not know why yet.
 
 ## The second diagnosis: not enough rules
 
-If a rule file exists and the mess continues, the next obvious
-explanation is that the rules are too few or too weak. So I piled them
+By now there was no memory filth left — only the instruction file, and
+still more filth in every session's output. So the next obvious
+explanation was that the rules were too few or too weak, and I piled them
 on: the file more than doubled in eleven days, thirty-three of
 thirty-five revisions additive. I banned the model's invented metaphors —
 and fresh ones appeared within three days, because the pressure that
@@ -68,26 +76,17 @@ minted them was untouched
 after they were written, by a model with the rule in its context
 ([the rule-efficacy pipeline](the-rule-efficacy-pipeline.md)).
 
-I asked the model why it produced such bad output. It could not answer.
-Asked to research the problem, it compared other repos and told me they
-had no rules, so maybe I should remove mine. Asked for fixes, it offered
-more rules, then fewer rules, then "let's just be clean from now on" —
-every answer an amount, never a new variable
+Consulting the model made it worse. Asked to research the problem, it
+compared other repos and told me they had no rules, so maybe I should
+remove mine. Asked for fixes, it offered more rules, then fewer rules,
+then "let's just be clean from now on" — every answer an amount, never a
+new variable
 ([the model votes for more rules](the-model-votes-for-more-rules.md),
 [the missing hypothesis is orthogonal](the-missing-hypothesis-is-orthogonal.md)).
 It confidently told me it could not follow a large rule file — then,
 pushed to research, conceded that frontier models follow large files
 fine. Its claims about itself were quotes about other models
 ([the model doesn't know itself](the-model-doesnt-know-itself.md)).
-
-The hypothesis had to come from me. I found the memory files, found the
-profile, and pointed. The model checked and confirmed immediately: it had
-been reading the profile every session, grepping the contaminated docs,
-loading the filth and building more on top. The cause had been in its
-context the entire time, invisible to it as a cause. So I deleted the bad
-memories — and the output did not get better. The profile had seeded the
-corpus, and the corpus now taught the style on its own. Contamination
-outlives its source.
 
 The house did not get cleaner.
 
@@ -115,17 +114,21 @@ kill criterion ([the decision drain test](the-decision-drain-test.md)).
 
 ## The third diagnosis: the house needs a clean room
 
-The measurements finally forced the real explanation. The corpus
-outweighs the rules 880 to 1, instructions attenuate imitation without
-reversing it, and a model asked to rewrite dirty text is being handed the
-dirt as its exemplar. No amount of rules cleans a floor the model reads
-on every pass. The only fix that changes the mechanism instead of the
-amount is a barrier: a reader that extracts facts into typed records, a
-writer that never sees the original, a checker that may see both because
-judging does not write ([the clean room](the-clean-room.md)). And for
-whatever I build next: the constitution gets written by hand before the
-corpus exists, so the floor starts clean and the rules never have to
-outshout anything.
+The measurements finally forced the real explanation — including the one
+I had been missing since the first diagnosis. Deleting the profile had
+not helped because the profile had already seeded the corpus, and the
+corpus now taught the style on its own. Contamination outlives its
+source. The corpus outweighs the rules 880 to 1, instructions attenuate
+imitation without reversing it, and a model asked to rewrite dirty text
+is being handed the dirt as its exemplar. No amount of rules cleans a
+floor the model reads on every pass.
+
+The only fix that changes the mechanism instead of the amount is a
+barrier: a reader that extracts facts into typed records, a writer that
+never sees the original, a checker that may see both because judging does
+not write ([the clean room](the-clean-room.md)). And for whatever I build
+next: the constitution gets written by hand before the corpus exists, so
+the floor starts clean and the rules never have to outshout anything.
 
 What survived every failure is the instruction file itself — not as a
 style guide, as a scar log. Every rule in it marks a fire someone
