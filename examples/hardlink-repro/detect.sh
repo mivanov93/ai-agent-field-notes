@@ -34,7 +34,7 @@ SRC="${1:-}"; CMD="${2:-npm test}"
 SRC="$(cd "$SRC" && pwd)"
 
 WORK="${TMPDIR:-/tmp}/hl-detect.$$"
-mkdir -p "$WORK" || exit 1
+mkdir -m 700 -p "$WORK" || exit 1   # 700: we copy your source tree in here, .env and all
 trap 'rm -rf "$WORK"' EXIT
 
 # Hardlinks cannot cross filesystems; the scratch dir must share one with SRC.
@@ -52,21 +52,27 @@ echo "command : $CMD"
 # NUL-delimited + xargs: an unbounded `md5sum $(cat list)` blows past ARG_MAX on
 # a real node_modules, md5sum never runs, and the check then "passes" having
 # measured nothing. This must fail closed, not fail silent.
-find "$SRC/node_modules" -type f -print0 > "$WORK/src-files.z" 2>/dev/null || true
-SRC_N=$(tr -dc '\0' < "$WORK/src-files.z" | wc -c | tr -d ' ')
-[ "$SRC_N" -gt 0 ] || { echo "could not enumerate $SRC/node_modules — refusing to run."; exit 1; }
-
 # cksum is POSIX and identical on GNU/BSD. Path last so spaces survive.
+#
+# Re-enumerates on every call. An earlier version listed the files once and
+# reused that list, which made any file ADDED during the run invisible -- the
+# check would print "untouched" having never looked at it. Same bug class as
+# everything else in this post, third time.
+SRC_N=0
 fingerprint() {   # $1 = output path
-  xargs -0 cksum < "$WORK/src-files.z" 2>/dev/null \
+  find "$SRC/node_modules" -type f -print0 > "$WORK/cur.z" 2>/dev/null || true
+  local n; n=$(tr -dc '\0' < "$WORK/cur.z" | wc -c | tr -d ' ')
+  [ "$n" -gt 0 ] || { echo "could not enumerate $SRC/node_modules — refusing to run."; exit 1; }
+  xargs -0 cksum < "$WORK/cur.z" 2>/dev/null \
     | awk '{c=$1"-"$2; $1=""; $2=""; sub(/^[ \t]+/,""); print $0"\t"c}' \
     | sort > "$1"
   local got; got=$(wc -l < "$1" | tr -d ' ')
-  if [ "$got" -ne "$SRC_N" ]; then
-    echo "CANNOT VERIFY your tree: fingerprinted $got of $SRC_N files."
+  if [ "$got" -ne "$n" ]; then
+    echo "CANNOT VERIFY your tree: fingerprinted $got of $n files."
     echo "Refusing to certify that your node_modules was untouched."
     exit 1
   fi
+  SRC_N="$n"
 }
 fingerprint "$WORK/src-before.txt"
 
@@ -96,8 +102,8 @@ xargs -0 cksum < "$WORK/shared.z" 2>/dev/null \
 echo "  $SHARED files in B share storage with A"
 
 echo "running the command in A..."
-(cd "$WORK/A" && eval "$CMD") >"$WORK/cmd.log" 2>&1
-echo "  exit $? (output in $WORK/cmd.log, deleted on exit)"
+(cd "$WORK/A" && eval "$CMD") >"$WORK/cmd.log" 2>&1; CMD_RC=$?
+echo "  exit $CMD_RC (output in $WORK/cmd.log, deleted on exit)"
 
 xargs -0 cksum < "$WORK/shared.z" 2>/dev/null \
   | awk -v pre="$WORK/B/" '{c=$1"-"$2; $1=""; $2=""; sub(/^[ \t]+/,""); sub("^"pre,""); print $0"\t"c}' \
@@ -105,6 +111,19 @@ xargs -0 cksum < "$WORK/shared.z" 2>/dev/null \
 
 echo
 echo "=============================================================="
+# A verdict must never be reported on a run that did not happen, or on a
+# worktree pair that shares nothing. Both would print CLEAN having measured
+# nothing -- the exact failure this tool exists to find.
+if [ "$CMD_RC" -ne 0 ]; then
+  echo "INCONCLUSIVE — your command exited $CMD_RC, so nothing was measured."
+  echo "Fix the command (see $WORK/cmd.log) and re-run. No verdict given."
+  exit 1
+fi
+if [ "$SHARED" -eq 0 ]; then
+  echo "INCONCLUSIVE — the two worktrees share no files at all."
+  echo "cp -al probably failed (different filesystems?). No verdict given."
+  exit 1
+fi
 CHANGED="$(comm -13 "$WORK/before.txt" "$WORK/after.txt" | cut -f1)"
 if [ -z "$CHANGED" ]; then
   echo "CLEAN — the run in A changed no file that B shares."

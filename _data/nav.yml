@@ -47,7 +47,7 @@
     - title: "Descriptive statements as directives"
       url: "descriptive-statements-as-directives.md"
     - title: "The hardlink hazard"
-      url: "the-hardlink-hazard.md"
+      url: "two-worktrees-one-node-modules.md"
       original: true
     - title: "All green, still broken"
       url: "all-green-still-broken.md"

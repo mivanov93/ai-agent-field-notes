@@ -8,8 +8,8 @@ which explains what the results mean. This file is just how to run them.
 ./detect.sh /path/to/your/project "npm test"  # check your own stack
 ```
 
-First run installs the pinned toolchain into `.deps/` (a few minutes); after
-that a pass takes about a minute.
+First run installs the pinned toolchain into `.deps/` (under a minute on a warm
+npm cache, a few minutes cold); a pass then takes about half a minute.
 
 **One requirement, checked up front and fatal rather than degraded:** everything
 on one filesystem, because hardlinks cannot cross devices. Both scripts also

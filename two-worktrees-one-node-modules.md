@@ -46,7 +46,7 @@ npx vitest run --no-file-parallelism           # 2 passed
 
 cd .. && mkdir -p B1/src                       # worktree cut BEFORE
 cp A/package.json B1/ && cp A/src/*.test.js B1/src/
-cp -al A/node_modules B1/node_modules          # hardlinked
+cp -r A/node_modules B1/node_modules           # a plain copy
 cd B1; npx vitest run --no-file-parallelism    # 2 passed
 
 cd ../A                                        # break a test in A ONLY
@@ -56,18 +56,19 @@ test('use needs the fixture', () => { expect(1).toBe(2) })
 EOF
 npx vitest run --no-file-parallelism           # 1 failed
 
-cat ../B1/node_modules/.vite/vitest/*/results.json   # <- look at this
+cat node_modules/.vite/vitest/*/results.json    # A's cache. B2 inherits this.
 
 cd .. && mkdir -p B2/src                       # worktree cut AFTER, byte-identical to B1
 cp B1/package.json B2/ && cp B1/src/*.test.js B2/src/
-cp -al A/node_modules B2/node_modules
+cp -r A/node_modules B2/node_modules
 cd B2; npx vitest run --no-file-parallelism    # 1 failed
 ```
 
 B1 and B2 are byte-identical — `diff -r B1/src B2/src` is empty. Both are fresh
-checkouts of a suite that passes. B1 is green and B2 is red, and the only thing
-separating them is that B2 was cut after an unrelated failure in a third
-directory.
+checkouts of a suite that passes, each with its own private copy of
+`node_modules`. B1 is green and B2 is red, and the only thing separating them is
+that B2 was copied after an unrelated failure in a third directory. B1 stays
+green however often you re-run it; B2 stays red.
 
 B2's failure isn't even A's failure. A's is `expected 1 to be 2`, the defect you
 planted. B2's is:
@@ -77,16 +78,30 @@ Error: ENOENT: no such file or directory, open 'fixture.json'
 ```
 
 which is `use` running before `seed` had written the fixture. And the `cat`
-shows why: the shared cache says `"use.test.js": {"failed":true}` — A's verdict,
-sitting in B's file, because it *is* B's file.
+shows why. A's cache, the copy B2 is made from, reads:
+
+```json
+{"version":"4.1.10","results":[[":src/seed.test.js",{"duration":201,"failed":false}],
+                               [":src/use.test.js",{"duration":3.5,"failed":true}]]}
+```
+
+`"failed":true` for `use.test.js` — and B2's copy of that file is intact and
+passes. B2 inherits A's verdict about A's broken file. (B1, copied before any of
+this, has its own clean copy saying `"failed":false`, which is why it stays
+green.)
 
 **Why.** vitest records how long each test took and whether it failed, so its
 sequencer can run previously-failed files first. That cache lives in
-`node_modules/.vite/vitest/`, and three things line up: it's written with a
-plain `fs.writeFile` (overwritten in place, so a hardlinked file carries the
-write to every tree); its entries are keyed by path **relative** to the project
-root — deliberately, so the cache matches between CI and local, which also makes
-A's entries valid lookups in B; and the sequencer runs failed files first.
+`node_modules/.vite/vitest/`, so it travels with any copy of `node_modules`.
+Its entries are keyed by path **relative** to the project root — deliberately,
+so the cache matches between CI and local, which also makes A's entries valid
+lookups in B2. The sequencer then runs failed files first.
+
+**`cp -al` makes it worse, not different.** Hardlink the tree instead of copying
+it and there is only one cache file with several names, written in place, so the
+poisoning is live and permanent in both directions — every tree, forever, not
+just the ones cut after the failure. I used a plain `cp -r` above because it is
+the weaker assumption and it still fails.
 
 So A's failure reorders B2's suite, and any order coupling in your tests becomes
 a false red. That precondition is real and I'll state it plainly: fully
@@ -116,7 +131,10 @@ import { test, expect } from 'vitest'
 import { add } from './math.js'
 test('add works', () => { expect(add(2, 2)).toBe(4) })
 EOF
+node -e 'p=require("./package.json");p.main="dist/math.js";p.files=["dist"];
+  require("fs").writeFileSync("package.json",JSON.stringify(p,null,2))'
 npx tsc && npx vitest run dist --passWithNoTests    # dist=[math.js math.test.js], 1 passed
+npm pack --dry-run 2>&1 | grep "total files"        # total files: 3
 
 cd .. && mkdir -p wt/src                  # a second worktree
 cp main/tsconfig.json main/package.json wt/
@@ -127,6 +145,7 @@ cd wt
 npx tsc ; echo "tsc exit=$?"              # exit=0
 ls dist                                   # nothing
 npx vitest run dist --passWithNoTests     # No test files found, exiting with code 0
+npm pack --dry-run 2>&1 | grep "total files"   # total files: 1
 ```
 
 Same source, same commands, same everything. In `main` you get a build and one
@@ -139,8 +158,9 @@ No test files found, exiting with code 0
 ```
 
 Exit 0 throughout. Your build compiled nothing, your suite ran nothing, and CI
-is green. `npm pack` in that state reports `total files: 1` — just
-`package.json`. That's how you publish an empty package with a green pipeline.
+is green. Run `npm pack --dry-run` here and it reports `total files: 1` — just
+`package.json`, against the 3 it packed in `main`. That is how you publish an
+empty package with a green pipeline.
 
 **First, the caveat, because it matters.** tsc's *default* buildinfo location is
 `./tsconfig.tsbuildinfo` in the project root — not `node_modules`. This demo
@@ -159,9 +179,13 @@ outputs that exist over there and not here. tsc trusts the record over the
 filesystem, so it skips the work and exits 0. Delete
 `node_modules/.cache/tsbuildinfo` and it builds correctly.
 
-`--passWithNoTests` is what converts that into a green suite, and it's common in
-monorepos where some packages legitimately have no tests. It's doing its job; it
-just can't tell "no tests here" from "the tests didn't get built."
+Two things have to line up for the *suite* half. The tests are run against the
+compiled output (`vitest run dist`) rather than against `src` — common when you
+ship compiled tests or test the built artifact, but if you run vitest on `src`
+your tests still run and only the build is empty. And `--passWithNoTests` turns
+"I found nothing" into a pass, which is common in monorepos where some packages
+legitimately have no tests. It's doing its job; it just can't tell "no tests
+here" from "the tests didn't get built."
 
 To be clear about the limits: tsc keys on file *contents*, so if you edit a
 source file it recompiles and reports errors correctly. I tried to sneak a real
@@ -200,13 +224,17 @@ trust the table — measure your own stack.
 
 ## The root cause
 
-`node_modules` is two things in one folder: an immutable install, and a mutable
-scratch directory that build tools write to. Sharing is safe for the first and
-unsafe for the second, and nothing marks which is which. Every way of copying it
-gets one of those jobs wrong — hardlinks break the mutable half, plain copies
-carry stale state into a directory it doesn't describe, and symlinked deps
-(`npm link`, `file:../lib`) share the live thing outright, since no copy method
-dereferences a symlink.
+`node_modules` is two things in one folder: an install output you'd like to
+share, and a mutable scratch directory that build tools write to and that
+describes one specific directory. Nothing marks which is which — so no way of
+copying it gets both jobs right *by default*. Hardlinks break the mutable half
+permanently; plain copies carry stale state into a directory it doesn't
+describe. Both are fixable once you know (see below), which is the point: you
+have to know.
+
+Symlinked deps (`npm link`, `file:../lib`) are a separate problem rather than a
+third copy method — no copy method dereferences a symlink, so every tree shares
+that one live no matter how you copy.
 
 **Fixes**, weakest to strongest:
 
