@@ -1,0 +1,17 @@
+# every worktree repro.sh and detect.sh build; none of it belongs in git
+.deps/
+A/
+B/
+base/
+ctl/
+cold1/
+cold2/
+e0/
+el/
+fA/
+fB/
+fbase/
+sym/
+tA/
+tC/
+tbase/

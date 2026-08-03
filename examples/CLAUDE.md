@@ -134,9 +134,11 @@ the repo so parallel work does not collide.*
   per-lane model before dispatch; a check fails any saved lane with no model set
   — the default it overrides is "inherit the expensive one"
   ([agents launch at full price](../agents-launch-at-full-price.md)).
-- `[shared]` **A writer gets its own worktree and its own dependency
-  install** — never a hardlinked one; hardlinked build caches cross every tree
-  at once ([the session has no concurrency model](../the-session-has-no-concurrency-model.md),
+- `[shared]` **A writer gets its own worktree and its own dependency install.**
+  Not a hardlinked copy (build caches then cross every tree at once), and not a
+  plain `cp -r` either (a cache already inside `node_modules` rides any copy —
+  `tsc` inherits a stale build record, exits 0 and emits nothing)
+  ([the session has no concurrency model](../the-session-has-no-concurrency-model.md),
   [the hardlink hazard](../the-hardlink-hazard.md)).
 - `[shared]` **Freeze the tree for read-only lanes,** or hand them a snapshot
   of a fixed commit, and parallelize by data dependency, not task shape

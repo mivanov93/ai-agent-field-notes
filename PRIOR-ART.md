@@ -29,12 +29,50 @@ across the lanes.
    is decidability, stop adding structure). Halves individually known (rfcbot
    FCP; approval-fatigue posts propose routing/SLA fixes, never a process test
    that names its own failure condition).
-2. **The hardlinked-node_modules correctness hazard** — every worktree guide
-   (Zylos 2026-02-22, Schumaker 2026-03-13) treats hardlink/pnpm dependency
-   sharing as a SPEED lever; none documents that vite/vitest caches sharing
-   inodes across trees silently un-isolates parallel agents — grounded in
-   a real irreproducible-failure incident I hit. Concrete, reproducible, immediately
-   useful: strongest technical finding.
+2. **The hardlinked-node_modules correctness hazard** — PARTIAL, and narrower
+   than the first sweep recorded. Now reproduced end-to-end with a control
+   ([`examples/hardlink-repro`](examples/hardlink-repro/), 8 experiments, 2026-08-03).
+   Three corrections to the original entry:
+   - The *mechanism* is KNOWN, not new. Hardlink aliasing + in-place write =
+     shared mutation is decades-old backup-tool lore (rsnapshot, `cp -al`
+     snapshot rotation), and pnpm's store docs warn about it in this exact
+     directory ("editing files in node_modules corrupts the global store for
+     all other projects"). Cite it; never claim it.
+   - Zylos and Schumaker do **not** recommend hardlinks — the original entry
+     misread both. Zylos recommends pnpm's store; Schumaker tried Yarn
+     `hardlinks-global`, rejected it as too slow, and uses pre-warmed worktree
+     pools. The actual hardlink advocacy is pnpm's store, Yarn's
+     `nmMode: hardlinks-global`, and RooCodeInc/Roo-Code#11758 (2026-02-26,
+     open) — which proposes hardlinking `node_modules` into agent worktrees
+     with no risk discussion. That last one is the citation to use.
+   - vite is exonerated: its dep prebundle is rename-swapped and does not
+     propagate. The confirmed channel is vitest's `results.json` alone, and it
+     changes test *ordering*, which becomes a wrong result only in an
+     order-dependent suite.
+   Where cache contamination between worktrees *is* discussed (Zylos
+   2026-02-22, Termdock 2026-03-20), it is blamed on shared/absolute-path
+   build-cache dirs (Bazel, Nx, Pants, Turbo), symlinked `node_modules`
+   breaking resolution, or shared databases — never on hardlink aliasing.
+   **Second channel found 2026-08-03, and it is not about hardlinks.** A cache
+   already inside `node_modules` is carried into a new tree by ANY copy —
+   `cp -r`, `tar`, `rsync`. tsc inherits a `tsbuildinfo` claiming its outputs
+   exist, exits 0, and emits nothing; the `cp -r` control fails identically,
+   and deleting the buildinfo fixes it. tsc trusting buildinfo over checking
+   outputs is a KNOWN limitation (people hit it deleting `dist/` by hand); what
+   is NOT FOUND is that siting it in `node_modules` makes it reachable by
+   making a worktree the ordinary way, with nothing deleted.
+   **Discriminator, measured across four caches:** written-in-place decides the
+   live channel; relative-vs-absolute keys decide whether one tree's entries
+   are meaningful in another. vitest (in place + relative) → wrong results;
+   tsc (in place + relative) → empty build; eslint (in place + absolute) →
+   propagates but cannot collide; vite deps (rename) → harmless. None of this
+   is documented or version-stable, hence `detect.sh`.
+   **Claimable delta:** measured instances of old mechanisms producing wrong
+   answers across agent worktrees, the propagate/collide map, and a detector so
+   the map need not be trusted. NOT FOUND for the chain. Still the strongest
+   technical finding — but the claim is "documented instance", not "new
+   mechanism", and the headline should be the `node_modules`
+   immutable-vs-scratch conflation rather than hardlinks specifically.
 3. **The link rule** — neighbors gesture (moonrunnerkc states "the measurement
    is accurate but the inference is broken" almost verbatim; Hughes's "a log
    line is a statement, proof is a check"), but nobody names the practice: the
