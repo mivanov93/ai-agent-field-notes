@@ -213,20 +213,64 @@ dereferences a symlink.
 - `rm -rf node_modules/.cache node_modules/.vite` after copying, by any method.
   Kills demo 1 outright.
 - vite/vitest: `cacheDir: './.vitecache'` moves them out of `node_modules`.
-- Own dependency tree per writing agent. The only fix that doesn't require
-  knowing where every tool hides state.
+- **An agent that writes files gets its own worktree AND its own dependency
+  tree** — a real `npm ci`, or keep it read-only. The only fix that doesn't
+  require knowing where every tool hides its state, which is the actual problem:
+  the answer differs per tool and per version, and nothing marks which files are
+  safe to share.
+
+## Why this is an agent problem, and where it isn't
+
+The mechanism has nothing to do with AI. A CI job that caches `node_modules` and
+restores it into a fresh checkout reproduces the silent empty build exactly.
+Nobody should claim agents cause this.
+
+Three things make it an agent problem anyway, and only the third is interesting.
+
+**It becomes near-universal.** A human cuts a worktree occasionally. An agent
+fleet cuts and discards them continuously, which puts install time on the
+critical path of every task and makes sharing `node_modules` the obvious move.
+The precondition — someone ran the suite in the main tree before the worktrees
+were cut — goes from occasional to constant.
+
+**It lands on the verification layer specifically.** The reason you can run six
+agents is that you are no longer reading every diff; you have delegated checking
+to the suite. That verdict *is* the trust mechanism. This makes it depend on what
+a different agent did in a different directory — so it corrupts precisely the
+instrument that made delegation safe. Not a bug that happens to affect agent
+setups; a bug in what agent setups run on.
+
+**And the agent takes the reading at face value.** A human who sees an
+impossible failure eventually suspects their environment. An agent reasons from
+the output it was given: red means broken, so it "fixes" working code; green
+means done. In the incident behind this post, two agents reported "cannot
+reproduce" with complete confidence and that report was believed. They were not
+wrong to trust the tools — they had no way to know the tools were cross-talking.
+An agent's report inherits every lie its environment tells it, and it has no
+prior that would flag the lie.
 
 ## What's not new
 
-Hardlink aliasing plus in-place writes is decades old — `cp -al` backup
-rotation, and pnpm's store docs warn that editing `node_modules` corrupts the
-shared store for every project on the machine. I'm not claiming a mechanism.
+Hardlink aliasing plus in-place writes is decades old. Hardlink-based backup
+rotation (`cp -al`, rsnapshot) has always had the property that editing a file
+in place corrupts every snapshot sharing it, and pnpm's store documents the same
+hazard in this exact directory — edit a file in `node_modules` and you corrupt
+the shared store for every project on the machine. I am not claiming a
+mechanism.
 
 I'm claiming measured instances: a plain `cp -r` producing a green pipeline that
 built nothing and tested nothing, hardlinks turning a passing suite red, and the
 map of which caches propagate. Existing writing on worktree cache contamination
 blames shared build-cache dirs (Bazel/Nx/Turbo), symlink resolution, or shared
-databases — not this.
+databases — not this. Zylos Research (2026-02-22), Dave Schumaker (2026-03-13)
+and Termdock (2026-03-20) all cover worktree isolation for parallel agents
+without it.
+
+One correction I owe: an earlier version of this claimed those guides recommend
+hardlinking `node_modules`. They don't — Zylos recommends pnpm's store, and
+Schumaker tried Yarn's `hardlinks-global` and rejected it as too slow. The one
+that does propose hardlinking `node_modules` into agent worktrees, with no risk
+discussion at all, is Roo-Code issue #11758 (2026-02-26).
 
 Verified on TypeScript 5.9.3 **and** 7.0.2 (the native port — `npm i typescript`
 gives you 7 today, and it fails identically), vitest 4.1.10, vite 8.2.0, eslint

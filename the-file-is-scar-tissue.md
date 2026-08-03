@@ -17,7 +17,7 @@ would obsolete it. But a failure-log instruction file is not that. Mine
 records: the browser store a package manager silently garbage-collected;
 the busy port that cost two test runs before anyone read the log; the
 hardlinked caches that broke agent isolation
-([the hardlink hazard](the-hardlink-hazard.md)); the term that collided
+([the hardlink hazard](two-worktrees-one-node-modules.md)); the term that collided
 with the protocol's own vocabulary
 ([vocabulary control](vocabulary-control.md)).
 

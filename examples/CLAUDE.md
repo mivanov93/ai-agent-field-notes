@@ -139,7 +139,7 @@ the repo so parallel work does not collide.*
   plain `cp -r` either (a cache already inside `node_modules` rides any copy —
   `tsc` inherits a stale build record, exits 0 and emits nothing)
   ([the session has no concurrency model](../the-session-has-no-concurrency-model.md),
-  [the hardlink hazard](../the-hardlink-hazard.md)).
+  [the hardlink hazard](../two-worktrees-one-node-modules.md)).
 - `[shared]` **Freeze the tree for read-only lanes,** or hand them a snapshot
   of a fixed commit, and parallelize by data dependency, not task shape
   ([the session has no concurrency model](../the-session-has-no-concurrency-model.md)).

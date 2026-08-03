@@ -29,7 +29,7 @@ is imposed after an incident; none is volunteered.
 - **It isolated the source and not the dependencies.** The subtlest
   form: worktrees per writer, dependency trees shared by hardlink, build
   caches crossing all trees at once
-  ([the hardlink hazard](the-hardlink-hazard.md)).
+  ([the hardlink hazard](two-worktrees-one-node-modules.md)).
 
 ## The mechanism
 

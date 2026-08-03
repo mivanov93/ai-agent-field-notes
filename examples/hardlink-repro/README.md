@@ -1,9 +1,7 @@
 # hardlink hazard — reproduction
 
-Evidence for [the hardlink hazard](../../the-hardlink-hazard.md). What the
-results mean is explained there and in the
-[walkthrough](../../hardlink-hazard-explained.md); this file is just how to run
-it.
+Evidence for [two worktrees, one node_modules](../../two-worktrees-one-node-modules.md),
+which explains what the results mean. This file is just how to run them.
 
 ```bash
 ./repro.sh                                    # 11 experiments, 26 assertions

@@ -31,7 +31,7 @@ across the lanes.
    that names its own failure condition).
 2. **The hardlinked-node_modules correctness hazard** — PARTIAL, and narrower
    than the first sweep recorded. Now reproduced end-to-end with a control
-   ([`examples/hardlink-repro`](examples/hardlink-repro/), 8 experiments, 2026-08-03).
+   ([`examples/hardlink-repro`](examples/hardlink-repro/), 11 experiments, 2026-08-03).
    Three corrections to the original entry:
    - The *mechanism* is KNOWN, not new. Hardlink aliasing + in-place write =
      shared mutation is decades-old backup-tool lore (rsnapshot, `cp -al`

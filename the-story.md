@@ -101,7 +101,7 @@ I shared as information that almost got executed as an order
 ([descriptive statements as directives](descriptive-statements-as-directives.md));
 parallel review agents that could not reproduce a failure because
 hardlinked dependency caches had quietly un-isolated them
-([the hardlink hazard](the-hardlink-hazard.md)); completion reports whose
+([the hardlink hazard](two-worktrees-one-node-modules.md)); completion reports whose
 measurements were real and whose conclusions were not
 ([the link rule](the-link-rule.md)); a week where I benched a model for
 producing worse work, audited its window with a different model, and
