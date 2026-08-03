@@ -277,28 +277,46 @@ wrong to trust the tools — they had no way to know the tools were cross-talkin
 An agent's report inherits every lie its environment tells it, and it has no
 prior that would flag the lie.
 
-## What's not new
+## What's new, and what's known
 
-Hardlink aliasing plus in-place writes is decades old. Hardlink-based backup
-rotation (`cp -al`, rsnapshot) has always had the property that editing a file
-in place corrupts every snapshot sharing it, and pnpm's store documents the same
-hazard in this exact directory — edit a file in `node_modules` and you corrupt
-the shared store for every project on the machine. I am not claiming a
-mechanism.
+**New — what I'm actually claiming.**
 
-I'm claiming measured instances: a plain `cp -r` producing a green pipeline that
-built nothing and tested nothing, hardlinks turning a passing suite red, and the
-map of which caches propagate. Existing writing on worktree cache contamination
+1. **Two measured wrong verdicts**, not a theory: a plain `cp -r` yielding a
+   pipeline that compiled nothing, ran zero tests, exited 0 and would publish an
+   empty package; and a shared cache turning a passing suite red in a directory
+   nobody touched. Both reproduce from an empty directory in about a minute.
+2. **The propagation map.** Whether a cache is dangerous turns on two properties
+   nobody documents — written in place vs. temp-and-rename, and keys relative
+   vs. absolute. Measured across four caches, and *not guessable from the
+   outside*: vite's dependency cache is the big conspicuous one and is the only
+   one of the four that is completely safe, while the small forgettable ones
+   cause both failures above.
+3. **That it reaches CI, not just worktrees.** The same copy-time failure fires
+   from an `actions/cache` restore of `node_modules` into a fresh checkout.
+   Verified.
+
+I found nobody connecting cache state resident in `node_modules` to a wrong
+verdict in a different directory. Existing writing on worktree contamination
 blames shared build-cache dirs (Bazel/Nx/Turbo), symlink resolution, or shared
-databases — not this. Zylos Research (2026-02-22), Dave Schumaker (2026-03-13)
-and Termdock (2026-03-20) all cover worktree isolation for parallel agents
-without it.
+databases. Zylos Research (2026-02-22), Dave Schumaker (2026-03-13) and Termdock
+(2026-03-20) all cover worktree isolation for parallel agents without it.
 
-One correction I owe: an earlier version of this claimed those guides recommend
-hardlinking `node_modules`. They don't — Zylos recommends pnpm's store, and
-Schumaker tried Yarn's `hardlinks-global` and rejected it as too slow. The one
-that does propose hardlinking `node_modules` into agent worktrees, with no risk
-discussion at all, is Roo-Code issue #11758 (2026-02-26).
+**Known — cite these; I'm not claiming them.**
+
+Hardlink aliasing plus in-place writes is decades old: hardlink-based backup
+rotation (`cp -al`, rsnapshot) has always had the property that editing a file in
+place corrupts every snapshot sharing it, and pnpm's store documents the same
+hazard in this exact directory — edit a file in `node_modules` and you corrupt
+the shared store for every project on the machine. That tsc trusts its build
+record over the filesystem is also known; people hit it by deleting `dist/` by
+hand. **The mechanisms are old. What I'm claiming is that they produce wrong
+answers in a setup a lot of people are adopting right now, and a map of when.**
+
+One correction I owe: an earlier version of this claimed the worktree guides
+recommend hardlinking `node_modules`. They don't — Zylos recommends pnpm's
+store, and Schumaker tried Yarn's `hardlinks-global` and rejected it as too
+slow. The one that does propose hardlinking `node_modules` into agent worktrees,
+with no risk discussion at all, is Roo-Code issue #11758 (2026-02-26).
 
 Verified on TypeScript 5.9.3 **and** 7.0.2 (the native port — `npm i typescript`
 gives you 7 today, and it fails identically), vitest 4.1.10, vite 8.2.0, eslint
