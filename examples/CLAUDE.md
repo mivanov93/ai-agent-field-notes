@@ -134,12 +134,6 @@ the repo so parallel work does not collide.*
   per-lane model before dispatch; a check fails any saved lane with no model set
   — the default it overrides is "inherit the expensive one"
   ([agents launch at full price](../agents-launch-at-full-price.md)).
-- `[model]` **Model pinning does not survive one level down.** A subagent that
-  spawns subagents passes its own model to them, so an expensive lane's
-  grep-shaped helpers silently run at frontier price. Every prompt given to a
-  frontier-model agent must carry: *any sub-agents you spawn must specify sonnet
-  or haiku explicitly — never inherit*
-  ([agents launch at full price](../agents-launch-at-full-price.md)).
 - `[shared]` **A writer gets its own worktree and its own dependency install.**
   Not a hardlinked copy (build caches then cross every tree at once), and not a
   plain `cp -r` either (a cache already inside `node_modules` rides any copy —
