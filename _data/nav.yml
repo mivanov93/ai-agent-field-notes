@@ -46,9 +46,11 @@
       url: "the-session-has-no-concurrency-model.md"
     - title: "Descriptive statements as directives"
       url: "descriptive-statements-as-directives.md"
-    - title: "The hardlink hazard"
+    - title: "Two worktrees, one node_modules"
       url: "two-worktrees-one-node-modules.md"
       original: true
+    - title: "The crash lands on the innocent process"
+      url: "the-crash-lands-on-the-innocent-process.md"
     - title: "All green, still broken"
       url: "all-green-still-broken.md"
     - title: "Move the code, lose the test"

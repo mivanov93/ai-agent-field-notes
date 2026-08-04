@@ -1,7 +1,8 @@
 # Agents launch at full price
 
-*Status: searched 2026-07-31. Both blindnesses are documented on Claude Code
-itself; the unified thesis and the cheap-variant pattern are the deltas.*
+*Status: searched 2026-07-31; the inheritance trap added 2026-08-04. Both
+blindnesses are documented on Claude Code itself; the unified thesis, the
+cheap-variant pattern, and the recursive inheritance trap are the deltas.*
 
 **Claim:** the model does not economize delegation. Left alone, it
 launches as many agents as the task shape suggests — without counting —
@@ -24,6 +25,37 @@ size and lane models are governed from outside or not at all.
   prices a 500k-token demonstration at zero
   ([the demonstration reflex](the-demonstration-reflex.md), which is this
   finding's demo-shaped special case).
+
+## The inheritance trap
+
+*Caught 2026-08-04.* The tier ladder is imposed **at dispatch** — and that is
+exactly one level deep. A subagent that spawns its own subagents passes its
+model down to them, so the ladder you enforced at the top is silently undone
+underneath it.
+
+The tool contract says so plainly: the model parameter, "if omitted, uses the
+agent definition's model, **or inherits from the parent**." Nobody reads that as
+a recursive default until it bills them.
+
+I put a lane on Fable deliberately — an expensive model chosen for one hard
+judgement call. That lane then spawned its own inventory sweeps: grep-shaped,
+mechanical, the canonical case for the smallest tier available. Every one of
+them ran on Fable, because none of them named a model and the parent's choice
+flowed downhill. The waste lands precisely where it is least defensible: the
+cheapest work in the tree, running on the most expensive model in the tree, for
+no reason anyone chose.
+
+Note what fails here. The fix from the section above — name a model per lane at
+dispatch — was applied, and worked, and did nothing, because you do not control
+what your lanes spawn. Nothing warns you. The sub-sub-agents do not appear in
+the plan you approved, and their model is not a decision anyone made; it is a
+default inherited from a decision about a different agent doing different work.
+
+**The rule, which has to live in the prompt because it cannot live in the
+dispatch:** every frontier-model agent prompt carries "any sub-agents you spawn
+must specify sonnet or haiku explicitly — never inherit." It is ugly and it is
+boilerplate, and it is the only place the instruction can sit, because the
+parent is the only thing that will be in scope when the child is created.
 
 ## What works
 
@@ -49,6 +81,10 @@ Everything that works is imposed, none of it volunteered:
 - **A price on the ask.** Fan-outs above a size threshold are proposed
   with lane count and models named before dispatch, and demonstrations
   are purchases ([the demonstration reflex](the-demonstration-reflex.md)).
+- **An anti-inheritance clause in every expensive lane's prompt.** See the
+  trap above: dispatch-time model pinning does not reach the second level,
+  so the instruction has to travel inside the prompt of the agent that
+  might spawn.
 
 ## Prior art
 
@@ -69,3 +105,11 @@ tier-ladder half. The delta: the two blindnesses as one structural property
 delegation economy is human-imposed and machine-enforced, and the
 human-authored cheap-variant-of-an-expensive-skill as the practical fix —
 none found stated as such.
+
+On the inheritance trap specifically: Systima's "Subagent Tax" observes the
+one-level version (Explore agents "inherit the parent model rather than
+defaulting to Haiku") and the behaviour is documented in the tool contract, so
+the mechanism is KNOWN. What I have not found stated is that it **recurses, and
+therefore defeats the standard fix** — per-lane model pinning is a dispatch-time
+control, and the trap springs below dispatch, where the only surviving lever is
+text inside the parent's prompt.
