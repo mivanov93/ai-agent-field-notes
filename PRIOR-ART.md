@@ -368,3 +368,54 @@ citations; consolidated here.
   opposite-direction error. Delta: the composite at project scale — over-quoting
   feasible work, the behavioral consequence (talks you out of cheap value), and
   the attempt-don't-ask fix.
+
+## The 2026-08-26 sweeps — the five drafts
+
+Five lanes over public 2024–2026 material, one per draft, run on a
+cheaper model tier with every load-bearing citation re-verified at
+session level before use (per the delegation rules). All five verdicts
+PARTIAL; several framings came back clean NOT FOUND.
+
+- **the-test-that-assumes-it-owns-the-table** — PARTIAL. Luo et al.
+  (FSE 2014, DOI:10.1145/2635868.2635920) covers two of three incidents
+  by name (external-resource dependency inside Test Order Dependency;
+  Resource Leak); *SWE at Google*'s hermeticity chapter is the
+  declare-your-dependencies baseline; Berndt et al. (ICSE-SEIP '26,
+  arXiv:2601.08998) show LLM-written DBMS tests are flakier than human
+  ones, single-agent. Delta: cross-binary contention on an always-on
+  shared topic (outside Luo's single-process taxonomy), ownership as a
+  gate-checkable artifact, and the author-and-crowd structure — the
+  last two NOT FOUND.
+- **the-model-cant-see-the-picture-it-drew** — PARTIAL. The fix is
+  shipped: Agents365-ai's mermaid-skill README contrasts "never looks
+  at the render" with its vision loop; Design2Code (arXiv:2403.03163);
+  VF-Coder (arXiv:2604.19750). SolidCoder (arXiv:2604.19825) names the
+  Mental-Reality Gap for code execution. Delta: the pricing framing and
+  cost-mislabeled-as-incapability — NOT FOUND.
+- **compression-is-what-familiarity-feels-like** — PARTIAL. Curse of
+  knowledge (Camerer, Loewenstein & Weber 1989) and audience design
+  (Clark & Murphy 1982) for the human analog; Laban et al.
+  (arXiv:2505.06120, 39% multi-turn reliability drop) and Mittal
+  (arXiv:2603.23530, 2–21% compliance drop under load) for rules losing
+  force. "Lost in the Middle" (arXiv:2307.03172) and Chroma's "Context
+  Rot" (2025) checked directly — retrieval metrics, not output
+  register. Delta: the post-ingestion trigger, the self-authored rule,
+  the orchestrator-as-translator — all NOT FOUND.
+- **the-doctor-doesnt-catch-the-fever** — PARTIAL; the bundle NOT
+  FOUND. BooookScore (ICLR 2024, arXiv:2310.00785) is the closest
+  shape (100 books, human-validated error taxonomy — evaluates, never
+  fixes). The mechanism literature leans against labels: Min et al.
+  (EMNLP 2022, arXiv:2202.12837), In-Context Fixation
+  (arXiv:2605.08295), Voice Under Revision (arXiv:2604.22142) —
+  supporting the page's dose-and-gates hedge. RuVerBench
+  (arXiv:2606.29920): rubrics don't rescue weak judges (coding, not
+  prose).
+- **the-crash-lands-on-the-innocent-process** — PARTIAL.
+  Victim-not-cause exists scattered (Autoheal's OOM guide, nearly
+  verbatim for memory; AWS AgentCore observability for agent tool
+  errors); agent disk exhaustion is now publicly documented:
+  openai/codex#34061 (731.5 GiB of session logs),
+  anthropics/claude-code#59856 (121 unswept session dirs) and #23484
+  (864 → 73,217 processes in ~an hour), and the storage_ballast_helper
+  tool. Delta: the unowned-pool family as one diagnostic claim, and
+  Docker build-cache growth from agent retry loops — NOT FOUND.

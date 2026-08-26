@@ -1,8 +1,7 @@
 # The crash lands on the innocent process
 
-*Status: prior-art sweep not yet run — the incident below is measured, the
-generalization is mechanism. Treat the claim as unverified against public
-work until the sweep lands.*
+*Status: prior-art searched 2026-08-26 — verdict below. The incident is
+measured; the generalization is mechanism.*
 
 **Claim:** `/dev/shm`, `/tmp`, the Docker store and the package caches are
 machine-wide, fixed-size, and unowned. Nothing attributes them to a consumer,
@@ -108,11 +107,25 @@ resource nobody is billed for is a resource nobody frees.
 
 ## Prior art
 
-**Verdict: NOT YET SEARCHED.** The individual facts are all well-worn
-sysadmin knowledge — the Docker `--shm-size` default of 64 MB is one of the
-most-hit Chromium-in-CI problems on the internet, tmpfs `/tmp` exhaustion is
-ancient, and `docker system prune` guidance is everywhere. What has not been
-checked is the framing: cross-application resource misattribution as a
-*diagnostic* failure mode, and the claim that agent fan-out plus retry plus
-crash-recovery is a distinct and worsening load on shared pools. Until the
-sweep runs, assume the mechanism is known and only the framing is candidate.
+**Verdict: PARTIAL — searched 2026-08-26.** The base facts stay KNOWN as
+assumed: the Docker `--shm-size` Chromium-in-CI lore, tmpfs `/tmp`
+exhaustion, `docker system prune` guidance. The victim-not-culprit
+framing exists, but scattered: Autoheal's 2026 OOM debugging guide says
+it nearly verbatim for memory — the killed process "was a victim, not
+the cause" — Kubernetes disk-pressure guides send you to node-level
+inspection because the evicted pod's own signals can't explain it, and
+Amazon's AgentCore observability post (2026) carries the agent half for
+tool errors ("the problem may not be in your agent"). Nobody located
+treats `/dev/shm`, `/tmp`, the Docker store, and the package caches as
+one family of unowned pools whose exhaustion cannot be diagnosed from
+the dying process's own telemetry — that framing survives. The
+agent-load claim, meanwhile, is now publicly documented, not just
+measured here: a Codex CLI fan-out wrote 731.5 GiB of session logs
+across 2,393 child sessions (openai/codex#34061); 121 unswept session
+directories filled a sandbox disk until `useradd` itself failed
+(anthropics/claude-code#59856); a crash-recovery respawn storm grew 864
+processes to 73,217 in about an hour (anthropics/claude-code#23484);
+and `storage_ballast_helper` is a practitioner tool built explicitly
+against agent swarms filling disks faster than operators react. Still
+not found: Docker build-cache growth from agent retry loops, named as
+its own pattern.

@@ -1,7 +1,7 @@
 # The test that assumes it owns the table
 
-*Status: DRAFT — not yet walked through for publication; prior-art sweep not
-yet run. The incidents are measured; the "model default" reading is an
+*Status: DRAFT — not yet walked through for publication; prior-art
+searched 2026-08-26. The incidents are measured; the "model default" reading is an
 unverified hypothesis, and the claim below says which half is which.
 Incidents from a two-day multi-agent build (Aug 2026), diagnosed by fix
 agents whose reports are quoted below.*
@@ -112,17 +112,26 @@ an ownership claim about the world — one nobody wrote down.
 
 ## Prior art
 
-**Verdict: NOT YET SEARCHED.** Test pollution, hermetic tests, and
-shared-fixture discipline are decades-old lore; the three incidents map
-onto textbook flaky-test categories (async wait, order dependency,
-resource leak) that published taxonomies already name, and the
-individual fixes (scoped predicates, dedicated topics, per-test
-databases) are standard.
-What has not been checked: single-tenant-by-default as a *model* writing
-behavior; the undeclared-ownership framing (the requirement no gate can
-check because it was never stated); and the fan-out multiplier — one
-orchestration acting as both the author of every exclusivity assumption
-and the crowd that violates them. Until the sweep runs, assume the fixes
-are known and only the mechanism framing is candidate. Adjacent here:
+**Verdict: PARTIAL — searched 2026-08-26.** The baseline is textbook,
+and sharper than this page first assumed: Luo et al., "An Empirical
+Analysis of Flaky Tests" (FSE 2014, DOI:10.1145/2635868.2635920),
+names two of the three incidents outright — the blanket `count(*)` is
+their "dependency on external resources" (the top cause inside their
+Test Order Dependency category, with the same prescribed fix), and the
+leaked consumer groups are their Resource Leak category. The
+sibling-test incident fits less cleanly: their taxonomy comes from
+single-process suites, and cross-binary contention on one always-on
+broker topic under `go test ./...` has no named category there — a
+narrow gap, and honestly narrow. *Software Engineering at Google*'s
+hermeticity chapter is the closest KNOWN answer to "declare your
+dependencies," though its remedy is architectural — don't share the
+resource — not a checkable claim over a deliberately shared one. On
+the model side, Berndt et al. (ICSE-SEIP '26, arXiv:2601.08998)
+establish that LLM-generated database tests are measurably flakier
+than human-written ones — single-agent generation, no fan-out. Not
+found in this sweep: ownership as a declared, gate-checkable artifact,
+and the structure this page centers on — one orchestration authoring
+every exclusivity assumption and then supplying the crowd that
+violates them. Adjacent here:
 [the leak is in the cleanup](the-leak-is-in-the-cleanup.md) (the
 never-wiped broker is a cleanup nobody owned).

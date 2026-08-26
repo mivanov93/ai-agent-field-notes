@@ -1,7 +1,7 @@
 # The model can't see the picture it drew
 
-*Status: DRAFT — not yet walked through for publication; prior-art sweep not
-yet run. One artifact type is measured (a mermaid state diagram; evidence
+*Status: DRAFT — not yet walked through for publication; prior-art
+searched 2026-08-26. One artifact type is measured (a mermaid state diagram; evidence
 from five session transcripts spanning the design session and a later
 docs pass); the wider rendered-artifact class is mechanism, not
 measurement. The render probe below was run while writing this note.*
@@ -124,14 +124,25 @@ seconds what three rounds of my pushback caught by hand.
 
 ## Prior art
 
-**Verdict: NOT YET SEARCHED.** Render-feedback loops exist in public
-work — screenshot-driven UI iteration is widely demonstrated, and
-vision-in-the-loop generation is an active research area — so the
-mechanics of the fix are presumably KNOWN. What has not been checked:
-the default-loop framing (the model never volunteers to buy its own
-look), the substitution tell (source properties reported in the grammar
-of pixel verification), and the mislabeling of the unpaid cost as
-incapability. Adjacent here:
-[the face transplant](the-face-transplant.md) (rendered states validated
-by hand) and [where the savings are](where-the-savings-are.md) (the look
-is a gate; gates are the wrong savings).
+**Verdict: PARTIAL — searched 2026-08-26. The fix is KNOWN, and
+already shipped for this exact artifact.** Agents365-ai's
+`mermaid-skill` (GitHub) names this page's gap in its own comparison
+table — a native agent "never looks at the render" versus its
+vision-reads-the-PNG self-check loop — and the research line runs from
+Design2Code (arXiv:2403.03163, screenshot-conditioned self-revision,
+with measured limits) through VF-Coder (arXiv:2604.19750). "Buy the
+look" is therefore a citation, not a contribution. The substitution
+tell has a documented cousin one modality over: SolidCoder
+(arXiv:2604.19825) names the "Mental-Reality Gap" — models
+hallucinating execution traces and confidently validating buggy
+code — and practitioner screenshot-verification writing catches the
+same lie for UI. The self-report backdrop lives on
+[the model doesn't know itself](the-model-doesnt-know-itself.md). Not
+found in this sweep: the pricing framing — the look as an unpaid cost
+the default loop never budgets — and the specific conflation this page
+caught, a cost mislabeled as an incapability, in either direction of
+the unstable self-report. Adjacent here:
+[the face transplant](the-face-transplant.md) (rendered states
+validated by hand) and
+[where the savings are](where-the-savings-are.md) (the look is a gate;
+gates are the wrong savings).

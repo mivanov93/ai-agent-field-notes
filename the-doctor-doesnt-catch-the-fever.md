@@ -1,7 +1,7 @@
 # The doctor doesn't catch the fever
 
-*Status: DRAFT — not yet walked through for publication; prior-art sweep
-not yet run. One run, one corpus, from my own records; the end verdict
+*Status: DRAFT — not yet walked through for publication; prior-art
+searched 2026-08-26. One run, one corpus, from my own records; the end verdict
 was human — the author and I read the result. The mechanism in the title
 is a hypothesis this run cannot isolate, and the claim says which half
 is which. Working title.*
@@ -159,16 +159,26 @@ Pending replication; scoped by the section above.
 
 ## Prior art
 
-**Verdict: NOT YET SEARCHED.** Rubric-based grading, LLM-as-judge, and
-fix-then-verify loops are heavily published; the taxonomy step is
-recognizably annotation-guideline / codebook construction — assume all
-KNOWN. The sweep must also test the title's hypothesis against the
-in-context-learning literature, which plausibly points the other way:
-demonstration effects are reported to survive label content, and
-instruction-grade interventions to attenuate rather than eliminate
-drift — if that holds, the honest mechanism candidates here are dose
-and gates, not labels. What has not been checked as a bundle: a
-no-barrier cleanup at this scale with a human-accepted result, the
-taxonomy-first pipeline with human gates at every artifact, and the
-tier-floor observations. [The clean room](the-clean-room.md) remains
-the experiment that would settle the mechanism.
+**Verdict: PARTIAL — searched 2026-08-26; the bundle is NOT FOUND.**
+Rubric grading, LLM-as-judge, fix-then-verify loops, and codebook
+construction are all heavily published — KNOWN, as assumed. The
+closest shape to the whole pipeline is BooookScore (ICLR 2024,
+arXiv:2310.00785): 100 books, 1,193 human annotations, a
+human-validated coherence-error taxonomy — but the taxonomy scores
+summaries; it never drives a fix loop and nothing gets accepted. No
+located work combines taxonomy-first diagnosis, a no-barrier fixer,
+batch fixing with check passes, and a human-accepted result on a 100+
+document prose corpus. On the title's mechanism the literature leans
+the other way, as this page suspected: Min et al. (EMNLP 2022,
+arXiv:2202.12837) found demonstration label correctness barely moves
+in-context learning — label space and format carry the effect — and
+"In-Context Fixation" (arXiv:2605.08295) found demonstrated tokens
+overriding semantics outright, while "Voice Under Revision"
+(arXiv:2604.22142) measured protective instructions attenuating style
+drift without reversing it. Labels are weak levers; dose and gates
+stay the defensible mechanism candidates, and
+[the clean room](the-clean-room.md) remains the experiment that would
+settle it. On tier floors, RuVerBench (arXiv:2606.29920) is the
+closest evidence that rubrics don't rescue weaker judges — measured on
+agentic coding tasks, not prose, so the floor here stays a field
+report.

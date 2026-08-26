@@ -1,7 +1,7 @@
 # Compression is what familiarity feels like from the inside
 
-*Status: DRAFT — not yet walked through for publication; prior-art sweep not
-yet run. Two incidents, two sessions, two model instances; the quotes are
+*Status: DRAFT — not yet walked through for publication; prior-art
+searched 2026-08-26. Two incidents, two sessions, two model instances; the quotes are
 verbatim from the transcripts. The title is the model's own sentence,
 kept because the model said it better
 than I could — and kept doing it.*
@@ -119,14 +119,24 @@ rule.
 
 ## Prior art
 
-**Verdict: NOT YET SEARCHED.** The human analog is famous — the curse
-of knowledge, audience design, "the writer knows too much to see the
-page" — so assume the phenomenon is KNOWN for people and check what
-exists for models. Candidate deltas for the sweep: the trigger timing
-(post-large-context ingestion, which is when LLM orchestrators
-synthesize), the in-context self-authored rule failing repeatedly, and
-the boundary framing — machine-to-machine density passed through the
-one node whose job was translation. Adjacent here:
+**Verdict: PARTIAL — searched 2026-08-26.** The human analog is
+canonical: the curse of knowledge (Camerer, Loewenstein & Weber, *JPE*
+1989) and audience design (Clark & Murphy, 1982). On the model side,
+instructions losing force as interaction grows is well published:
+"LLMs Get Lost in Multi-Turn Conversation" (arXiv:2505.06120, an ICLR
+2026 Outstanding Paper) measures a 39% average reliability drop in
+extended settings, and "Did You Forget What I Asked?"
+(arXiv:2603.23530) finds formatting compliance dropping 2–21% under
+concurrent load, worst for constraints due at the response boundary.
+The two obvious neighbors for the trigger claim were checked directly
+and measure the wrong thing: "Lost in the Middle" (arXiv:2307.03172)
+and Chroma's "Context Rot" (2025) score retrieval accuracy against
+context position or length, never the register of freely generated
+text. Not found in this sweep: the timing claim (output turns
+compressed right after large ingestion), the self-authored angle (the
+broken rule written by the model that broke it), and the boundary
+framing (the orchestrator as the one node whose job is translating
+machine-dense reports for a human). Adjacent here:
 [notes that rot](notes-that-rot.md) (the same defect as dead
 session-relative comments, on a different surface, with a different
 driver) and [settled is a human word](settled-is-a-human-word.md) (the
