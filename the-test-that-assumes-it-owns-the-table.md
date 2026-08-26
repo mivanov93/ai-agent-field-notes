@@ -12,12 +12,12 @@ partition, no declared ownership: several packages, different lanes, the
 same silent assumption, three different unseen co-tenants. Whether that is
 the model's default or this project's draw, three incidents in one suite
 cannot establish — that half stays hypothesis until someone measures it.
-What the incidents do establish is structural, and it holds at any rate:
-an ownership requirement nobody declares is one no gate can check, and a
-lane's context cannot contain its siblings — so whenever the assumption
-is wrong, the suite stays green anyway, silently conditioned on the world
-being quiet, and the bill arrives later as machine-load-dependent
-flakiness, the least attributable symptom there is.
+What the incidents do establish is structural, and it holds at any
+rate. No gate can check an ownership requirement nobody declared, and a
+lane cannot see its sibling lanes. So when the assumption is wrong, the
+suite still passes — it just happens to pass because nothing else was
+running. The failure surfaces later as flakiness that tracks machine
+load, which is about the hardest kind of failure to trace back.
 
 ## Three tenants it didn't see
 
@@ -63,11 +63,11 @@ stops.
 Each lane forks from the same snapshot and writes from a context in which
 "I am alone" is true. A human team accretes tests serially — each new
 author sees the existing suite; a fan-out's authors meet their siblings
-only at run time. And the tenancy question is off-axis for the model the
-way the killing hypothesis usually is
-([the missing hypothesis is orthogonal](the-missing-hypothesis-is-orthogonal.md)):
-it reasons about the code under test, not about the environment's other
-occupants.
+only at run time. And the tenancy question sits on an axis the model isn't searching —
+the same place the decisive hypothesis usually hides in a debugging
+session ([the missing hypothesis is orthogonal](the-missing-hypothesis-is-orthogonal.md)):
+the model reasons about the code under test, not about the
+environment's other occupants.
 
 Honesty about the rate: the same transcripts show the opposite discipline
 wherever a rule existed — worktree isolation held cleanly, and the fix
@@ -103,10 +103,9 @@ an ownership claim about the world — one nobody wrote down.
   Terminate on your own records, counted, capped.
 - **If a test genuinely needs exclusivity, that need is a gate to
   build, not a comment to write.** A declared claim helps only once a
-  checker parses the declarations and collides them at integrate time;
-  until that checker exists, the only enforceable rule is the mint rule
-  above — an unenforced ownership register would be one more
-  requirement nothing checks.
+  checker parses the declarations and flags collisions at integrate
+  time. Until that checker exists, stick to the mint rule above — a
+  register nothing reads is one more requirement nothing checks.
 - **Cross-machine flakiness means undeclared tenancy until proven
   otherwise.** A test whose verdict tracks machine load is measuring the
   crowd, not the code.

@@ -12,8 +12,8 @@ inspecting the picture costs a command plus the tokens to read the image
 back. Left to its defaults the model never buys the look. It iterates on
 the artifact from the text side, substitutes properties of the source
 (edge counts, label lengths, acyclicity) for properties of the picture
-(readable, uncrossed, unsquashed), and reports that substitution in the
-grammar of verification. The human eye becomes the only render gate in
+(readable, uncrossed, unsquashed), and reports that substitution as if
+it were verification. The human eye becomes the only render gate in
 the loop — one round-trip per guess — and when the model finally named
 the gap, it named it as incapability, not as a look nobody had bought.
 
