@@ -60,6 +60,10 @@ defaults:
       path: ""
     values:
       layout: default
+      # jekyll-seo-tag reads page.image, not a bare site key — this default
+      # is what actually puts og:image / twitter:image on every page and
+      # flips the twitter card to summary_large_image.
+      image: /main.webp
 
 exclude:
   - LICENSE

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ai.mivanov.dev/sitemap.xml
