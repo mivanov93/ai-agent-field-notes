@@ -20,8 +20,9 @@ Each finding has its own page, cross-linked to the others. Every page cites
 the closest published work I found and says exactly what I think is new.
 The full search record is in [PRIOR-ART.md](PRIOR-ART.md), and how the
 findings were derived, written, and vetted is in
-[METHODOLOGY.md](METHODOLOGY.md). Order within each section is by importance,
-not by when I learned it.
+[METHODOLOGY.md](METHODOLOGY.md); the prose diseases these pages are
+checked against are in [PLAGUE.md](PLAGUE.md). Order within each section
+is by importance, not by when I learned it.
 
 All of it comes from one story — a blog project where I asked for
 perfection, a WebRTC project built on hand-written code where the docs
