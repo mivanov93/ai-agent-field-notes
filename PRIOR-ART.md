@@ -383,9 +383,11 @@ PARTIAL; several framings came back clean NOT FOUND.
   declare-your-dependencies baseline; Berndt et al. (ICSE-SEIP '26,
   arXiv:2601.08998) show LLM-written DBMS tests are flakier than human
   ones, single-agent. Delta: cross-binary contention on an always-on
-  shared topic (outside Luo's single-process taxonomy), ownership as a
-  gate-checkable artifact, and the author-and-crowd structure — the
-  last two NOT FOUND.
+  shared topic (outside Luo's single-process taxonomy) and ownership
+  as a gate-checkable artifact (NOT FOUND). The draft's third framing —
+  fan-out as author-and-crowd — was withdrawn at walk-through: serial
+  human authorship fills the same categories, so parallel authorship
+  is tempo, not mechanism.
 - **the-model-cant-see-the-picture-it-drew** — PARTIAL. The fix is
   shipped: Agents365-ai's mermaid-skill README contrasts "never looks
   at the render" with its vision loop; Design2Code (arXiv:2403.03163);

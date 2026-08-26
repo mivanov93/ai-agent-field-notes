@@ -6,17 +6,17 @@ unverified hypothesis, and the claim below says which half is which.
 Incidents from a two-day multi-agent build (Aug 2026), diagnosed by fix
 agents whose reports are quoted below.*
 
-**Claim:** in one fan-out, every lane that wrote tests against a shared
-resource wrote single-tenant code. Not wrong locks — no locks, no
-partition, no declared ownership: several packages, different lanes, the
-same silent assumption, three different unseen co-tenants. Whether that is
-the model's default or this project's draw, three incidents in one suite
-cannot establish — that half stays hypothesis until someone measures it.
-What the incidents do establish is structural, and it holds at any
-rate. No gate can check an ownership requirement nobody declared, and a
-lane cannot see its sibling lanes. So when the assumption is wrong, the
-suite still passes — it just happens to pass because nothing else was
-running. The failure surfaces later as flakiness that tracks machine
+**Claim:** every test the model wrote against a shared resource was
+single-tenant code. Not wrong locks — no locks, no partition, no
+declared ownership: several packages, the same silent assumption, three
+different unseen co-tenants. Whether that is the model's default or
+this project's draw, three incidents in one suite cannot establish —
+that half stays hypothesis until someone measures it. What the
+incidents do establish is structural, and it holds at any rate. No
+gate can check an ownership requirement nobody declared, and the suite
+runs in parallel, so the assumption eventually meets a crowd. Until
+then the suite still passes — it just happens to pass because nothing
+else was running. The failure surfaces later as flakiness that tracks machine
 load, which is about the hardest kind of failure to trace back.
 
 ## Three tenants it didn't see
@@ -53,21 +53,29 @@ groups, 19 topics, package time creeping 30.7s → 39.2s until a 40s budget
 burst. The co-tenant is yesterday's you.
 
 No outside adversary appears in any of the three: the co-tenants were
-sibling tests, the project's own standing services, and the suite's own
-previous runs — the first and last manufactured by the fan-out itself,
-the middle one by the environment the project stands up and never
-stops.
+the suite's own sibling tests, the project's own standing services,
+and the suite's own previous runs. Everything that broke these tests
+was the project itself.
 
-## Why a lane writes this
+## Why it gets written
 
-Each lane forks from the same snapshot and writes from a context in which
-"I am alone" is true. A human team accretes tests serially — each new
-author sees the existing suite; a fan-out's authors meet their siblings
-only at run time. And the tenancy question sits on an axis the model isn't searching —
-the same place the decisive hypothesis usually hides in a debugging
-session ([the missing hypothesis is orthogonal](the-missing-hypothesis-is-orthogonal.md)):
+The tenancy question sits on an axis the model isn't searching — the
+same place the decisive hypothesis usually hides in a debugging session
+([the missing hypothesis is orthogonal](the-missing-hypothesis-is-orthogonal.md)):
 the model reasons about the code under test, not about the
 environment's other occupants.
+
+I first blamed the fan-out — parallel lanes, each writing from a
+context in which "I am alone" is true. That reading does not survive
+its own prior art. The tests collide because they *run* in parallel,
+not because they were *written* in parallel: a single session writing
+the same suite serially could have read the earlier tests and, on the
+evidence, would not have been saved by it — Luo's taxonomy below was
+built from human teams writing serially, and it is full of exactly
+these classes. Fan-out changes the tempo, not the mechanism: it mints
+a whole suite's worth of the assumption before the first collision can
+teach anyone anything, where a human suite accretes its flakiness
+slowly enough to bite along the way.
 
 Honesty about the rate: the same transcripts show the opposite discipline
 wherever a rule existed — worktree isolation held cleanly, and the fix
@@ -78,13 +86,13 @@ task beside a visibly shared resource, N trials, and grep the output for
 the tell below. Until someone runs that, the default stays a hypothesis
 and this page claims only the structure.
 
-This is the sibling of
-[the session has no concurrency model](the-session-has-no-concurrency-model.md),
-not an instance of it. That note is the agents stepping on each other
-*during* the session — edits under readers, writers clobbering. This one
-is what they leave behind: the missing concurrency model compiled into the
-artifacts, colliding at run time, forever, on machines the session never
-saw. The suite was green throughout —
+This is not
+[the session has no concurrency model](the-session-has-no-concurrency-model.md) —
+that note is agents stepping on each other *during* the session. This
+one is about the code the model writes, whoever runs it and however
+many sessions wrote it: artifacts that assume an owner nobody
+declared, colliding at run time, forever, on machines the session
+never saw. The suite was green throughout —
 [all green, still broken](all-green-still-broken.md) — because a pass
 asserts nothing about who else was writing; the green was silently
 conditioned on the world being quiet.
@@ -132,9 +140,11 @@ resource — not a checkable claim over a deliberately shared one. On
 the model side, Berndt et al. (ICSE-SEIP '26, arXiv:2601.08998)
 establish that LLM-generated database tests are measurably flakier
 than human-written ones — single-agent generation, no fan-out. Not
-found in this sweep: ownership as a declared, gate-checkable artifact,
-and the structure this page centers on — one orchestration authoring
-every exclusivity assumption and then supplying the crowd that
-violates them. Adjacent here:
+found in this sweep: ownership as a declared, gate-checkable artifact.
+An earlier draft also claimed a fan-out-specific mechanism — the
+orchestration as both author of the assumptions and the crowd that
+violates them — and withdrew it during the owner's walk-through: Luo's
+serially-written human suites contain the same classes, so parallel
+authorship is tempo, not mechanism. Adjacent here:
 [the leak is in the cleanup](the-leak-is-in-the-cleanup.md) (the
 never-wiped broker is a cleanup nobody owned).
