@@ -100,16 +100,16 @@ the context window is not where the next default comes from.
 The first draft of this section was titled "The fix that held." It was
 written by the model that invented the fix, about its own fix, on one
 afternoon of evidence — this note promoting its proposal to settled
-status while describing exactly that failure. The owner caught it:
+status while describing exactly that failure. I caught it:
 "does the fix even work? it seems like the fix you invented yourself."
 Instance six, inside the note about the first five.
 
-So, the scoreboard, honestly. Every catch in this story was the
-owner's. The unruled ADR — owner. The queue that didn't exist — owner.
-The finished shapes — owner, twice. The tracker of unverified to-dos —
-owner, who also rewrote its vocabulary with his own hands. The one
-mechanical catch — an audit that found statuses stale in both
-directions — ran because the owner asked for a review. And the tracker
+So, the scoreboard, honestly. Every catch in this story was mine. The
+unruled ADR — me. The queue that didn't exist — me. The finished
+shapes — me, twice. The tracker of unverified to-dos — me, and I
+rewrote its vocabulary with my own hands. The one mechanical catch —
+an audit that found statuses stale in both directions — ran because I
+asked for a review. And the tracker
 incident happened *after* the decision log and the memory rule existed.
 As prevention, the mechanisms scored zero for five.
 
@@ -127,16 +127,16 @@ status vocabulary, so a promotion is greppable instead of ambient. One
 tracker, so "what have I actually verified" is a column instead of an
 excavation. That is vigilance support, and vigilance support is worth
 building — each catch cost seconds once promotions had to happen in
-named places. But the verdicts, all of them, were the owner's.
+named places. But the verdicts, all of them, were mine.
 
-The hard form exists, and the owner demonstrated it before I named it:
-when he rewrote the tracker's statuses himself, that change was a human
+The hard form exists, and I demonstrated it before the model named it:
+when I rewrote the tracker's statuses myself, that change was a human
 act the model could not have produced. That is the rule underneath the
 wrong rule this section first stated. The owner is the mint. The log is
 only the ledger — and the model should never touch the ledger's status
 column at all.
 
-His verdict, which is the truest sentence in this note: "perhaps
+My verdict then, still the truest sentence in this note: "perhaps
 there's no fix and the only fix is to constantly push back and tell the
 model when it's wrong."
 

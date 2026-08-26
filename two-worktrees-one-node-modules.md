@@ -1,7 +1,9 @@
-# Share node_modules between two git worktrees and a passing test gets reported as failed
+# Two worktrees, one node_modules
 
-Anywhere you copy `node_modules` instead of installing it, you can inherit
-another directory's build state and get a wrong answer from it.
+**Claim:** anywhere you copy `node_modules` instead of installing it, you
+can inherit another directory's build state and get a wrong answer from
+it — share it between two git worktrees and a passing test gets reported
+as failed.
 
 The common ways to end up doing that: git worktrees (each needs its own
 `node_modules`, and installing per tree is slow, so people copy or hardlink it
@@ -277,7 +279,10 @@ wrong to trust the tools — they had no way to know the tools were cross-talkin
 An agent's report inherits every lie its environment tells it, and it has no
 prior that would flag the lie.
 
-## What's new, and what's known
+## Prior art
+
+**Verdict: PARTIAL.** The mechanisms are decades old and cited below;
+the delta is the wrong-verdict evidence and the propagation map.
 
 **New — what I'm actually claiming.**
 
