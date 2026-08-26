@@ -51,13 +51,19 @@
     - title: "Two worktrees, one node_modules"
       url: "two-worktrees-one-node-modules.md"
       original: true
+    - title: "The test that assumes it owns the table"
+      url: "the-test-that-assumes-it-owns-the-table.md"
     - title: "All green, still broken"
       url: "all-green-still-broken.md"
+    - title: "The model can't see the picture it drew"
+      url: "the-model-cant-see-the-picture-it-drew.md"
     - title: "Move the code, lose the test"
       url: "move-the-code-lose-the-test.md"
     - title: "Notes that rot"
       url: "notes-that-rot.md"
       original: true
+    - title: "Compression is what familiarity feels like from the inside"
+      url: "compression-is-what-familiarity-feels-like.md"
     - title: "Don't interrupt a working agent"
       url: "dont-interrupt-a-working-agent.md"
     - title: "It's already written down"
@@ -72,6 +78,8 @@
       extends: true
     - title: "The leak is in the cleanup"
       url: "the-leak-is-in-the-cleanup.md"
+    - title: "The crash lands on the innocent process"
+      url: "the-crash-lands-on-the-innocent-process.md"
 - section: "Methods"
   note: "what actually works"
   items:
@@ -81,6 +89,8 @@
     - title: "The clean room"
       url: "the-clean-room.md"
       original: true
+    - title: "The doctor doesn't catch the fever"
+      url: "the-doctor-doesnt-catch-the-fever.md"
     - title: "The decision drain test"
       url: "the-decision-drain-test.md"
       original: true
