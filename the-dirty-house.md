@@ -56,9 +56,13 @@ version deliberately; mine ran itself.
   ([the model votes for more rules](the-model-votes-for-more-rules.md)).
 - Word bans do not fix it either — they rotate the vocabulary while the
   pressure stays ([bans rotate the vocabulary](bans-rotate-the-vocabulary.md)).
-- Cleaning an already-contaminated corpus needs a reading/writing barrier,
-  because the model cannot rewrite the text it is being re-taught by —
-  [the clean room](the-clean-room.md).
+- Cleaning an already-contaminated corpus needs the demonstration effect
+  disarmed. Two designs attack the two halves of "unlabeled demonstration
+  set": a reading/writing barrier removes the text from the writer —
+  [the clean room](the-clean-room.md), designed and untested — and
+  labeling *appears* to let a fixer read the dirt without re-learning
+  it — [the doctor doesn't catch the fever](the-doctor-doesnt-catch-the-fever.md),
+  one run, human-accepted, mechanism unmeasured.
 
 ## Prior art
 

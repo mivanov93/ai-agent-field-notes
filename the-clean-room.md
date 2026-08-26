@@ -1,7 +1,9 @@
 # The clean room
 
-*Status: designed and untested. This page specifies an experiment; it does
-not report one.*
+*Status: designed and untested as specified — this page specifies an
+experiment; it does not report one. Since it was written, a rival
+no-barrier design has run at scale with a human-accepted result
+([the doctor doesn't catch the fever](the-doctor-doesnt-catch-the-fever.md)); see the addendum below.*
 
 **Claim:** a corpus that teaches the model its own bad style
 ([the dirty house](the-dirty-house.md)) cannot be cleaned by a model that
@@ -65,6 +67,31 @@ earns its cost only if clean-room output is measurably closer to the
 target style than the direct rewrite, at equal meaning preservation. If
 it is not, the barrier does nothing and mechanical substitution was the
 whole answer.
+
+## Addendum: a rival result
+
+After this page was written, a different cleanup ran for real — 100
+documents of broken prose, no barrier anywhere: the fixing agents read
+the originals directly, carrying a frontier-built disease taxonomy in
+every context, batched small, with a second check/refix pass, and the
+result was accepted by the humans who read it
+([the doctor doesn't catch the fever](the-doctor-doesnt-catch-the-fever.md)).
+
+What follows for this page is narrower than it first looks. That run
+did not measure contagion: its check passes and hand-polish sit between
+the fixer's output and every verdict, so absorbed style — had there
+been any — would have been caught or polished away before anyone looked
+for it. I read the fixers' diffs and identified no imitation there,
+and the failures the gates logged were over-application rather than
+absorption; but nobody classified second-pass findings into
+missed-versus-introduced, and no raw fixer output was scored on style
+markers. That scoring is exactly the experiment this page specifies,
+and it remains unrun. So the claim stands unmeasured rather than
+challenged — what has changed is the baseline. The comparison above was
+clean room versus naive direct rewrite; the honest baseline is now the
+labeled reader — direct rewrite with taxonomy, bounded batches, and a
+check pass — which shipped an accepted book without the barrier. The
+barrier earns its considerable ceremony only if it beats that.
 
 ## Prior art
 
