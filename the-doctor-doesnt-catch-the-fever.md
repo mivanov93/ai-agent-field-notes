@@ -1,10 +1,9 @@
 # The doctor doesn't catch the fever
 
-*Status: DRAFT — not yet walked through for publication; prior-art
-searched 2026-08-26. One run, one corpus, from my own records; the end verdict
-was human — the author and I read the result. The mechanism in the title
-is a hypothesis this run cannot isolate, and the claim says which half
-is which. Working title.*
+*Status: searched 2026-08-26. One run, one corpus, from my own records;
+the end verdict was human — the author and I read the result. The
+mechanism in the title is a hypothesis this run cannot isolate, and the
+claim says which half is which.*
 
 **Claim:** a 100-document prose corpus — the kind
 [the dirty house](the-dirty-house.md) predicts will re-teach its style to
