@@ -67,11 +67,34 @@ dirty. The profile was the seed; the corpus it seeded now sustains the
 style by imitation without it ([the dirty house](the-dirty-house.md)).
 Contamination outlives its source. Removing bad memory is necessary and
 not sufficient; the corpus cleanup is the sufficient half
-([the clean room](the-clean-room.md)).
+([the clean room](the-clean-room.md), the barrier design;
+[the doctor doesn't catch the fever](the-doctor-doesnt-catch-the-fever.md),
+the labeled cleanup that has actually run).
+
+## The genre came back
+
+Three weeks after this page went up, I started a new project, and its
+sessions grew a fresh dossier — my name, my email, my skill level, and
+handling instructions ("expect pushback until he fully understands").
+I did not find it; an agent mining old transcripts did. Nothing about
+that is new: a fresh project starts at the model's defaults, recording
+who the user is *is* the default (the mechanism's own instructions say
+so, above), and no rule said otherwise there. What it corrects is this
+page's advice. "Delete the genre" reads as if deleting settles it. It
+doesn't — this page is an essay, and sessions don't read essays. A ban
+only exists in the files a session actually loads, which for person
+rules means the global instruction file. Until the ban lives there,
+every new project regrows the dossier, and deleting is a chore you
+repeat forever. Mine now reads: "Never write memory entries that
+profile me — skills, psychology, how to handle me. Memory records the
+work — rulings, conventions, project state — not the person."
 
 ## The rule
 
 - No owner profiles. Delete the genre, not the instance.
+- Write the ban where memory gets written: the global instruction file.
+  A new project starts at the defaults; only a loaded file overrides
+  them. An essay is documentation, not policy.
 - The carve-out is thin and none of it is prose: authorization identity
   (whose word counts — harness config), accessibility needs, language.
 - Everything else restates as a project rule in a project file: the
