@@ -1,7 +1,6 @@
 # Compression is what familiarity feels like from the inside
 
-*Status: DRAFT — not yet walked through for publication; prior-art
-searched 2026-08-26. Two incidents, two sessions, two model instances; the quotes are
+*Status: searched 2026-08-26. Two incidents, two sessions, two model instances; the quotes are
 verbatim from the transcripts. The title is the model's own sentence,
 kept because the model said it better
 than I could — and kept doing it.*
