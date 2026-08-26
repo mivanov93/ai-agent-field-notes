@@ -13,7 +13,11 @@ Both are discussed purely as disk-and-speed decisions.
 
 They're also correctness decisions. Two paste-able demos, no repo to clone — the
 first needs no configuration at all, the second needs one common tsconfig
-setting that I flag where it matters.
+setting that I flag where it matters. Each paste works in a fresh
+`mktemp -d` directory and installs about 140 MB of packages into it; the
+demo prints the directory on its first line, and `rm -rf` of that path
+reclaims it. Check where your `/tmp` lives first — on many systems it is
+RAM ([the crash lands on the innocent process](the-crash-lands-on-the-innocent-process.md)).
 
 ## 1. A passing test reported as failed
 

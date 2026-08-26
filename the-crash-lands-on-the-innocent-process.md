@@ -1,7 +1,7 @@
 # The crash lands on the innocent process
 
-*Status: prior-art searched 2026-08-26 — verdict below. The incident is
-measured; the generalization is mechanism.*
+*Status: searched 2026-08-26. The incident is measured; the
+generalization is mechanism.*
 
 **Claim:** `/dev/shm`, `/tmp`, the Docker store and the package caches are
 machine-wide, fixed-size, and unowned. Nothing attributes them to a consumer,
@@ -43,7 +43,7 @@ see only 416 MB of files. Chromium creates a segment, maps it, and unlinks it
 — still allocated, no longer a directory entry. If those two numbers disagree,
 something is holding memory you cannot `ls`.
 
-## Three more of the same shape
+## Four more of the same shape
 
 Measured on my machine, the same day:
 
@@ -62,6 +62,14 @@ Measured on my machine, the same day:
 - **Package caches are unbounded too.** 3.4 GB of npm `_cacache`. This is the
   benign one — it is at least *reuse* — but it is on the same volume as the
   Docker store, and the two failures arrive together.
+- **CPU cores are a pool too.** In another project of mine, the same week —
+  numbers from its fix agents' reports, not re-run by me — the compose stack
+  shipped with no CPU limits until I caught the test runner using five cores
+  at once and demanded caps; and a diagnosis agent traced a Kafka container's
+  spikes to its own healthcheck: a JVM cold-started every four seconds, with
+  97% of all the CPU the container used sitting inside those probe windows.
+  The probe starved the workload it was guarding, and nothing volunteered a
+  limit.
 
 ## Why agents make it worse
 
@@ -99,7 +107,9 @@ the axis is not "which app is broken," it is "which resource is gone."
 - **Put a quota on the Docker build cache** rather than trusting a cleanup
   step, and prune on a timer. `--filter until=` beats remembering.
 - **Demos that allocate must say what they cost and how to reclaim it.** A
-  paste-able reproduction is a resource commitment; ours did not say so.
+  paste-able reproduction is a resource commitment; ours did not say so
+  until this note forced the fix — the demo pages now carry their cost
+  and cleanup.
 
 The pattern underneath: cleanup is exactly where the model's diligence runs
 out ([the leak is in the cleanup](the-leak-is-in-the-cleanup.md)), and a

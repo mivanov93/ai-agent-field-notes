@@ -11,6 +11,17 @@ which explains what the results mean. This file is just how to run them.
 First run installs the pinned toolchain into `.deps/` (under a minute on a warm
 npm cache, a few minutes cold); a pass then takes about half a minute.
 
+## Cost and cleanup
+
+The toolchain in `.deps/` is a few hundred MB and persists on purpose so
+reruns are fast; `rm -rf .deps` reclaims it. The experiments clean their
+own work directories as they go. `detect.sh` works in
+`${TMPDIR:-/tmp}/hl-detect.<pid>`; if it dies hard, delete that directory
+yourself. And check where your `/tmp` lives before running anything from
+it — on many systems it is RAM, and what a demo leaves there is memory
+gone until reboot
+([the crash lands on the innocent process](../../the-crash-lands-on-the-innocent-process.md)).
+
 **One requirement, checked up front and fatal rather than degraded:** everything
 on one filesystem, because hardlinks cannot cross devices. Both scripts also
 prove their own inode/checksum primitives work before trusting a comparison.
