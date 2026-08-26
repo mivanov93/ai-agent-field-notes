@@ -113,12 +113,15 @@ an ownership claim about the world — one nobody wrote down.
 ## Prior art
 
 **Verdict: PARTIAL — searched 2026-08-26.** The baseline is textbook,
-and sharper than this page first assumed: Luo et al., "An Empirical
-Analysis of Flaky Tests" (FSE 2014, DOI:10.1145/2635868.2635920),
-names two of the three incidents outright — the blanket `count(*)` is
-their "dependency on external resources" (the top cause inside their
-Test Order Dependency category, with the same prescribed fix), and the
-leaked consumer groups are their Resource Leak category. The
+and sharper than this page first assumed: two of the three incidents
+fall into categories that Luo et al. had already named in "An
+Empirical Analysis of Flaky Tests" (FSE 2014,
+DOI:10.1145/2635868.2635920) — the blanket `count(*)` is an instance
+of their "dependency on external resources" (the top cause inside
+their Test Order Dependency category, with the same prescribed fix),
+and the leaked consumer groups are an instance of their Resource Leak
+category. Twelve years of warning existed before these tests were
+written. The
 sibling-test incident fits less cleanly: their taxonomy comes from
 single-process suites, and cross-binary contention on one always-on
 broker topic under `go test ./...` has no named category there — a

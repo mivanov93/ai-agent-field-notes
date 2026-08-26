@@ -376,10 +376,10 @@ cheaper model tier with every load-bearing citation re-verified at
 session level before use (per the delegation rules). All five verdicts
 PARTIAL; several framings came back clean NOT FOUND.
 
-- **the-test-that-assumes-it-owns-the-table** — PARTIAL. Luo et al.
-  (FSE 2014, DOI:10.1145/2635868.2635920) covers two of three incidents
-  by name (external-resource dependency inside Test Order Dependency;
-  Resource Leak); *SWE at Google*'s hermeticity chapter is the
+- **the-test-that-assumes-it-owns-the-table** — PARTIAL. Two of the
+  three incidents are instances of categories Luo et al. named in 2014
+  (FSE, DOI:10.1145/2635868.2635920): external-resource dependency
+  inside Test Order Dependency, and Resource Leak; *SWE at Google*'s hermeticity chapter is the
   declare-your-dependencies baseline; Berndt et al. (ICSE-SEIP '26,
   arXiv:2601.08998) show LLM-written DBMS tests are flakier than human
   ones, single-agent. Delta: cross-binary contention on an always-on
