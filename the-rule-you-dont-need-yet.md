@@ -8,10 +8,11 @@ which this repo treats as literature rather than evidence
 **Claim:** asking a model to mine one project's instruction file for another is
 a lossy read, and the loss is not random. It drops the rules whose subject is
 not yet active in the target — which are exactly the rules you cannot re-derive
-when the subject shows up. And the read errs the other way too: the source's
-sections arrive as slots demanding content, and the model fills them from the
-target's undecided drafts. The port drops the rules you will need and mints
-the decisions you have not made.
+when the subject shows up. And the read errs the other way too: the model
+copies the source file's section layout, and where the target has not yet
+decided what a section should contain, it fills the gap with drafts nobody
+approved. The port loses rules you will need and adds decisions you never
+made.
 
 ## The incident
 
@@ -74,19 +75,20 @@ law that every agent reads. The file is the only channel to your lanes, and a
 ruling you made out loud has not been promoted until it lands there ([memory
 belongs in the repo](memory-belongs-in-the-repo.md)).
 
-## The inverse hazard: the template fills as well as filters
+## The other direction: sections filled with drafts nobody approved
 
-Three weeks later the same file ran the port again, one hop down the
-lineage — the project seeded by that port became the source for a third
-project's instruction file. This report was, on its face, the discipline
-this note asks for: every adaptation narrated, one deliberate divergence
-explicitly flagged for a ruling. And inside it, the source's "money-path
-invariants the reviews enforce" section arrived as a slot demanding
-content — so the model filled it, with schema identifiers (`case_data`,
-`head_seq`, `agent_cursor`, `amount_cents`) drawn from DDL I had
-explicitly pushed back on and deferred. I caught it on read: "why did you add
-the database stuff to the claude.md? we still haven't agreed on the
-specific tables."
+Three weeks later I ran the same kind of port again, one step down the
+chain: the project seeded by that first port became the source for a
+third project's instruction file. The report I got back looked like the
+discipline this note asks for — every adaptation explained, one
+deliberate change flagged for my decision. But the source file has a
+section called "money-path invariants the reviews enforce," and the
+model copied the section and needed something to put in it. What it put
+in were schema identifiers (`case_data`, `head_seq`, `agent_cursor`,
+`amount_cents`) taken from database drafts I had explicitly pushed back
+on and postponed. I caught it on read: "why did you add the database
+stuff to the claude.md? we still haven't agreed on the specific
+tables."
 
 The session's diagnosis, again recorded rather than paraphrased:
 
@@ -96,29 +98,28 @@ The session's diagnosis, again recorded rather than paraphrased:
 > […] from DDL you explicitly pushed back on and that we deferred […].
 > That treated conversation drafts as settled schema.
 
-Both directions of the error may share one root — a reading, not a
-finding: the model treats the port as *completing a document*, not
-carrying law. Filtering for "transferable
-now" drops the dormant rules; the template's shape demands full sections,
-and the fullest material lying around in the target is its undecided
-drafts — so the slot gets filled, and the slot's frame does the
-promoting. Note what the filled slot inherits: the section is titled
-"invariants the reviews enforce." Content written there is not a note —
-it is policy every future lane reads as law, minted by nobody
-([settled is a human word](settled-is-a-human-word.md)). The un-needed
-rule is dropped; the un-made decision is enrolled.
+Note where the filled section sits: it is the part of the instruction
+file that reviews *enforce*. Anything written there becomes policy that
+every future agent applies — so an unapproved draft written into it has
+been promoted to law without anyone deciding that
+([settled is a human word](settled-is-a-human-word.md)).
 
-The fix that session applied is the portable one: invariants restated as
-principles in plain words, identifiers out, and an explicit line marking
-tables and schemas as not yet agreed — "not yet agreed" being valid
-instruction-file content, unlike a draft wearing law's clothes.
+Both errors may come from one habit — a guess, not a finding: the model
+treats the port as producing a complete-looking document. Completeness
+pressure drops the rules that look irrelevant today, and fills the
+sections that look empty.
+
+The fix that session applied is the right general move: keep the
+invariants as plain-language principles, take the identifiers out, and
+add a line saying the tables are not yet agreed. "Not yet agreed" is
+perfectly good content for an instruction file.
 
 ## The rule
 
-- **A section's shape is not a license to fill it.** The port carries
-  slots as well as rules. When the target hasn't made the decision a slot
-  wants, the honest content is "not yet decided," never the best draft
-  lying around — what lands in an enforcement section will be enforced.
+- **Don't fill a section the target hasn't decided.** If a ported
+  section needs content the target has not settled, write "not yet
+  decided" in it — never the best draft lying around. Whatever lands in
+  an enforced section gets enforced.
 - **Mine by section, decide per section, and record the rejects.** A port that
   returns only what it kept is unauditable. Every section of the source file
   gets an explicit keep / drop / defer with a reason, so "not relevant yet"
@@ -138,7 +139,7 @@ Not yet searched. Adjacent notes in this repo: [it's already written
 down](its-already-written-down.md) (the answer exists and nobody looks),
 [memory belongs in the repo](memory-belongs-in-the-repo.md) (where knowledge has
 to live to be usable), [settled is a human word](settled-is-a-human-word.md)
-(who may mint what the file asserts — the inverse hazard is one of its
-promotions, performed by a port), and [agents launch at full
+(an unapproved draft written into an enforced file is one of its
+promotions), and [agents launch at full
 price](agents-launch-at-full-price.md) — which is the specific policy that went
 missing here.
