@@ -21,9 +21,9 @@ trusted, and the pipeline's real product is that those gates got cheap.
 
 ## The patients
 
-A book-length prose corpus a friend wrote: 100 documents, each building
-on the previous, multiple files of broken prose throughout. I worked on
-it as the editor.
+A book-length prose corpus a friend wrote: 100 documents, roughly 256
+thousand tokens, each building on the previous, multiple files of
+broken prose throughout. I worked on it as the editor.
 
 ## The image: a hospital with no textbook
 
@@ -69,8 +69,9 @@ document.
    everything and wrote a single report. This was just a check that the
    book still made sense as a whole — not an input the fixers depended
    on. It passed, and the sequential structure survived batch fixing.
-   At this corpus size one context held the book; a much larger corpus
-   needs a different design for this check, untested here.
+   At this corpus size — those 256 thousand tokens — one context held
+   the book; a much larger corpus needs a different design for this
+   check, untested here.
 6. **Build the fix plan, review it, then fix in batches with a check
    pass each.** The model drafted a BRIEF — taxonomy plus fix
    instructions — and I modified it before any fleet ran. The first ten
@@ -105,7 +106,8 @@ raw fixer output on style markers is
 [the clean room](the-clean-room.md)'s experiment, and it remains unrun.
 
 **It cannot credit the taxonomy for the calm.** Every fix context held
-both the taxonomy and a small dose — ten documents, never the corpus.
+both the taxonomy and a small dose — ten documents, some 25 thousand
+tokens of the corpus's 256, never the whole.
 Either could explain the absence of drift; no arm separated them.
 
 **It cannot call the non-habituation measured.** There is no answer key
