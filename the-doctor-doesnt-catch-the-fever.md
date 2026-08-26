@@ -115,10 +115,14 @@ measurement.
 
 ## The economics
 
-The bill was not measured. It was a lot.
-[Where the savings are](where-the-savings-are.md) demands cost claims
-come from the usage record; this run kept no record, so this page prices
-nothing.
+The bill was not measured — and could not have been: the run went
+through a subscription, Anthropic's 15-euro plan, not a metered API
+key, so there is no usage record to read. The proxy I have instead:
+the work blew through the plan's five-hour usage limit multiple times,
+round after round of hitting the cap and waiting for the window to
+reset. [Where the savings are](where-the-savings-are.md) demands cost
+claims come from the usage record; this run has none, so this page
+prices nothing more precise than that.
 
 The tier question has a cleaner answer than a rule: the ladder was
 probed, not obeyed and not broken. I tried cheaper models first, read
