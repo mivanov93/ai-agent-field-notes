@@ -1,7 +1,6 @@
 # The model can't see the picture it drew
 
-*Status: DRAFT — not yet walked through for publication; prior-art
-searched 2026-08-26. One artifact type is measured (a mermaid state diagram; evidence
+*Status: searched 2026-08-26. One artifact type is measured (a mermaid state diagram; evidence
 from five session transcripts spanning the design session and a later
 docs pass); the wider rendered-artifact class is mechanism, not
 measurement. The render probe below was run while writing this note.*
