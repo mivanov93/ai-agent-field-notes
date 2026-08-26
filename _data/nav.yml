@@ -31,6 +31,8 @@
   items:
     - title: "The model votes for more rules"
       url: "the-model-votes-for-more-rules.md"
+    - title: "Settled is a human word"
+      url: "settled-is-a-human-word.md"
     - title: "The model's model of you"
       url: "the-models-model-of-you.md"
     - title: "Don't ask for perfection"
@@ -60,6 +62,8 @@
       url: "dont-interrupt-a-working-agent.md"
     - title: "It's already written down"
       url: "its-already-written-down.md"
+    - title: "The rule you don't need yet"
+      url: "the-rule-you-dont-need-yet.md"
     - title: "You can't ask for cheaper"
       url: "you-cant-ask-for-cheaper.md"
       original: true
