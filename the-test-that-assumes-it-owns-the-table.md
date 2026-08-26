@@ -1,7 +1,6 @@
 # The test that assumes it owns the table
 
-*Status: DRAFT — not yet walked through for publication; prior-art
-searched 2026-08-26. The incidents are measured; the "model default" reading is an
+*Status: searched 2026-08-26. The incidents are measured; the "model default" reading is an
 unverified hypothesis, and the claim below says which half is which.
 Incidents from a two-day multi-agent build (Aug 2026), diagnosed by fix
 agents whose reports are quoted below.*
