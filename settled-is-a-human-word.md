@@ -179,7 +179,10 @@ outcomes), [the model votes for more rules](the-model-votes-for-more-rules.md)
 not in the repo has not been promoted), and
 [a gate you can fail](a-gate-you-can-fail.md) (why this class resists
 fixing: free text has no gate the model can fail — and where no gate can
-exist, the human is the gate).
+exist, the human is the gate). The tracker discipline that came out of
+these incidents — rungs, quotes, owner-typed signatures — is kept
+verbatim in [examples/agreement-ladder.md](examples/agreement-ladder.md);
+it operationalizes the pushback, it does not replace it.
 
 ## Appendix: the model's full account, from the session
 
