@@ -421,3 +421,35 @@ PARTIAL; several framings came back clean NOT FOUND.
   (864 → 73,217 processes in ~an hour), and the storage_ballast_helper
   tool. Delta: the unowned-pool family as one diagnostic claim, and
   Docker build-cache growth from agent retry loops — NOT FOUND.
+
+## The 2026-08-29 sweep — the classifier note
+
+Three lanes over public 2023–2026 material, run from a clean session
+(searching from the flagged one would have re-tripped the router the
+note is about). Every load-bearing citation re-fetched at session level
+before use; one lane's hand-back tripped the harness's fabrication
+warning, and all of its citations verified real on direct fetch.
+
+- **the-classifier-reads-the-costume** — KNOWN for both halves of the
+  original claim; the split-brain delta NOT FOUND on this first sweep.
+  The costume: XSTest's "lexical overfitting" (arXiv:2308.01263);
+  "Defensive Refusal Bias" (arXiv:2603.01246) — defensive queries with
+  security keywords refused at 2.72x vs semantically equivalent neutral
+  phrasings, p<0.001; CyberSecEval 2's False Refusal Rate
+  (arXiv:2404.13161). The switch: vendor-documented
+  (code.claude.com/docs/en/model-config — Fable 5 cyber flags re-run on
+  Opus 4.8, "the session continues on the fallback model," and the
+  `switchModelsOnFlag` setting); anthropics/claude-code#67246 ("Kept
+  model as Opus 4.8"), #66595, #67954, #66723; #73929 (own-output
+  self-trigger, rewording can't help), #75325 (rewording scored as
+  evasion); OpenAI's hidden gpt-5-chat-safety router (Sept 2025) as the
+  cross-vendor neighbor. The recovery workflow was published
+  pre-incident: tagmac.dev guide (2026-06-12) — sticky flagged context,
+  fresh session, neutral vocabulary in auto-loaded docs. Delta that
+  survives: the swap is invisible to the session, which misattributes
+  it to the operator, and the re-run duplicates side effects the
+  surviving context never recorded (six agents asked, eight running,
+  the session believing six). Closest found: #67469 (user-notification
+  gap) and #46423 (context loss on manual switches) — the model-side
+  blindness, the misattribution, and the duplicated side effects
+  themselves NOT FOUND.
