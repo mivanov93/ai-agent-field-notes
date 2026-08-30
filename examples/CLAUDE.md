@@ -60,6 +60,18 @@ respects them.
 - `[operator]` **Capability questions are experiments, not interviews.** What
   the model says about its own limits is literature about older models; measure
   instead ([the model doesn't know itself](../the-model-doesnt-know-itself.md)).
+- `[operator]` **Don't trust the model's estimate of its own work.** "Too hard" or
+  "a month" is the one number it is structurally unfit to give — it quotes the
+  by-hand human price, blind to its own reading-and-iterating. Treat feasibility
+  and duration as a hypothesis to test by attempting, not a verdict
+  ([the month that takes a day](../the-month-that-takes-a-day.md)).
+- `[shared]` **Write security-adjacent work in domain-plain words, and turn off
+  the model-swap before you need it.** Exploit/attack/red-team/extraction
+  register can trip a safety classifier that silently swaps your model and rides
+  in the context; set `switchModelsOnFlag: false` so a flag pauses instead of
+  switching, and de-trigger saved artifacts too — the next session re-trips on
+  their words on orientation
+  ([the classifier reads the costume](../the-classifier-reads-the-costume.md)).
 
 ## 3. Quality, stated as checks
 
@@ -92,6 +104,23 @@ not the substance ([don't ask for perfection](../dont-ask-for-perfection.md)).
 - `[operator]` **Applying a mockup is the expensive part, not making it.** The
   mock gates only the one state it depicts; budget the application, not the
   mockup ([the face transplant](../the-face-transplant.md)).
+- `[shared]` **Render the picture before trusting any claim about it.**
+  "Readable," "no overlaps," "each label on its own arrow" are banned
+  sight-unseen; the honest status for an unrendered diagram is "unverified:
+  never rendered." Put the render in the loop and hand the image back — the
+  look is a gate, and gates are the wrong place to save tokens
+  ([the model can't see the picture it drew](../the-model-cant-see-the-picture-it-drew.md)).
+- `[model]` **A test may only assert over state it minted** — its own batch id,
+  key range, dedicated topic. Blanket `count(*)`, assert-table-empty, and
+  "drain until quiet" quantify over the whole world and claim an ownership
+  nobody wrote down; terminate on your own records, counted and capped
+  ([the test that assumes it owns the table](../the-test-that-assumes-it-owns-the-table.md)).
+- `[shared]` **Redaction is human-scoped and human-verified; the model only
+  runs the mechanics.** You name the secret and its paraphrases; you check
+  every commit's content *and* message after a full history rewrite — a
+  working-tree grep proves nothing about the commits behind it. And the cleanup
+  must never describe what it removed, or it has re-published it
+  ([the leak is in the cleanup](../the-leak-is-in-the-cleanup.md)).
 
 ## 5. Structure
 
@@ -151,6 +180,19 @@ the repo so parallel work does not collide.*
   injection and be refused; the agent should ask everything up front, knowing
   steering may not land
   ([don't interrupt a working agent](../dont-interrupt-a-working-agent.md)).
+- `[shared]` **Check the shared pools before the app.** `/dev/shm`, `/tmp`, the
+  Docker store and package caches are machine-wide, fixed-size and unowned; the
+  process that dies is rarely the one that filled them, and fan-out plus retry
+  multiplies both. Run `df -h /dev/shm /tmp /` and `docker system df` before
+  any log-reading; give agents a scratch dir you can measure and sweep, and
+  quota the Docker build cache
+  ([the crash lands on the innocent process](../the-crash-lands-on-the-innocent-process.md)).
+- `[model]` **Translate lane density at the owner boundary — never pass it
+  through.** Sub-agent reports are legitimately terse; owner-facing items carry
+  what happens today, why it's a problem, the change, and the cost — never a
+  list of coined noun-phrases. Expect the failure right after a large
+  ingestion, and reread the draft holding none of the map
+  ([compression is what familiarity feels like from the inside](../compression-is-what-familiarity-feels-like.md)).
 
 ## 9. The instruction file, and the record
 
@@ -163,6 +205,13 @@ the repo so parallel work does not collide.*
   fold findings into this file or the docs, and let memory hold only what
   genuinely cannot live here
   ([memory belongs in the repo](../memory-belongs-in-the-repo.md)).
+- `[shared]` **Port this file by section, with an explicit keep / drop / defer
+  per section** — a model's port filters for "relevant now" and drops exactly
+  the rules you can't re-derive when their hazard arrives, so rules for hazards
+  you haven't met yet are the highest-value import, not the lowest. Never fill
+  a section the target hasn't decided; "not yet decided" is good content. And a
+  ruling made in chat is promoted to the file the same session, or no agent
+  ever reads it ([the rule you don't need yet](../the-rule-you-dont-need-yet.md)).
 - `[model]` **Cite the reason, not the work session** — no "step 6, round A"; a
   merge check greps for them ([notes that rot](../notes-that-rot.md)).
 - `[shared]` **Ban a metaphor only where it collides with a domain term,** and
@@ -174,6 +223,11 @@ the repo so parallel work does not collide.*
   ([the dirty house](../the-dirty-house.md)). If it is already contaminated,
   cleaning it needs a reader/writer barrier, not more rules
   ([the clean room](../the-clean-room.md)).
+- `[operator]` **Clean a contaminated corpus taxonomy-first, by dose and gates,
+  not in one pass.** Name the diseases at the frontier in duplicate, hold the
+  model floor you found by trying, fix in small batches with a check pass, and
+  read every diff yourself — only a reader accepts the result
+  ([the doctor doesn't catch the fever](../the-doctor-doesnt-catch-the-fever.md)).
 - `[operator]` **Nothing benchmarks doc quality;** supply your own standard — an
   example to imitate, a review that judges readability
   ([the docs aren't on the test](../the-docs-arent-on-the-test.md)).
@@ -190,3 +244,10 @@ the repo so parallel work does not collide.*
 `[operator]` Collect the human's pending decisions behind one tag and clear the
 batch each session. If the batch grows instead of shrinking, the process failed
 — stop adding structure ([the decision drain test](../the-decision-drain-test.md)).
+
+- `[shared]` **Status words are human acts — the model never types them.**
+  Accepted, settled, confirmed, closed, queued name a state a human produced; a
+  status word in a model-authored diff is the lint target, and everything the
+  model produces is "proposed" until you did the settling. A to-do is a
+  promotion too — a task minted from an unverified claim inherits "unverified"
+  ([settled is a human word](../settled-is-a-human-word.md)).

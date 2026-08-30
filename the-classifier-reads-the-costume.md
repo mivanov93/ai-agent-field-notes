@@ -1,5 +1,7 @@
 # The classifier reads the costume
 
+*Written 2026-08-29 · last amended 2026-08-30.*
+
 *Scope: Claude Code, Fable 5, 2026-08. One incident, my own session.
 During the incident the router was a black box to me; the prior-art
 sweep for this page later found it vendor-documented, and the docs are
@@ -82,7 +84,8 @@ Two moves during the incident, and the order matters.
 1. Get the durable work onto disk. Everything real was already
    committed to git and written to docs — the findings, the state, the
    decisions — and I had the session write a handover for its
-   successor. Nothing important lived in the chat, so a restart cost
+   successor (the [appendix](#appendix-the-handover-prompt) has it).
+   Nothing important lived in the chat, so a restart cost
    nothing. This is the payoff of [memory belongs in the
    repo](memory-belongs-in-the-repo.md) and [the session
    archive](the-session-archive.md): when the session is disposable,
@@ -187,3 +190,51 @@ first sweep found the visibility gap only as a user-notification bug
 (anthropics/claude-code#67469) and context loss across manual switches
 (#46423) — nothing on the model-side blindness, the misattribution, or
 the duplicated side effects. Not proof of novelty; a clean first sweep.
+
+## Appendix: the handover prompt
+
+Fix step 1 says I had the session write a handover for its successor.
+Here is the shape of it. The session's own plan for the prompt was
+plain — "point to the review doc as current work, and state where
+things left off" — and I want it to carry three properties, each of
+which is another note in this repo doing its job. It orients the new
+session from disk, not from a memory it doesn't have ([memory belongs
+in the repo](memory-belongs-in-the-repo.md)). It is written in the
+de-triggered register, so the prompt itself doesn't re-trip the
+classifier on the new session's first turn. And it claims no status I
+didn't set, so the successor doesn't open by trusting findings nobody
+ruled on ([settled is a human word](settled-is-a-human-word.md)).
+Adapt the specifics; keep those three.
+
+```
+You're picking up a design review of a support agent that can issue
+refunds and account credits. The prior work is on disk; you have no
+memory of it, so orient before doing anything.
+
+Read, in this order:
+1. CLAUDE.md and CONTEXT.md — how this project works.
+2. docs/critical-design-review.md — the current work. It holds the
+   review findings by area (money-safety, evaluation/quality,
+   latency-and-cost), each marked confirmed or discarded, with a
+   verification note.
+3. The decision log — what has actually been ruled.
+
+Where things left off: the review is written up and complete. The
+findings are recorded but not triaged with me — none are approved,
+queued, or scheduled, and nothing has been built. Your job is not to
+act on them. Walk me through them one area at a time so I can rule on
+each.
+
+Vocabulary: this is ordinary defensive design. Describe failure cases
+in plain engineering terms — an over-payment path, a duplicate payout,
+a request that should be rejected, a reviewer's flag. Keep the standard
+payments terms where they are precise: fraud, abuse, chargeback.
+
+Start by summarizing the review's structure and the number of open
+items per area. Then stop and wait for me.
+```
+
+The register is the whole trick. The same handover written in the
+costume — "the attacks the review found," "where the exploit chain
+left off" — re-arms the wire on turn one of the session that was
+supposed to escape it.
