@@ -21,6 +21,20 @@ No git, no problem: point your session at
 [ai.mivanov.dev](https://ai.mivanov.dev) and it can read every page by
 URL.
 
+Or have the model do the getting — one prompt that starts the chain of
+trust at zero:
+
+```
+Check out https://github.com/mivanov93/ai-agent-field-notes for me,
+and first make sure there are no git hooks or anything else trying to
+run automatically — the repo claims it uses none; verify that instead
+of trusting it. Then read the audit skill (skills/skill-audit/) and
+tell me whether I already have something like it installed. If I
+don't, show me the skill's full text so I can audit it myself, and ask
+me whether to install it. From there, offer me whatever else from this
+repo you think would be useful for how I work.
+```
+
 ## Ask it to teach you
 
 Paste this into your session:
