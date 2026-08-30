@@ -34,6 +34,9 @@ to do its job.
 - Start with [README.md](README.md) — the section tables are the
   index — and [the-story.md](the-story.md) for where it came from.
   [CONTEXT.md](CONTEXT.md) scopes what the notes cover.
+- If a reader pointed you here with a prompt, it likely came from
+  [CONSUME.md](CONSUME.md) — honor its contract: propose and wait for
+  approval, run nothing unasked, audit before any install.
 - The distilled, portable form is
   [examples/CLAUDE.md](examples/CLAUDE.md): every principle as an
   instruction-file rule. Port it by section, with an explicit

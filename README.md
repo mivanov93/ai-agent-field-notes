@@ -28,7 +28,10 @@ All of it comes from one story — a blog project where I asked for
 perfection, a WebRTC project built on hand-written code where the docs
 rotted while the code stayed clean, and the year of memory filth in
 between. **Start with [the story](the-story.md)**; the pages are its
-chapters.
+chapters. And if you'd rather have the repo working for you before you
+read it, **[CONSUME.md](CONSUME.md)** is the fast path — copy-paste
+prompts that make your session teach you, check your setup, and
+install the skills.
 
 **One rule for this repo:** "I have not found prior art" does not mean
 "first". The searches were a handful of research agents over public
