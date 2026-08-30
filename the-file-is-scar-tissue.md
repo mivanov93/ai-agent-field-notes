@@ -1,5 +1,7 @@
 # The file is scar tissue
 
+*Written 2026-07-31 · last amended 2026-08-03.*
+
 **Claim:** an instruction file carries experience, not compensation. Its
 rules are historical facts about one environment — which stove is hot,
 which port bites, which package manager deletes your browsers. No level

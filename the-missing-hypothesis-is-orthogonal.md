@@ -1,5 +1,7 @@
 # The missing hypothesis is orthogonal
 
+*Written 2026-07-31.*
+
 **Claim:** when something is wrong, the model usually cannot form the
 hypothesis that fixes it — even fed all the data. Its proposals are plus
 or minus on whatever quantity your question named. The sign flips freely:

@@ -1,5 +1,7 @@
 # You can't ask for cheaper
 
+*Written 2026-07-31.*
+
 **Claim:** telling the model to save tokens does not make it work smarter —
 it makes it skip the parts that cost tokens, which are the tests, the
 reviews, the reading-before-editing, and the comments and docs it would

@@ -1,5 +1,7 @@
 # Don't interrupt a working agent
 
+*Written 2026-07-31.*
+
 **Claim:** an agent already running a task treats new text arriving mid-run
 with suspicion. A message you send to steer it can read, from inside, like
 content slipped in by whatever it was reading — a hijack attempt — and get

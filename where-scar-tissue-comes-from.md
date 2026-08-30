@@ -1,5 +1,7 @@
 # Where scar tissue comes from
 
+*Written 2026-07-31.*
+
 **Claim:** an instruction file is scar tissue — hard-won, non-derivable
 lessons about one project ([the file is scar tissue](the-file-is-scar-tissue.md)).
 This note is where the scar tissue comes from. The retro is the ritual that

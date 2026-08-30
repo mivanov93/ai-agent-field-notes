@@ -1,5 +1,7 @@
 # AI is not Mr. Fix-IT
 
+*Written 2026-07-31.*
+
 **Claim:** there is no incantation that makes a model solve anything.
 "Fix it," repeated in a loop, does not converge on a solution to an
 arbitrary problem — it produces a new, confident, wrong answer each pass,

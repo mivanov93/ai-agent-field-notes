@@ -1,5 +1,7 @@
 # The tools you never use
 
+*Written 2026-07-31.*
+
 **Claim:** every tool, plugin, and integration you connect to an agent
 costs something on every session — context space, startup time, a longer
 menu the model has to read before it can begin — whether or not it is ever

@@ -1,5 +1,7 @@
 # The model votes for more rules
 
+*Written 2026-07-31.*
+
 *Status: searched 2026-07-31; the pieces have prior art, the combination
 does not — see the section at the end.*
 

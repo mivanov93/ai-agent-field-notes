@@ -1,5 +1,7 @@
 # Extension of Broekx: the shared git index
 
+*Written 2026-07-31.*
+
 *Extends Ruben Broekx, "AI Agents Need Their Own Desk, and Git Worktrees Give
 Them One" (Towards Data Science, 2026-04-18), which named the problem this
 note builds on. Read his piece first.*

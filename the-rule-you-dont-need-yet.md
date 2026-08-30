@@ -1,5 +1,7 @@
 # The rule you don't need yet
 
+*Written 2026-08-04 · last amended 2026-08-26.*
+
 *Status: prior-art sweep not yet run. The omission below is measured; the
 insertion is one observed incident; the explanations of them are the model's own accounts,
 which this repo treats as literature rather than evidence

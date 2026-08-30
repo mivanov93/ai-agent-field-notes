@@ -1,5 +1,7 @@
 # Decide the shape first
 
+*Written 2026-07-31.*
+
 **Claim:** if a plan says only what to do and in what order, the shape of
 the code gets decided by no one. Each step is added by whoever is doing it,
 in the most local way, and the result is a heap that works and that nobody

@@ -1,5 +1,7 @@
 # Memory belongs in the repo
 
+*Written 2026-07-31.*
+
 *Status: searched 2026-07-31. The five defects are each corroborated; the
 same-organ, fold-and-delete thesis is the delta.*
 

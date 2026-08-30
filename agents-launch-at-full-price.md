@@ -1,5 +1,7 @@
 # Agents launch at full price
 
+*Written 2026-07-31 · last amended 2026-08-04.*
+
 *Status: searched 2026-07-31. Both blindnesses are documented on Claude Code
 itself; the unified thesis and the cheap-variant pattern are the deltas.*
 

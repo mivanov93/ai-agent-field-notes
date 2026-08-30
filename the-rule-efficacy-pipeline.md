@@ -1,5 +1,7 @@
 # The rule-efficacy pipeline
 
+*Written 2026-07-30 · last amended 2026-07-31.*
+
 *Status: method, plus a first manual measurement (2026-07-30). The
 per-model transcript version is still pending.*
 

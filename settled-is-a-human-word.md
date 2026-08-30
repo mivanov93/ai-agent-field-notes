@@ -1,5 +1,7 @@
 # Settled is a human word
 
+*Written 2026-08-26.*
+
 *Status: prior-art sweep not yet run. The incidents are from one day of
 design sessions on one project; the model's account of its own mechanism
 is quoted as literature, not evidence

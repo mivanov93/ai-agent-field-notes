@@ -1,5 +1,7 @@
 # The cross-model audit
 
+*Written 2026-07-30.*
+
 **Claim:** transcripts can tell you when your model changed. They cannot
 tell you whether its work was bad. For that, re-check the suspect period's
 claims against the code — using a different model. "The output is worse"

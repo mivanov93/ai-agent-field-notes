@@ -1,5 +1,7 @@
 # The clean room
 
+*Written 2026-07-31 · last amended 2026-08-26.*
+
 *Status: designed and untested as specified — this page specifies an
 experiment; it does not report one. Since it was written, a rival
 no-barrier design has run at scale with a human-accepted result

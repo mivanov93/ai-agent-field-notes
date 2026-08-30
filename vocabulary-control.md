@@ -1,5 +1,7 @@
 # Vocabulary control
 
+*Written 2026-07-30 · last amended 2026-07-31.*
+
 **Claim:** an AI collaborator needs a managed vocabulary for COLLISIONS —
 places where the model's word choice blurs a term your domain depends on.
 Four things work together there: ban the colliding metaphor and name its

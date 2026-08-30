@@ -1,5 +1,7 @@
 # A gate you can fail
 
+*Written 2026-07-31.*
+
 **Claim:** an AI agent reliably fixes its own mistakes only when something
 can reject its work. A check that fails tells it — and you — that the work
 is not clean yet. Take the check away and it walks straight in carrying

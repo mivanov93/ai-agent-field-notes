@@ -1,5 +1,7 @@
 # It's already written down
 
+*Written 2026-07-31.*
+
 **Claim:** the model will happily spend real effort re-investigating a
 question your own notes already answer. It does not first check whether the
 answer exists; it starts deriving. If you keep reference notes, they only

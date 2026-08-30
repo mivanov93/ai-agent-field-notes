@@ -1,5 +1,7 @@
 # The model's clock stopped at its cutoff
 
+*Written 2026-07-31.*
+
 *Status: searched 2026-07-31. Cutoff staleness is documented; the
 quotable-not-operative gap and the standing-rule fix are the deltas.*
 

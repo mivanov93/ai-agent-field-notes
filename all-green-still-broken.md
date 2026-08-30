@@ -1,5 +1,7 @@
 # All green, still broken
 
+*Written 2026-07-31.*
+
 **Claim:** a full, passing test suite tells you the things it checks are
 fine. It says nothing about the thing it was never told to check. When a
 feature's whole point is one property nobody wrote a test for, every test

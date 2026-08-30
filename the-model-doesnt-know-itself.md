@@ -1,5 +1,7 @@
 # The model doesn't know itself
 
+*Written 2026-07-31.*
+
 *Status: searched 2026-07-31. The backdrop is established; the structural
 argument is not — see the section at the end.*
 

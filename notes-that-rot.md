@@ -1,5 +1,7 @@
 # Notes that rot
 
+*Written 2026-07-31.*
+
 **Claim:** the model tends to explain its code by pointing at its own
 work-session — "step 6," "round 2," "the earlier fix" — instead of at the
 reason. Those pointers mean something for one afternoon and nothing forever

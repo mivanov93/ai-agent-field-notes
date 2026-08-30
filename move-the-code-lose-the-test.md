@@ -1,5 +1,7 @@
 # Move the code, lose the test
 
+*Written 2026-07-31.*
+
 **Claim:** when you pull duplicated code into one shared place, the tests
 that used to cover it can quietly stop covering it — and everything stays
 green. Combining code is supposed to be safe because the tests still pass.

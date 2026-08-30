@@ -1,5 +1,7 @@
 # Where the savings are
 
+*Written 2026-07-31.*
+
 **Claim:** you cannot make an agent cheaper by asking; you make it cheaper
 by taking off the bill what you did not need or already had. The waste is
 never the meal — the reasoning and the checks — it is what sits beside it:

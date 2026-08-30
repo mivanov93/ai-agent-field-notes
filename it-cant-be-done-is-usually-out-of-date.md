@@ -1,5 +1,7 @@
 # "It can't be done" is usually out of date
 
+*Written 2026-07-31.*
+
 **Claim:** when the model tells you something is impossible, it is often
 reporting the world as it was at its training cutoff, or the world as your
 one installed version happens to be. Neither is the same as "impossible

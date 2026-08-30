@@ -1,5 +1,7 @@
 # The face transplant
 
+*Written 2026-07-31.*
+
 **Claim:** applying a mock to a real system feels like a face transplant — cut
 the mock's face off and stitch it onto the system. That is the tempting model,
 and it is exactly the one that fails. The working move is the opposite: you

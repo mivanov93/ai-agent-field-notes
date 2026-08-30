@@ -1,5 +1,7 @@
 # Two worktrees, one node_modules
 
+*Written 2026-08-03 · last amended 2026-08-26.*
+
 **Claim:** anywhere you copy `node_modules` instead of installing it, you
 can inherit another directory's build state and get a wrong answer from
 it — share it between two git worktrees and a passing test gets reported

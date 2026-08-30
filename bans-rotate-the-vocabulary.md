@@ -1,5 +1,7 @@
 # Bans rotate the vocabulary
 
+*Written 2026-07-31.*
+
 **Claim:** an AI's invented terms are compression devices. If your
 instructions demand both brevity and zero loss of precision, the model
 mints words to satisfy both. Ban the words and the pressure mints

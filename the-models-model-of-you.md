@@ -1,5 +1,7 @@
 # The model's model of you
 
+*Written 2026-07-31 · last amended 2026-08-26.*
+
 *Status: searched 2026-07-31. The mechanism is documented on consumer chat
 apps; the abolition argument and the coding-agent case are the deltas.*
 

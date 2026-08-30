@@ -1,5 +1,7 @@
 # The link rule
 
+*Written 2026-07-30.*
+
 **Claim:** when an AI agent reports "X shows Y", the measurement X is
 usually real. The error is in the jump from X to Y, which nobody checked.
 Checking that jump usually takes one command. "Verify your work" fails as

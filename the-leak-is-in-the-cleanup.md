@@ -1,5 +1,7 @@
 # The leak is in the cleanup
 
+*Written 2026-07-31.*
+
 **Claim:** a model cannot be trusted to remove confidential data. Asked to
 strip a secret from a project, it removes it from what it can see — the current
 files — and leaves it everywhere it cannot: the history, the backups, and the

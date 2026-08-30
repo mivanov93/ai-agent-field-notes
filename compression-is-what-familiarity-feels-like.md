@@ -1,5 +1,7 @@
 # Compression is what familiarity feels like from the inside
 
+*Written 2026-08-26.*
+
 *Status: searched 2026-08-26. Two incidents, two sessions, two model instances; the quotes are
 verbatim from the transcripts. The title is the model's own sentence,
 kept because the model said it better

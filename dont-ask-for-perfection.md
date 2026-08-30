@@ -1,5 +1,7 @@
 # Don't ask for perfection
 
+*Written 2026-07-31.*
+
 *Status: searched 2026-07-31. The over-engineering effect is documented; the
 causal-versus-correlational framing and the convert-or-delete rule are the
 deltas.*

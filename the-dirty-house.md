@@ -1,5 +1,7 @@
 # The dirty house
 
+*Written 2026-07-31 · last amended 2026-08-26.*
+
 **Claim:** whatever your corpus does, the model will do more of it. Text in
 context works as an unlabeled demonstration set, so a repo full of bad
 writing teaches every session to continue it — and instructions cannot

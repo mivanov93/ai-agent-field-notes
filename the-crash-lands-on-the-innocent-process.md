@@ -1,5 +1,7 @@
 # The crash lands on the innocent process
 
+*Written 2026-08-04 · last amended 2026-08-26.*
+
 *Status: searched 2026-08-26. The incident is measured; the
 generalization is mechanism.*
 

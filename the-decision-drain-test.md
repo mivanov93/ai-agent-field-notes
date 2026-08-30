@@ -1,5 +1,7 @@
 # The decision drain test
 
+*Written 2026-07-30.*
+
 **Claim:** collect the pending human decisions behind one tag and ask them
 in one batch per session. Build the failure condition into the process: if
 the batch grows across sessions, or one entry survives two sessions, filing

@@ -1,5 +1,7 @@
 # Descriptive statements as directives
 
+*Written 2026-07-31.*
+
 *Status: searched 2026-07-31. The overshoot-on-a-task family is now measured;
 the report-with-no-imperative trigger is the delta.*
 

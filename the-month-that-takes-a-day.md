@@ -1,5 +1,7 @@
 # The month that takes a day
 
+*Written 2026-07-31.*
+
 **Claim:** a model cannot estimate how long something will take, or whether it
 is worth attempting, because it does not know its own capabilities. Ask it "how
 hard is X" and it answers from a world without the model in it: a human

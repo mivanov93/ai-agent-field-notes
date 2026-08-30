@@ -1,5 +1,7 @@
 # The session archive
 
+*Written 2026-07-31.*
+
 *Status: searched 2026-07-31. Retaining transcripts has neighbors; the
 archive-ahead-of-the-question instrument did not.*
 

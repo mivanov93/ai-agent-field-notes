@@ -1,5 +1,7 @@
 # The demonstration reflex
 
+*Written 2026-07-30 · last amended 2026-07-31.*
+
 **Claim:** ask an agent a question about its machinery and it may answer by
 running the machinery, at full cost. "Can you X" is a question; "please do
 X" is a request; capability is not demand. Conceptual questions need prose

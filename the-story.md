@@ -1,5 +1,7 @@
 # The story
 
+*Written 2026-07-31 · last amended 2026-08-03.*
+
 Every finding in this repo comes from one story. Read it first; the pages
 make more sense as chapters of it than as a list. It is not finished.
 

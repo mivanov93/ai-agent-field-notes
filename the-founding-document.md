@@ -1,5 +1,7 @@
 # The founding document
 
+*Written 2026-07-31.*
+
 *Status: searched 2026-07-31. "Constitution-first" has neighbors; the
 two-layer split and the anti-bootstrap warning are the deltas.*
 

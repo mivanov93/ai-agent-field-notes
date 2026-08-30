@@ -1,5 +1,7 @@
 # The session has no concurrency model
 
+*Written 2026-07-31 · last amended 2026-08-03.*
+
 *Status: searched 2026-07-31. A near-exact practitioner match exists
 (Meiklejohn); the orchestrator-poisons-its-own-readers case and the
 frozen-snapshot fix are the deltas.*

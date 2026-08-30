@@ -1,5 +1,7 @@
 # The docs aren't on the test
 
+*Written 2026-07-31.*
+
 **Claim:** the public benchmarks that decide which coding model is "best" —
 and the reward signals those models are trained on — score one thing:
 whether the tests pass. Not whether the code reads well, and not whether the
