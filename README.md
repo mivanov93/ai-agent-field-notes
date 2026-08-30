@@ -48,7 +48,11 @@ whole repo and ask it what to change about how you work: the notes are written
 to be consumed that way — pragmatic and efficient, advice a model can act on
 without you translating it first. A sample CLAUDE.md distilled from every
 principle here — for a generic project — sits in
-[examples/CLAUDE.md](examples/CLAUDE.md).
+[examples/CLAUDE.md](examples/CLAUDE.md). And the enforceable half of some
+notes ships as installable Claude Code skills in [skills/](skills/README.md)
+— the first is [deep-research-cheaper](skills/deep-research-cheaper/README.md),
+the built-in research harness re-tiered onto cheaper models, its upstream
+history and provenance documented the way this repo documents prior art.
 
 It also exists because everything is eventually invented and coined by someone.
 I would rather share what I worked out myself, now, than hold it back and find
@@ -117,6 +121,7 @@ extends someone else's published work, credited in its title.
 | ★ [Compression is what familiarity feels like from the inside](compression-is-what-familiarity-feels-like.md) | Right after digesting a large body of material the model reports in labels that resolve only inside its own context — expertise to the writer, noise to the reader — and the rule against it loses exactly then. Twice measured, the second time against this repo. | 2026-08-26 |
 | [Don't interrupt a working agent](dont-interrupt-a-working-agent.md) | A steering message sent to a running agent can read like injected content and get refused as a hijack. Put everything in the launch prompt; if you must intervene, expect it may not land — stop and relaunch. | 2026-07-31 |
 | [The classifier reads the costume](the-classifier-reads-the-costume.md) | Legitimate defensive-security work in exploit-and-attack vocabulary kept tripping a cyber classifier that silently swapped my model — the session blamed me for the switches and, after the shuffle, miscounted its own agents: six asked, eight running. Only the operator sees both cause and cost. Turn off `switchModelsOnFlag`, write it plain, de-trigger the artifact, restart clean. | 2026-08-29 |
+| [A skill is paid context](a-skill-is-paid-context.md) | The model packs install guides and provenance dossiers into the skill file itself — content every future run pays to load — three times in one afternoon, the last against a ruling less than an hour old. Skills carry no metadata about themselves; sibling files do. Vet what you write and what you download with [skill-audit](skills/skill-audit/README.md). | 2026-08-30 |
 | [It's already written down](its-already-written-down.md) | The model re-derives an answer your own reference notes already hold, because it never checks whether the answer exists. Point it at the notes before it investigates; a note nobody reads is a note nobody has. | 2026-07-31 |
 | [The rule you don't need yet](the-rule-you-dont-need-yet.md) | Mining another project's CLAUDE.md with the model is a lossy read: it drops the rules whose subject isn't active in the target yet — which are exactly the ones you can't re-derive when the hazard arrives. And a ruling you make in chat is orchestrator knowledge; only the file is read by your lanes. | 2026-08-04 |
 | ★ [You can't ask for cheaper](you-cant-ask-for-cheaper.md) | "Use fewer tokens" cuts the tests, reviews, and docs first, and the savings come back as bugs — you can't raid the gate. The exception: genuinely throwaway work with one pass condition, the cheapest rental car you drive 100m and return. | 2026-07-31 |
@@ -143,6 +148,17 @@ extends someone else's published work, credited in its title.
 | ★ [Where the savings are](where-the-savings-are.md) | You cut agent cost only by taking off the bill what you didn't need or already had — do the work once, write the scar tissue so a run doesn't fail, unload unused tools, cache what repeats — and never under-buy the model the job needs. | 2026-07-31 |
 | [Where scar tissue comes from](where-scar-tissue-comes-from.md) | The retro — asking why the green checks missed it, not why the bug happened — is the ritual that mints each instruction-file rule. Leans KNOWN (SRE postmortems, escaped-defect analysis); the framing is the delta. | 2026-07-31 |
 | [The face transplant](the-face-transplant.md) | Applying a mock feels like a face transplant — graft the design on — and that's the model that fails. The working move is the opposite: keep the system's face and reshape it to match the mock held beside it. One frozen frame you can gate; every other state, you validate by hand. | 2026-07-31 |
+
+## Skills — the notes, packaged to run
+
+| Skill | One line |
+|-------|----------|
+| [deep-research-cheaper](skills/deep-research-cheaper/README.md) | The built-in deep-research harness with the fan-out re-tiered — search on Haiku, fetch and the 3-vote adversarial verify on Sonnet — and the freed budget spent on coverage: 25 verified claims where the then-current built-in capped at 8. Its page carries the upstream timeline and who-gets-credit. |
+| [skill-audit](skills/skill-audit/README.md) | Vets a skill folder — downloaded or your own — for self-metadata riding in paid context and for dangerous instructions: run-on-load, exfiltration, credential reach, injection-shaped text. Report only, never edits. Minted from [a skill is paid context](a-skill-is-paid-context.md). |
+
+Install by copying a skill's folder into `~/.claude/skills/`; details in
+[skills/](skills/README.md). Nothing runs on install, and a session runs
+a skill only when you ask it to.
 
 ## Where these came from
 

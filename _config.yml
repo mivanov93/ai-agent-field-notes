@@ -68,3 +68,6 @@ defaults:
 exclude:
   - LICENSE
   - .idea
+  # A SKILL.md is the runtime artifact a session loads, not a page — it is
+  # not compiled to HTML. Each skill folder's README is its page.
+  - skills/*/SKILL.md

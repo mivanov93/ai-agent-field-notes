@@ -51,8 +51,13 @@ def main():
             out.append(f"  note: {esc(note.strip())}")
         out.append("  items:")
         for mark, title, href in sections[section]:
+            url = href + '.md'
+            # A folder README renders as the folder's index page, so the
+            # sidebar links the folder, not a README.html that never exists.
+            if url.endswith('/README.md'):
+                url = url[:-len('README.md')]
             out.append(f"    - title: {esc(title)}")
-            out.append(f"      url: {esc(href + '.md')}")
+            out.append(f"      url: {esc(url)}")
             if mark == '★':
                 out.append("      original: true")
             if mark == '↳':

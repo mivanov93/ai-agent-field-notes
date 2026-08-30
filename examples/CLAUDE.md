@@ -214,6 +214,13 @@ the repo so parallel work does not collide.*
   ever reads it ([the rule you don't need yet](../the-rule-you-dont-need-yet.md)).
 - `[model]` **Cite the reason, not the work session** — no "step 6, round A"; a
   merge check greps for them ([notes that rot](../notes-that-rot.md)).
+- `[shared]` **A skill file is paid context, not a page.** The body carries only
+  what the executing session needs — when to use, how to run, the knobs; install
+  guides, history, credits, and other self-metadata go in sibling files the
+  runtime never loads. Name the destination file when asking for additions, or
+  the most document-shaped file wins — and audit skills you write or download
+  for useless and dangerous content
+  ([a skill is paid context](../a-skill-is-paid-context.md)).
 - `[shared]` **Ban a metaphor only where it collides with a domain term,** and
   enforce it with a lint, not with attention
   ([vocabulary control](../vocabulary-control.md),

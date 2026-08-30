@@ -102,6 +102,11 @@ def main():
             prev_header = False
             continue
         prev_header = False
+        if entry and '/' in entry.group(1):
+            # Nested paths (skills/, examples/) are not notes: no date cell
+            # in their README row, no Written stamp in their files.
+            out.append(l)
+            continue
         if entry:
             note = entry.group(1)
             notes.append(note)
