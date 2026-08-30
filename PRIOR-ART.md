@@ -453,3 +453,72 @@ warning, and all of its citations verified real on direct fetch.
   gap) and #46423 (context loss on manual switches) — the model-side
   blindness, the misattribution, and the duplicated side effects
   themselves NOT FOUND.
+
+## The 2026-08-31 sweep — the signing-key note
+
+One lane over public material, five framings (Go ed25519 seed misuse,
+PEM-prefix-as-key-material, predictable/shared-key JWT forgery, the
+relevant CVEs/advisories, and the "missing format check voids auth"
+pattern). Told not to search the instance fingerprints (the public key
+or thumbprint), only the mechanism. Load-bearing citations re-fetched
+by hand.
+
+- **a-lock-every-key-opens** — PARTIAL; the composite NOT FOUND. Every
+  ingredient is documented separately. The Go docs are the enabling
+  footgun: `NewKeyFromSeed` panics only on wrong length and otherwise
+  accepts any 32 bytes as the RFC 8032 "seed"
+  (pkg.go.dev/crypto/ed25519, verified). The constant Ed25519 PKCS#8
+  PEM prefix is a known structural fact, and every source labels it
+  benign — none links it to seed use. Closest in spirit: JWT algorithm
+  confusion (RS256→HS256), the public key used as an HMAC secret
+  (PortSwigger, verified) — a public value becoming a signing secret,
+  different missing check. Closest in consequence: hardcoded-default-key
+  forgeries — FileRise `default_please_change_this_key`, CVE-2026-33072 /
+  GHSA-f4xx-57cv-mg3x, fixed by a per-install key (verified); plus
+  CVE-2026-47410 (praisonai `dev-secret-change-me`) and GHSA-mqq6-462x-jxmm.
+  Those reach "shared key → anyone mints tokens" through a literal
+  hardcoded string, not a file-format prefix mistaken for entropy.
+  BACKGROUND on the enabling entropy-loss: the "anything2ed25519" tool
+  (lobste.rs) turning arbitrary/low-entropy input into a key with silent
+  truncation. Delta: the exact chain — natural PEM → constant header kept
+  as the seed → every independent deployment converges on one publicly
+  computable keypair, with no hardcoded secret and each operator believing
+  they minted a fresh key — is unnamed in the located material.
+
+## The 2026-08-31 sweep — the over-defense note
+
+Three Opus lanes: the established security concepts, the security of
+AI-generated code, and the composite as a named failure mode (this last
+briefed to refute novelty). Load-bearing and newest citations
+re-fetched by hand; one flagged discrepancy (a Fu et al. CWE-703
+ranking with irreconcilable version totals) was dropped rather than
+cited, and one over-correction paper (Springer ASE) was left out
+because it is paywalled and could not be verified.
+
+- **the-lock-that-tears-the-hinges-off** — PARTIAL; the composite the
+  claimable delta. Both halves are KNOWN and become citations. Recovery
+  half: CWE-636 "Not Failing Securely ('Failing Open')" (verified),
+  peer CWE-280, under CWE-657. Validation half: RFC 9413 "Maintaining
+  Robust Protocols" (IAB, 2023, verified — Postel tolerance "no longer
+  best practice"); Sassaman/Patterson/Bratus "A Patch for Postel's
+  Robustness Principle" (IEEE S&P 2012, verified — liberal acceptance →
+  "the proliferation of Internet insecurity"); LangSec as the strict
+  counter-doctrine; Eric Allman "The Robustness Principle Reconsidered"
+  (2011, verified via LWN/CACM mirror — "an Internet of cooperators" →
+  hostile world, the trust-boundary framing). LLM-specific behavior:
+  Seeker (Zhang et al., arXiv:2410.06949, 2024, verified — "Abuse of
+  try-catch," ~8% fine-grained-exception accuracy); "Capability Gates
+  Are Not Authorization" (arXiv:2606.28679, 2026, verified — no
+  "deterministic fail-closed per-call authorization gate by default" in
+  LangChain / LlamaIndex / Stripe Agent Toolkit); Copilot-security line
+  (Pearce "Asleep at the Keyboard?" IEEE S&P 2022; Perry CCS 2023;
+  CWE-20 top LLM weakness class). Delta, NOT FOUND: (1) unifying
+  tolerant validation and fail-open recovery as one availability reflex
+  applied uniformly because the writer can't feel the trust boundary —
+  the literature siloes them, and an RFC 9413 summary contrasts rather
+  than joins them; (2) the AI-codegen causal inversion — fail-open as
+  chosen recovery rather than a forgotten check, and *instructing*
+  resilience as the act that builds the bypass, against a prevailing
+  frame (Endor Labs, happy-path/omission studies) that says AI omits
+  security by default and asking for robustness helps. ★ candidate on
+  the delta; the mint is the owner's.

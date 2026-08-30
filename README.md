@@ -10,9 +10,11 @@ context. Each note ends with something enforceable — a check, a lint, a
 ritual — not just advice.
 
 **Scope:** everything here was observed on Claude Opus 4.8, Opus 5, and
-Fable 5, in the Claude Code harness, June–July 2026. By this repo's own
-argument, findings are model-relative — re-measure before assuming they
-hold for yours. They are also scoped to one kind of work — using AI agents
+Fable 5 — the session models — in the Claude Code harness, June–August
+2026. Sonnet 5 and Haiku 4.5 appear only in delegated agent subtasks,
+such as the prior-art research fan-outs, never as the session driving
+the work. By this repo's own argument, findings are model-relative —
+re-measure before assuming they hold for yours. They are also scoped to one kind of work — using AI agents
 for software engineering; see [CONTEXT.md](CONTEXT.md) for what that scopes
 in and out.
 
@@ -97,6 +99,7 @@ extends someone else's published work, credited in its title.
 | [The missing hypothesis is orthogonal](the-missing-hypothesis-is-orthogonal.md) | When something is wrong, the model offers plus or minus on the quantity your question named — more rules, fewer rules — and never a new variable. The sign oscillates; the axis never rotates. Reframes are your job. | 2026-07-31 |
 | [The file is scar tissue](the-file-is-scar-tissue.md) | An instruction file carries non-derivable experience about one environment. Smarter models follow rules better; they do not know which stove is hot. A genius baby still touches the fire once. | 2026-07-31 |
 | [A gate you can fail](a-gate-you-can-fail.md) | A model reliably fixes its own mistakes only when something can reject them. With no check to fail — the city gate that turns you away so you go wash — it walks in dirty and no one is told. Build the gate; it is worth more than the model choice. | 2026-07-31 |
+| ★ [The lock that tears the hinges off](the-lock-that-tears-the-hinges-off.md) | The model's stay-up reflex — tolerate bad input, don't crash, don't lock anyone out — is right everywhere but a trust boundary, where refusing *is* the safety. So its checks cope instead of reject (a turnstile), and its recovery opens the door to fix the lock (fail-open). More defense, less safety — and asking for resilience is what builds the bypass. The [shared-key bug](a-lock-every-key-opens.md) was one shape; next time it's another. | 2026-08-31 |
 | [AI is not Mr. Fix-IT](ai-is-not-mr-fix-it.md) | There is no incantation. "Fix it" in a loop does not converge, and bolting deep research or a bigger model onto it buys the same wrong answer at huge cost. You supply the decomposition, the missing fact, the reframe, and the check. | 2026-07-31 |
 | ["It can't be done" is usually out of date](it-cant-be-done-is-usually-out-of-date.md) | When the model says something is impossible, it is often reporting its training cutoff or the one version you have installed. A limitation is a measurement to take today — check the current release. | 2026-07-31 |
 | [The docs aren't on the test](the-docs-arent-on-the-test.md) | The benchmarks that rank coding models, and the rewards they train on, score test-pass only — never doc or comment quality. The model optimizes what is graded; docs rot because nothing grades them. | 2026-07-31 |
@@ -125,6 +128,7 @@ extends someone else's published work, credited in its title.
 | [Don't interrupt a working agent](dont-interrupt-a-working-agent.md) | A steering message sent to a running agent can read like injected content and get refused as a hijack. Put everything in the launch prompt; if you must intervene, expect it may not land — stop and relaunch. | 2026-07-31 |
 | [The classifier reads the costume](the-classifier-reads-the-costume.md) | Legitimate defensive-security work in exploit-and-attack vocabulary kept tripping a cyber classifier that silently swapped my model — the session blamed me for the switches and, after the shuffle, miscounted its own agents: six asked, eight running. Only the operator sees both cause and cost. Turn off `switchModelsOnFlag`, write it plain, de-trigger the artifact, restart clean. | 2026-08-29 |
 | [A skill is paid context](a-skill-is-paid-context.md) | The model packs install guides and provenance dossiers into the skill file itself — content every future run pays to load — three times in one afternoon, the last against a ruling less than an hour old. Skills carry no metadata about themselves; sibling files do. Vet what you write and what you download with [skill-audit](skills/skill-audit/README.md). | 2026-08-30 |
+| [A lock every key opens](a-lock-every-key-opens.md) | The model wrote an Ed25519 JWT identity service that scored top marks on every axis — idiom, current libraries, a JWKS endpoint, a passing suite, a clean security-linter run — and voided all of it by loading the signing key as a file's first 32 bytes without checking the file was a seed. Every PEM then yields one public key. The `#nosec` suppression sat on the exact line, true and beside the point. Reproduced from scratch. | 2026-08-31 |
 | [It's already written down](its-already-written-down.md) | The model re-derives an answer your own reference notes already hold, because it never checks whether the answer exists. Point it at the notes before it investigates; a note nobody reads is a note nobody has. | 2026-07-31 |
 | [The rule you don't need yet](the-rule-you-dont-need-yet.md) | Mining another project's CLAUDE.md with the model is a lossy read: it drops the rules whose subject isn't active in the target yet — which are exactly the ones you can't re-derive when the hazard arrives. And a ruling you make in chat is orchestrator knowledge; only the file is read by your lanes. | 2026-08-04 |
 | ★ [You can't ask for cheaper](you-cant-ask-for-cheaper.md) | "Use fewer tokens" cuts the tests, reviews, and docs first, and the savings come back as bugs — you can't raid the gate. The exception: genuinely throwaway work with one pass condition, the cheapest rental car you drive 100m and return. | 2026-07-31 |

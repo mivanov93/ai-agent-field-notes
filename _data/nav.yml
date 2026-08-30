@@ -18,6 +18,9 @@
       url: "the-file-is-scar-tissue.md"
     - title: "A gate you can fail"
       url: "a-gate-you-can-fail.md"
+    - title: "The lock that tears the hinges off"
+      url: "the-lock-that-tears-the-hinges-off.md"
+      original: true
     - title: "AI is not Mr. Fix-IT"
       url: "ai-is-not-mr-fix-it.md"
     - title: "\"It can't be done\" is usually out of date"
@@ -71,6 +74,8 @@
       url: "the-classifier-reads-the-costume.md"
     - title: "A skill is paid context"
       url: "a-skill-is-paid-context.md"
+    - title: "A lock every key opens"
+      url: "a-lock-every-key-opens.md"
     - title: "It's already written down"
       url: "its-already-written-down.md"
     - title: "The rule you don't need yet"

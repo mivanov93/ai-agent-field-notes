@@ -92,6 +92,16 @@ not the substance ([don't ask for perfection](../dont-ask-for-perfection.md)).
 - `[shared]` **Build a check it can fail.** Where nothing can reject the work,
   *you* are the check — the expensive path — so build the gate; it is worth more
   than the model choice ([a gate you can fail](../a-gate-you-can-fail.md)).
+- `[shared]` **At a trust boundary, fail closed — reject the unexpected, don't
+  cope with it.** Key loading, auth input, token and signature checks, anything
+  whose next step trusts the bytes: crash or deny on anything malformed, and
+  make recovery deny too — a failover or self-heal that stays available has
+  dropped the guard. The model's stay-up reflex tolerates bad input and opens
+  the door to fix the lock, so a "make it robust, never deadlock" instruction is
+  often what builds the bypass; it cannot feel the boundary, so mark it and read
+  every defensive change there for what it now *accepts*, not what it survives
+  ([the lock that tears the hinges off](../the-lock-that-tears-the-hinges-off.md),
+  [a lock every key opens](../a-lock-every-key-opens.md)).
 - `[shared]` **Green proves only what it asserts.** When a surface becomes
   load-bearing, re-ask what its tests are for, assert the core property, and
   drive the real running artifact, not a stand-in
@@ -248,13 +258,26 @@ the repo so parallel work does not collide.*
 
 ## 10. Decisions
 
-`[operator]` Collect the human's pending decisions behind one tag and clear the
-batch each session. If the batch grows instead of shrinking, the process failed
-— stop adding structure ([the decision drain test](../the-decision-drain-test.md)).
+`[shared]` **Status words are human acts — the model never types them.**
+Accepted, settled, confirmed, closed, queued name a state a human produced; a
+status word in a model-authored diff is the lint target, and everything the
+model produces is "proposed" until you did the settling. A to-do is a promotion
+too — a task minted from an unverified claim inherits "unverified"
+([settled is a human word](../settled-is-a-human-word.md)). Two ways to hold
+that line, alternatives not layers — pick by the failure you actually have:
 
-- `[shared]` **Status words are human acts — the model never types them.**
-  Accepted, settled, confirmed, closed, queued name a state a human produced; a
-  status word in a model-authored diff is the lint target, and everything the
-  model produces is "proposed" until you did the settling. A to-do is a
-  promotion too — a task minted from an unverified claim inherits "unverified"
-  ([settled is a human word](../settled-is-a-human-word.md)).
+- `[operator]` **The drain test** — for when decisions pile up unnavigable and
+  reviews outpace your ruling. One tag collects the pending decisions; you clear
+  the whole batch each session; and a kill criterion catches a broken process:
+  if the batch grows, or an entry survives two sessions, the questions are too
+  hard as asked — stop adding structure and go get the missing information
+  ([the decision drain test](../the-decision-drain-test.md)).
+- `[operator]` **The agreement ladder, with a handoff** — for when review
+  findings arrive in bulk and round themselves up (a claim becomes "a problem we
+  have" becomes "a fix we chose"). Every item sits on one rung, L0 claimed (born
+  here) to L4 ready (built only once you sign), and a rung rises only on your
+  quoted words; a running handoff keeps you oriented as the list grows. This
+  fits a project generating bulk answerable decisions, where the risk is status
+  rounding-up, not volume — a growing list is work to track, not a process to
+  stop ([settled is a human word](../settled-is-a-human-word.md); the verbatim
+  template is [agreement-ladder.md](agreement-ladder.md)).

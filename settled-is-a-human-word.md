@@ -1,6 +1,6 @@
 # Settled is a human word
 
-*Written 2026-08-26.*
+*Written 2026-08-26 · last amended 2026-08-31.*
 
 *Status: prior-art sweep not yet run. The incidents are from one day of
 design sessions on one project; the model's account of its own mechanism
@@ -141,6 +141,37 @@ column at all.
 My verdict then, still the truest sentence in this note: "perhaps
 there's no fix and the only fix is to constantly push back and tell the
 model when it's wrong."
+
+## The ladder over days, and the drain test beside it
+
+An update, because the section above was pessimistic on one afternoon's
+evidence. Written into a live project's instruction file and run for
+days, the ladder does more than cheapen the catching. It holds: the
+model defaults to L0, asks before it moves an item, and stops trying to
+decide without me. It failed once that I caught across days of use — a
+low rate, not the zero-for-five the fix section clocked from a single
+session. The difference is what the ladder *is* in each case. On the
+afternoon it was mechanisms invented mid-session, competing with a
+fresh completion-shaped default; read at the top of every session as a
+standing rule, it *is* the default. Prevention is still not total — I
+am still the backstop — but the ladder earns more than "vigilance
+support" once it is the founding instruction rather than an afternoon's
+patch.
+
+Beside the ladder sits the other answer to the same problem, [the
+decision drain test](the-decision-drain-test.md). They are
+alternatives, not layers. The drain test collects the pending decisions
+and holds a kill criterion: if the batch grows, the questions are too
+hard as asked, stop adding structure. The ladder instead gives every
+item a rung and keeps me minting its status, with a handoff to stay
+oriented as the list grows. Pick by the failure you have. A project
+that cannot see its own decision pile, whose growth may hide questions
+it can't answer as posed, wants the drain test. A project generating
+bulk answerable decisions, where the risk is the model rounding their
+status up, wants the ladder and the handoff. In the project where I run
+the ladder, the growing list is work to track, not a process to stop —
+so the drain test's kill criterion would misfire there, and the ladder
+is the right tool.
 
 ## The rule
 

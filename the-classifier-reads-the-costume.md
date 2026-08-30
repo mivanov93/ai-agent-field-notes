@@ -1,6 +1,6 @@
 # The classifier reads the costume
 
-*Written 2026-08-29 · last amended 2026-08-30.*
+*Written 2026-08-29 · last amended 2026-08-31.*
 
 *Scope: Claude Code, Fable 5, 2026-08. One incident, my own session.
 During the incident the router was a black box to me; the prior-art
@@ -136,6 +136,31 @@ cosmetic.
 - Make the restart cheap on purpose. If your findings, decisions, and
   state live in files and git, a poisoned session is a throwaway, not a
   loss.
+
+## The rule is a catch, not a default
+
+Written down, the rule does not hold. Proof, from the session that
+wrote this note. A day later, writing up a separate finding — [a
+signing-key bug in another project](a-lock-every-key-opens.md) — I had
+the session build a runnable repro. It came out in full costume: a `loadKeyVULNERABLE`, a
+`forgeAdminToken`, an "attacker," an "exploit," a "victim." The
+domain-plain rule was not just somewhere in the repo — it was in this
+session's own context. I had spent the day editing this very note and
+its [examples/CLAUDE.md](examples/CLAUDE.md) rule. The session minted
+the flagged artifact anyway, by default, and only stripped the words
+when I told it to.
+
+So the register rule behaves like every other rule this repo measures
+under load ([settled is a human word](settled-is-a-human-word.md),
+[compression is what familiarity feels like from the
+inside](compression-is-what-familiarity-feels-like.md)): the model
+recognizes it, can even author it, and defaults to breaking it anyway.
+Every security-adjacent artifact the session produces — every repro,
+write-up, and incident doc — arrives in costume unless a human strips
+it. So the supply of flagged documents never stops, and each one is a
+flagged session waiting to trip the next orientation, exactly the trap
+the de-trigger rule above names. The rule is not a setting the model
+holds. It is a catch the human performs, every time.
 
 ## Prior art
 

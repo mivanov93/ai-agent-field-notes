@@ -1,6 +1,6 @@
 # The decision drain test
 
-*Written 2026-07-30.*
+*Written 2026-07-30 · last amended 2026-08-31.*
 
 **Claim:** collect the pending human decisions behind one tag and ask them
 in one batch per session. Build the failure condition into the process: if
@@ -44,6 +44,28 @@ flow. Asking once clears the pile; the per-session ritual handles the flow.
 The built-in failure condition is the important part: most process changes
 fail quietly by moving the problem somewhere else. This one gets caught
 doing that within two sessions.
+
+## The ladder is the other answer
+
+The [agreement ladder](settled-is-a-human-word.md) solves an overlapping
+problem from the other side, and the two are alternatives, not layers. This
+test collects the pending decisions and asks them, with a kill criterion: a
+growing batch means the questions are too hard as asked, so stop adding
+structure. The ladder instead gives every item a rung, keeps the owner
+minting its status, and leans on a running handoff to stay oriented as the
+list grows.
+
+They fit different failures. This test was scar tissue from a project with
+no way to see its own decision pile — so a growing pile was the alarm. A
+project that already has that visibility, holds the model at L0 by default,
+and audits stale rungs reconstructs this test's value by other means: the
+handoff is the navigation, the ladder's audit catches the stuck item. There
+a growing list is productive work to track, not a broken process to stop,
+and this test's kill criterion would misfire — an owner running the ladder
+over days reports exactly that. So reach for the drain test when the pile is
+unnavigable and its growth may hide questions you cannot answer as posed;
+reach for the ladder when the decisions are bulk and answerable and the risk
+is their status rounding up.
 
 ## Prior art
 
