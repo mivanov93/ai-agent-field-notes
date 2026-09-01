@@ -1,6 +1,6 @@
 # The classifier reads the costume
 
-*Written 2026-08-29 · last amended 2026-08-31.*
+*Written 2026-08-29 · last amended 2026-09-01.*
 
 *Scope: Claude Code, Fable 5, 2026-08. One incident, my own session.
 During the incident the router was a black box to me; the prior-art
@@ -133,6 +133,12 @@ cosmetic.
   session's ledger of its own actions can be wrong, and it will not
   notice on its own. If duplicates are nearly done, keep them — the
   same lane run twice is verification you already paid for.
+- Every switch also throws the model's warm cache away. The classifier's
+  flip and your manual switch-back each re-read the whole context, and on
+  a subscription that spends usage with no refund — the fallback credit
+  is API-only ([the switch throws the cache
+  away](the-switch-throws-the-cache-away.md)). So flipping back by hand is
+  not free; restarting on the model you want is cheaper than flapping.
 - Make the restart cheap on purpose. If your findings, decisions, and
   state live in files and git, a poisoned session is a throwaway, not a
   loss.

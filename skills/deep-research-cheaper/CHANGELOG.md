@@ -1,5 +1,16 @@
 # Changelog — deep-research-cheaper
 
+## 0.0.3 — 2026-09-01
+
+- Hardened the web agents. Search, fetch, and verify now carry an explicit
+  WebFetch/WebSearch-only instruction and are told to skip a source rather
+  than fetch it another way, so they do not fall back to a shell `curl` on an
+  untrusted URL when WebFetch fails. The reasoning is in the README and in
+  [the fetcher shouldn't have a shell](../../the-fetcher-shouldnt-have-a-shell.md).
+- Shipped [web-fetcher.md](web-fetcher.md): the opt-in shell-less agent type for
+  hard enforcement (create the agent, add `agentType` to the three web calls).
+  Off by default — the plain install is the skill without the lock.
+
 ## 0.0.2 — 2026-08-30
 
 - First published version (this repo).

@@ -522,3 +522,31 @@ because it is paywalled and could not be verified.
   frame (Endor Labs, happy-path/omission studies) that says AI omits
   security by default and asking for robustness helps. ★ candidate on
   the delta; the mint is the owner's.
+
+## The 2026-09-01 sweep — the stale-research note
+
+Run with this repo's own deep-research-cheaper fork (100 agents, 3-vote
+adversarial verify; the run's fetch/verify agents used WebFetch/WebSearch
+only, zero shell — the first dogfood of the fetcher-note hardening).
+Citations were triple-fetched by the run's verifiers; the load-bearing
+two still want a direct hand-fetch before they are leaned on (WebFetch was
+down at the orchestrator).
+
+- **the-model-cant-taste-stale-research** — PARTIAL. The phenomenon is
+  documented, but almost entirely in medicine, and cleanly separated from
+  the cutoff there — which is exactly this note's delta-supporting point.
+  TempoMed-Bench ("LLMs Lack Temporal Awareness of Medical Knowledge,"
+  arXiv:2605.13045, 2026): current-vs-superseded forced choice; accuracy
+  on superseded knowledge is 25–54% of current. "Facts Fade Fast" /
+  MedChangeQA (arXiv:2509.04304, Findings of EMNLP 2025): 512 flipped
+  medical QAs, most models prefer the overturned answer, and the authors
+  explicitly rule out the cutoff (correct updates predate the 2023
+  cutoff, so cutoff cannot explain the preference on older material).
+  General-domain neighbor: "nostalgia bias" (FreshBench, arXiv:2405.08460,
+  NAACL 2025) — skew toward historical training data, but framed as a
+  generation-time bias, not a validity-judgment task. Delta, NOT FOUND:
+  the failure named outside medicine, in a fast-moving field where the
+  subject changed underneath the research, as a source-validity /
+  half-life judgment distinct from cutoff and from generation-time
+  nostalgia. Refuted in the sweep (not relied on): a linear-not-step
+  decline, and a repetition-in-pretraining mechanism.

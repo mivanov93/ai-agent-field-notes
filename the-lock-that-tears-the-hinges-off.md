@@ -37,7 +37,7 @@ instead of rejecting it is a guard that lets it through.
 
 ## Face two: the door you open to fix the lock
 
-![A humanoid security robot stands at the wall repairing a sparking rooftop camera someone has smashed, while a person carrying a wrench walks unchallenged through the open, lit front door.](pics/the-lock-that-tears-the-hinges-off.webp)
+![A humanoid security robot repairs a sparking rooftop camera, thinking "camera is malfunctioning, must fix," while a person carrying a wrench walks unchallenged through the open, lit front door; a second thought bubble reads "door breached… wait, I opened the door myself to fix the camera." Smashed cameras lie on the wet ground.](pics/the-lock-that-tears-the-hinges-off.webp)
 
 *The guard leaves its post to repair the cameras someone smashed. The
 door stands open while it works.*

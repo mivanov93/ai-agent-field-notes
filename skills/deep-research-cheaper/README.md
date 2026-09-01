@@ -1,6 +1,6 @@
 # deep-research-cheaper
 
-**Version 0.0.2** · 2026-08-30 ·
+**Version 0.0.3** · 2026-09-01 ·
 [changelog](CHANGELOG.md) ·
 [folder on GitHub](https://github.com/mivanov93/ai-agent-field-notes/tree/main/skills/deep-research-cheaper)
 
@@ -17,6 +17,26 @@ and
 kept free of everything on this page on purpose
 ([a skill is paid context](../../a-skill-is-paid-context.md)). How to
 install any skill from this repo: [the skills index](../README.md).
+
+## Security: the web agents read untrusted pages
+
+The search, fetch, and verify agents read pages surfaced by web search —
+untrusted content. As of 0.0.3 each one carries an explicit
+WebFetch/WebSearch-only instruction and is told to skip a source rather
+than fetch it another way, so it does not fall back to a shell `curl` on
+a hostile URL when WebFetch fails. This is the reason
+[the fetcher shouldn't have a shell](../../the-fetcher-shouldnt-have-a-shell.md):
+the built-in workflow ships fetch agents that *can* make that fallback,
+and it has been demonstrated end to end.
+
+The instruction is the portable floor, not a guarantee — the agent still
+holds a shell it is asked not to use. For hard enforcement, opt in to the
+shell-less agent type shipped alongside this skill:
+[web-fetcher.md](web-fetcher.md) has the two steps — create the agent, then
+point the three web agents at it. It is opt-in on purpose, and off by
+default: the plain install is the skill without the lock, because the lock
+adds a file in `~/.claude/agents/` outside the skill folder. A fully
+sandboxed run (OS isolation, egress control) is the stronger boundary still.
 
 ## Upstream history, and how this fork relates
 
